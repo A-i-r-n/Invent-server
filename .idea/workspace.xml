@@ -2,245 +2,34 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1f505d3b-65fd-4f09-98ff-e9d388ba38d8" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/controllers/admin/application_controller.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/controllers/admin/dashboard_controller.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/controllers/admin/delivery_service_prices_controller.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/controllers/admin/delivery_services_controller.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/controllers/admin/orders_controller.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/controllers/admin/password_resets_controller.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/controllers/admin/payments_controller.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/controllers/admin/product_category_localisations_controller.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/controllers/admin/product_localisations_controller.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/controllers/admin/products_controller.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/controllers/admin/variants_controller.rb" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/controllers/shoppe/application_controller.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/controllers/shoppe/dashboard_controller.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/controllers/shoppe/delivery_service_prices_controller.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/controllers/shoppe/delivery_services_controller.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/controllers/shoppe/orders_controller.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/controllers/shoppe/password_resets_controller.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/controllers/shoppe/payments_controller.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/controllers/shoppe/product_category_localisations_controller.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/controllers/shoppe/product_localisations_controller.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/controllers/shoppe/products_controller.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/controllers/shoppe/variants_controller.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/migrate/20130926094549_create_shoppe_initial_schema.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/migrate/20131024201501_add_address_type_to_shoppe_tax_rates.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/migrate/20131024204815_create_shoppe_payments.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/migrate/20131102143930_remove_default_on_order_item_weight.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/migrate/20141013192427_create_shoppe_customers.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/migrate/20141026175622_add_indexes_to_shoppe_order_items.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/migrate/20141026175943_add_indexes_to_shoppe_orders.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/migrate/20141026180333_add_indexes_to_shoppe_payments.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/migrate/20141026180835_add_indexes_to_shoppe_product_attributes.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/migrate/20141026180952_add_indexes_to_shoppe_product_categories.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/migrate/20141026181040_add_indexes_to_shoppe_products.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/migrate/20141026181312_add_indexes_to_shoppe_settings.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/migrate/20141026181354_add_indexes_to_shoppe_stock_level_adjustments.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/migrate/20141026181559_add_indexes_to_shoppe_users.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/migrate/20141026181716_add_indexes_to_shoppe_delivery_services.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/migrate/20141026181717_allow_multiple_shoppe_products_per_shoppe_product_category.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/migrate/20141026181718_add_nested_to_product_categories.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/migrate/20141027215005_create_shoppe_addresses.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/migrate/20150315215633_add_customer_to_shoppe_orders.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/migrate/20150315223628_create_shoppe_attachments.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/migrate/20150513171350_create_shoppe_product_category_translation_table.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/migrate/20150519173350_create_shoppe_product_translation_table.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/shoppe/associated_countries.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/shoppe/country_importer.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/shoppe/default_navigation.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/shoppe/engine.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/shoppe/error.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/shoppe/errors/inappropriate_delivery_service.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/shoppe/errors/insufficient_stock_to_fulfil.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/shoppe/errors/invalid_configuration.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/shoppe/errors/not_enough_stock.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/shoppe/errors/payment_declined.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/shoppe/errors/refund_failed.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/shoppe/errors/unorderable_item.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/shoppe/model_extension.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/shoppe/navigation_manager.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/shoppe/orderable_item.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/shoppe/settings.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/shoppe/settings_loader.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/shoppe/setup_generator.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/shoppe/version.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/shoppe/view_helpers.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test/models/shoppe/delivery_services_test.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test/shoppe_test.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test/test_helper.rb" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/images/shoppe/.keep" afterPath="$PROJECT_DIR$/app/assets/images/.keep" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/images/shoppe/chosen-sprite.png" afterPath="$PROJECT_DIR$/app/assets/images/chosen-sprite.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/images/shoppe/chosen-sprite@2x.png" afterPath="$PROJECT_DIR$/app/assets/images/chosen-sprite@2x.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/images/shoppe/document.svg" afterPath="$PROJECT_DIR$/app/assets/images/document.svg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/images/shoppe/icons/bag.svg" afterPath="$PROJECT_DIR$/app/assets/images/icons/bag.svg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/images/shoppe/icons/balance.svg" afterPath="$PROJECT_DIR$/app/assets/images/icons/balance.svg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/images/shoppe/icons/box.svg" afterPath="$PROJECT_DIR$/app/assets/images/icons/box.svg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/images/shoppe/icons/building.svg" afterPath="$PROJECT_DIR$/app/assets/images/icons/building.svg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/images/shoppe/icons/chart.svg" afterPath="$PROJECT_DIR$/app/assets/images/icons/chart.svg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/images/shoppe/icons/chat.svg" afterPath="$PROJECT_DIR$/app/assets/images/icons/chat.svg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/images/shoppe/icons/checkbox.svg" afterPath="$PROJECT_DIR$/app/assets/images/icons/checkbox.svg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/images/shoppe/icons/checkbox2.svg" afterPath="$PROJECT_DIR$/app/assets/images/icons/checkbox2.svg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/images/shoppe/icons/cloud.svg" afterPath="$PROJECT_DIR$/app/assets/images/icons/cloud.svg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/images/shoppe/icons/cone.svg" afterPath="$PROJECT_DIR$/app/assets/images/icons/cone.svg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/images/shoppe/icons/credit_card.svg" afterPath="$PROJECT_DIR$/app/assets/images/icons/credit_card.svg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/images/shoppe/icons/currency.svg" afterPath="$PROJECT_DIR$/app/assets/images/icons/currency.svg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/images/shoppe/icons/edit.svg" afterPath="$PROJECT_DIR$/app/assets/images/icons/edit.svg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/images/shoppe/icons/flowchart.svg" afterPath="$PROJECT_DIR$/app/assets/images/icons/flowchart.svg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/images/shoppe/icons/gift.svg" afterPath="$PROJECT_DIR$/app/assets/images/icons/gift.svg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/images/shoppe/icons/globe.svg" afterPath="$PROJECT_DIR$/app/assets/images/icons/globe.svg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/images/shoppe/icons/id.svg" afterPath="$PROJECT_DIR$/app/assets/images/icons/id.svg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/images/shoppe/icons/id2.svg" afterPath="$PROJECT_DIR$/app/assets/images/icons/id2.svg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/images/shoppe/icons/locked.svg" afterPath="$PROJECT_DIR$/app/assets/images/icons/locked.svg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/images/shoppe/icons/report.svg" afterPath="$PROJECT_DIR$/app/assets/images/icons/report.svg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/images/shoppe/icons/search.svg" afterPath="$PROJECT_DIR$/app/assets/images/icons/search.svg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/images/shoppe/icons/support.svg" afterPath="$PROJECT_DIR$/app/assets/images/icons/support.svg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/images/shoppe/icons/tags.svg" afterPath="$PROJECT_DIR$/app/assets/images/icons/tags.svg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/images/shoppe/icons/toolbox.svg" afterPath="$PROJECT_DIR$/app/assets/images/icons/toolbox.svg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/images/shoppe/icons/unlocked.svg" afterPath="$PROJECT_DIR$/app/assets/images/icons/unlocked.svg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/images/shoppe/icons/wallet.svg" afterPath="$PROJECT_DIR$/app/assets/images/icons/wallet.svg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/images/shoppe/logo.svg" afterPath="$PROJECT_DIR$/app/assets/images/logo.svg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/images/shoppe/move.svg" afterPath="$PROJECT_DIR$/app/assets/images/move.svg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/images/shoppe/shoppe.svg" afterPath="$PROJECT_DIR$/app/assets/images/shoppe.svg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/images/shoppe/square.svg" afterPath="$PROJECT_DIR$/app/assets/images/square.svg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/images/shoppe/statuses/accepted.svg" afterPath="$PROJECT_DIR$/app/assets/images/statuses/accepted.svg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/images/shoppe/statuses/paid.svg" afterPath="$PROJECT_DIR$/app/assets/images/statuses/paid.svg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/images/shoppe/statuses/received.svg" afterPath="$PROJECT_DIR$/app/assets/images/statuses/received.svg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/images/shoppe/statuses/rejected.svg" afterPath="$PROJECT_DIR$/app/assets/images/statuses/rejected.svg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/images/shoppe/statuses/shipped.svg" afterPath="$PROJECT_DIR$/app/assets/images/statuses/shipped.svg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/images/shoppe/table-tear-off.png" afterPath="$PROJECT_DIR$/app/assets/images/table-tear-off.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/javascripts/shoppe/application.coffee" afterPath="$PROJECT_DIR$/app/assets/javascripts/application.coffee" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/javascripts/shoppe/chosen.jquery.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/chosen.jquery.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/javascripts/shoppe/jquery_ui.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/jquery_ui.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/javascripts/shoppe/mousetrap.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/mousetrap.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/javascripts/shoppe/order_form.coffee" afterPath="$PROJECT_DIR$/app/assets/javascripts/order_form.coffee" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/stylesheets/shoppe/application.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/application.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/stylesheets/shoppe/chosen.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/chosen.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/stylesheets/shoppe/dialog.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/dialog.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/stylesheets/shoppe/elements.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/elements.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/stylesheets/shoppe/printable.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/printable.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/stylesheets/shoppe/reset.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/reset.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/stylesheets/shoppe/sub.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/sub.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/stylesheets/shoppe/variables.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/variables.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/controllers/shoppe/addresses_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/admin/addresses_controller.rb" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/controllers/shoppe/attachments_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/admin/attachments_controller.rb" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/controllers/shoppe/countries_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/admin/countries_controller.rb" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/controllers/shoppe/customers_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/admin/customers_controller.rb" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/controllers/shoppe/product_categories_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/admin/product_categories_controller.rb" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/controllers/shoppe/sessions_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/admin/sessions_controller.rb" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/controllers/shoppe/settings_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/admin/settings_controller.rb" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/controllers/shoppe/stock_level_adjustments_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/admin/stock_level_adjustments_controller.rb" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/controllers/shoppe/tax_rates_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/admin/tax_rates_controller.rb" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/controllers/shoppe/users_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/admin/users_controller.rb" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/helpers/shoppe/application_helper.rb" afterPath="$PROJECT_DIR$/app/helpers/application_helper.rb" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/helpers/shoppe/product_category_helper.rb" afterPath="$PROJECT_DIR$/app/helpers/product_category_helper.rb" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/mailers/shoppe/order_mailer.rb" afterPath="$PROJECT_DIR$/app/mailers/order_mailer.rb" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/mailers/shoppe/user_mailer.rb" afterPath="$PROJECT_DIR$/app/mailers/user_mailer.rb" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/models/shoppe/address.rb" afterPath="$PROJECT_DIR$/app/models/address.rb" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/models/shoppe/attachment.rb" afterPath="$PROJECT_DIR$/app/models/attachment.rb" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/models/shoppe/country.rb" afterPath="$PROJECT_DIR$/app/models/country.rb" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/models/shoppe/customer.rb" afterPath="$PROJECT_DIR$/app/models/customer.rb" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/models/shoppe/delivery_service.rb" afterPath="$PROJECT_DIR$/app/models/delivery_service.rb" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/models/shoppe/delivery_service_price.rb" afterPath="$PROJECT_DIR$/app/models/delivery_service_price.rb" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/models/shoppe/order.rb" afterPath="$PROJECT_DIR$/app/models/order.rb" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/models/shoppe/order/actions.rb" afterPath="$PROJECT_DIR$/app/models/order/actions.rb" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/models/shoppe/order/billing.rb" afterPath="$PROJECT_DIR$/app/models/order/billing.rb" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/models/shoppe/order/delivery.rb" afterPath="$PROJECT_DIR$/app/models/order/delivery.rb" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/models/shoppe/order/states.rb" afterPath="$PROJECT_DIR$/app/models/order/states.rb" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/models/shoppe/order_item.rb" afterPath="$PROJECT_DIR$/app/models/order_item.rb" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/models/shoppe/payment.rb" afterPath="$PROJECT_DIR$/app/models/payment.rb" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/models/shoppe/product.rb" afterPath="$PROJECT_DIR$/app/models/product.rb" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/models/shoppe/product/product_attributes.rb" afterPath="$PROJECT_DIR$/app/models/product/product_attributes.rb" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/models/shoppe/product/variants.rb" afterPath="$PROJECT_DIR$/app/models/product/variants.rb" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/models/shoppe/product_attribute.rb" afterPath="$PROJECT_DIR$/app/models/product_attribute.rb" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/models/shoppe/product_categorization.rb" afterPath="$PROJECT_DIR$/app/models/product_categorization.rb" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/models/shoppe/product_category.rb" afterPath="$PROJECT_DIR$/app/models/product_category.rb" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/models/shoppe/setting.rb" afterPath="$PROJECT_DIR$/app/models/setting.rb" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/models/shoppe/stock_level_adjustment.rb" afterPath="$PROJECT_DIR$/app/models/stock_level_adjustment.rb" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/models/shoppe/tax_rate.rb" afterPath="$PROJECT_DIR$/app/models/tax_rate.rb" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/models/shoppe/user.rb" afterPath="$PROJECT_DIR$/app/models/user.rb" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/uploaders/shoppe/attachment_uploader.rb" afterPath="$PROJECT_DIR$/app/uploaders/attachment_uploader.rb" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/layouts/shoppe/application.html.haml" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.haml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/layouts/shoppe/printable.html.haml" afterPath="$PROJECT_DIR$/app/views/layouts/printable.html.haml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/layouts/shoppe/sub.html.haml" afterPath="$PROJECT_DIR$/app/views/layouts/sub.html.haml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/shoppe/addresses/_form.html.haml" afterPath="$PROJECT_DIR$/app/views/admin/addresses/_form.html.haml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/shoppe/addresses/edit.html.haml" afterPath="$PROJECT_DIR$/app/views/admin/addresses/edit.html.haml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/shoppe/addresses/new.html.haml" afterPath="$PROJECT_DIR$/app/views/admin/addresses/new.html.haml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/shoppe/countries/_form.html.haml" afterPath="$PROJECT_DIR$/app/views/admin/countries/_form.html.haml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/shoppe/countries/edit.html.haml" afterPath="$PROJECT_DIR$/app/views/admin/countries/edit.html.haml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/shoppe/countries/index.html.haml" afterPath="$PROJECT_DIR$/app/views/admin/countries/index.html.haml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/shoppe/countries/new.html.haml" afterPath="$PROJECT_DIR$/app/views/admin/countries/new.html.haml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/shoppe/customers/_addresses.html.haml" afterPath="$PROJECT_DIR$/app/views/admin/customers/_addresses.html.haml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/shoppe/customers/_form.html.haml" afterPath="$PROJECT_DIR$/app/views/admin/customers/_form.html.haml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/shoppe/customers/_search_form.html.haml" afterPath="$PROJECT_DIR$/app/views/admin/customers/_search_form.html.haml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/shoppe/customers/edit.html.haml" afterPath="$PROJECT_DIR$/app/views/admin/customers/edit.html.haml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/shoppe/customers/index.html.haml" afterPath="$PROJECT_DIR$/app/views/admin/customers/index.html.haml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/shoppe/customers/new.html.haml" afterPath="$PROJECT_DIR$/app/views/admin/customers/new.html.haml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/shoppe/customers/show.html.haml" afterPath="$PROJECT_DIR$/app/views/admin/customers/show.html.haml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/shoppe/delivery_service_prices/_form.html.haml" afterPath="$PROJECT_DIR$/app/views/admin/delivery_service_prices/_form.html.haml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/shoppe/delivery_service_prices/edit.html.haml" afterPath="$PROJECT_DIR$/app/views/admin/delivery_service_prices/edit.html.haml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/shoppe/delivery_service_prices/index.html.haml" afterPath="$PROJECT_DIR$/app/views/admin/delivery_service_prices/index.html.haml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/shoppe/delivery_service_prices/new.html.haml" afterPath="$PROJECT_DIR$/app/views/admin/delivery_service_prices/new.html.haml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/shoppe/delivery_services/_form.html.haml" afterPath="$PROJECT_DIR$/app/views/admin/delivery_services/_form.html.haml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/shoppe/delivery_services/edit.html.haml" afterPath="$PROJECT_DIR$/app/views/admin/delivery_services/edit.html.haml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/shoppe/delivery_services/index.html.haml" afterPath="$PROJECT_DIR$/app/views/admin/delivery_services/index.html.haml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/shoppe/delivery_services/new.html.haml" afterPath="$PROJECT_DIR$/app/views/admin/delivery_services/new.html.haml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/shoppe/order_mailer/accepted.text.erb" afterPath="$PROJECT_DIR$/app/views/order_mailer/accepted.text.erb" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/shoppe/order_mailer/received.text.erb" afterPath="$PROJECT_DIR$/app/views/order_mailer/received.text.erb" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/shoppe/order_mailer/rejected.text.erb" afterPath="$PROJECT_DIR$/app/views/order_mailer/rejected.text.erb" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/shoppe/order_mailer/shipped.text.erb" afterPath="$PROJECT_DIR$/app/views/order_mailer/shipped.text.erb" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/shoppe/orders/_form.html.haml" afterPath="$PROJECT_DIR$/app/views/admin/orders/_form.html.haml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/shoppe/orders/_order_details.html.haml" afterPath="$PROJECT_DIR$/app/views/admin/orders/_order_details.html.haml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/shoppe/orders/_order_items.html.haml" afterPath="$PROJECT_DIR$/app/views/admin/orders/_order_items.html.haml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/shoppe/orders/_order_items_form.html.haml" afterPath="$PROJECT_DIR$/app/views/admin/orders/_order_items_form.html.haml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/shoppe/orders/_payments_form.html.haml" afterPath="$PROJECT_DIR$/app/views/admin/orders/_payments_form.html.haml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/shoppe/orders/_payments_table.html.haml" afterPath="$PROJECT_DIR$/app/views/admin/orders/_payments_table.html.haml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/shoppe/orders/_search_form.html.haml" afterPath="$PROJECT_DIR$/app/views/admin/orders/_search_form.html.haml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/shoppe/orders/_status_bar.html.haml" afterPath="$PROJECT_DIR$/app/views/admin/orders/_status_bar.html.haml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/shoppe/orders/despatch_note.html.haml" afterPath="$PROJECT_DIR$/app/views/admin/orders/despatch_note.html.haml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/shoppe/orders/edit.html.haml" afterPath="$PROJECT_DIR$/app/views/admin/orders/edit.html.haml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/shoppe/orders/index.html.haml" afterPath="$PROJECT_DIR$/app/views/admin/orders/index.html.haml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/shoppe/orders/new.html.haml" afterPath="$PROJECT_DIR$/app/views/admin/orders/new.html.haml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/shoppe/orders/show.html.haml" afterPath="$PROJECT_DIR$/app/views/admin/orders/show.html.haml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/shoppe/password_resets/new.html.haml" afterPath="$PROJECT_DIR$/app/views/admin/password_resets/new.html.haml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/shoppe/payments/refund.html.haml" afterPath="$PROJECT_DIR$/app/views/admin/payments/refund.html.haml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/shoppe/product_categories/_form.html.haml" afterPath="$PROJECT_DIR$/app/views/admin/product_categories/_form.html.haml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/shoppe/product_categories/edit.html.haml" afterPath="$PROJECT_DIR$/app/views/admin/product_categories/edit.html.haml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/shoppe/product_categories/index.html.haml" afterPath="$PROJECT_DIR$/app/views/admin/product_categories/index.html.haml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/shoppe/product_categories/new.html.haml" afterPath="$PROJECT_DIR$/app/views/admin/product_categories/new.html.haml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/shoppe/product_category_localisations/form.html.haml" afterPath="$PROJECT_DIR$/app/views/admin/product_category_localisations/form.html.haml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/shoppe/product_category_localisations/index.html.haml" afterPath="$PROJECT_DIR$/app/views/admin/product_category_localisations/index.html.haml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/shoppe/product_localisations/form.html.haml" afterPath="$PROJECT_DIR$/app/views/admin/product_localisations/form.html.haml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/shoppe/product_localisations/index.html.haml" afterPath="$PROJECT_DIR$/app/views/admin/product_localisations/index.html.haml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/shoppe/products/_form.html.haml" afterPath="$PROJECT_DIR$/app/views/admin/products/_form.html.haml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/shoppe/products/_table.html.haml" afterPath="$PROJECT_DIR$/app/views/admin/products/_table.html.haml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/shoppe/products/edit.html.haml" afterPath="$PROJECT_DIR$/app/views/admin/products/edit.html.haml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/shoppe/products/import.html.haml" afterPath="$PROJECT_DIR$/app/views/admin/products/import.html.haml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/shoppe/products/index.html.haml" afterPath="$PROJECT_DIR$/app/views/admin/products/index.html.haml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/shoppe/products/new.html.haml" afterPath="$PROJECT_DIR$/app/views/admin/products/new.html.haml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/shoppe/sessions/new.html.haml" afterPath="$PROJECT_DIR$/app/views/admin/sessions/new.html.haml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/shoppe/settings/edit.html.haml" afterPath="$PROJECT_DIR$/app/views/admin/settings/edit.html.haml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/shoppe/shared/error.html.haml" afterPath="$PROJECT_DIR$/app/views/admin/shared/error.html.haml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/shoppe/stock_level_adjustments/index.html.haml" afterPath="$PROJECT_DIR$/app/views/admin/stock_level_adjustments/index.html.haml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/shoppe/tax_rates/form.html.haml" afterPath="$PROJECT_DIR$/app/views/admin/tax_rates/form.html.haml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/shoppe/tax_rates/index.html.haml" afterPath="$PROJECT_DIR$/app/views/admin/tax_rates/index.html.haml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/shoppe/user_mailer/new_password.text.erb" afterPath="$PROJECT_DIR$/app/views/user_mailer/new_password.text.erb" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/shoppe/users/_form.html.haml" afterPath="$PROJECT_DIR$/app/views/admin/users/_form.html.haml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/shoppe/users/edit.html.haml" afterPath="$PROJECT_DIR$/app/views/admin/users/edit.html.haml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/shoppe/users/index.html.haml" afterPath="$PROJECT_DIR$/app/views/admin/users/index.html.haml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/shoppe/users/new.html.haml" afterPath="$PROJECT_DIR$/app/views/admin/users/new.html.haml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/shoppe/variants/form.html.haml" afterPath="$PROJECT_DIR$/app/views/admin/variants/form.html.haml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/shoppe/variants/index.html.haml" afterPath="$PROJECT_DIR$/app/views/admin/variants/index.html.haml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.ruby-version" afterPath="$PROJECT_DIR$/.ruby-version" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/api/products/index.json.jbuilder" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/shoppe.iml" afterPath="$PROJECT_DIR$/.idea/shoppe.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="$PROJECT_DIR$/Gemfile.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Rakefile" afterPath="$PROJECT_DIR$/Rakefile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/rails" afterPath="$PROJECT_DIR$/bin/rails" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/admin/addresses_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/admin/addresses_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/admin/dashboard_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/admin/dashboard_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/admin/product_localisations_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/admin/product_localisations_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/admin/variants_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/admin/variants_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/products_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/products_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/order/actions.rb" afterPath="$PROJECT_DIR$/app/models/order/actions.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/order/billing.rb" afterPath="$PROJECT_DIR$/app/models/order/billing.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/order/delivery.rb" afterPath="$PROJECT_DIR$/app/models/order/delivery.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/order/states.rb" afterPath="$PROJECT_DIR$/app/models/order/states.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/product/product_attributes.rb" afterPath="$PROJECT_DIR$/app/models/product/product_attributes.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/addresses/_form.html.haml" afterPath="$PROJECT_DIR$/app/views/admin/addresses/_form.html.haml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/addresses/edit.html.haml" afterPath="$PROJECT_DIR$/app/views/admin/addresses/edit.html.haml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/addresses/new.html.haml" afterPath="$PROJECT_DIR$/app/views/admin/addresses/new.html.haml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/customers/_addresses.html.haml" afterPath="$PROJECT_DIR$/app/views/admin/customers/_addresses.html.haml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/customers/show.html.haml" afterPath="$PROJECT_DIR$/app/views/admin/customers/show.html.haml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/product_localisations/form.html.haml" afterPath="$PROJECT_DIR$/app/views/admin/product_localisations/form.html.haml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/product_localisations/index.html.haml" afterPath="$PROJECT_DIR$/app/views/admin/product_localisations/index.html.haml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/products/_form.html.haml" afterPath="$PROJECT_DIR$/app/views/admin/products/_form.html.haml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/products/edit.html.haml" afterPath="$PROJECT_DIR$/app/views/admin/products/edit.html.haml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/stock_level_adjustments/index.html.haml" afterPath="$PROJECT_DIR$/app/views/admin/stock_level_adjustments/index.html.haml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/variants/form.html.haml" afterPath="$PROJECT_DIR$/app/views/admin/variants/form.html.haml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/variants/index.html.haml" afterPath="$PROJECT_DIR$/app/views/admin/variants/index.html.haml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/seeds.rb" afterPath="$PROJECT_DIR$/db/seeds.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/shoppe.rb" afterPath="$PROJECT_DIR$/lib/shoppe.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/tasks/shoppe.rake" afterPath="$PROJECT_DIR$/lib/tasks/shoppe.rake" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/shoppe/navigation_manager.rb" afterPath="$PROJECT_DIR$/lib/shoppe/navigation_manager.rb" />
     </list>
     <ignored path="shoppe.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -267,71 +56,61 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="addresses_controller.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/admin/addresses_controller.rb">
+      <file leaf-file-name="shoppe.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/shoppe.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="1" column="37" selection-start-line="1" selection-start-column="30" selection-end-line="1" selection-end-column="37" />
+              <caret line="28" column="30" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="application_controller.rb" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/controllers/admin/application_controller.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.2359932">
-              <caret line="21" column="22" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="users_controller.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/admin/users_controller.rb">
+      <file leaf-file-name="shoppe.rake" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/tasks/shoppe.rake">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="1" column="33" selection-start-line="1" selection-start-column="33" selection-end-line="1" selection-end-column="33" />
+              <caret line="24" column="39" selection-start-line="24" selection-start-column="39" selection-end-line="24" selection-end-column="39" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="application_controller.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
+      <file leaf-file-name="default_navigation.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/shoppe/default_navigation.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+              <caret line="18" column="21" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sessions_controller.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/admin/sessions_controller.rb">
+      <file leaf-file-name="error.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/shoppe/error.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="application.html.haml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.haml">
+      <file leaf-file-name="model_extension.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/shoppe/model_extension.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.25">
-              <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sub.html.haml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/layouts/sub.html.haml">
+      <file leaf-file-name="navigation_manager.rb" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/lib/shoppe/navigation_manager.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.45454547">
+              <caret line="57" column="9" selection-start-line="57" selection-start-column="9" selection-end-line="57" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -340,18 +119,18 @@
       <file leaf-file-name="admin.html.haml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/admin.html.haml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="-11.875">
+              <caret line="19" column="30" selection-start-line="19" selection-start-column="15" selection-end-line="19" selection-end-column="38" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="products_controller.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/products_controller.rb">
+      <file leaf-file-name="application_helper.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/helpers/application_helper.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="38" selection-start-line="0" selection-start-column="38" selection-end-line="0" selection-end-column="38" />
+              <caret line="2" column="40" selection-start-line="2" selection-start-column="37" selection-end-line="2" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -373,39 +152,14 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/views/admin/product_categories/_form.html.haml" />
-        <option value="$PROJECT_DIR$/app/helpers/application_helper.rb" />
-        <option value="$PROJECT_DIR$/app/views/admin/product_category_localisations/index.html.haml" />
-        <option value="$PROJECT_DIR$/app/views/admin/product_category_localisations/form.html.haml" />
-        <option value="$PROJECT_DIR$/app/views/admin/delivery_services/edit.html.haml" />
-        <option value="$PROJECT_DIR$/app/views/admin/delivery_services/_form.html.haml" />
-        <option value="$PROJECT_DIR$/app/views/admin/delivery_service_prices/index.html.haml" />
-        <option value="$PROJECT_DIR$/app/views/admin/delivery_service_prices/edit.html.haml" />
-        <option value="$PROJECT_DIR$/app/views/admin/delivery_service_prices/_form.html.haml" />
-        <option value="$PROJECT_DIR$/app/views/admin/delivery_service_prices/new.html.haml" />
-        <option value="$PROJECT_DIR$/app/views/admin/delivery_services/new.html.haml" />
-        <option value="$PROJECT_DIR$/app/views/admin/tax_rates/form.html.haml" />
-        <option value="$PROJECT_DIR$/app/views/admin/users/edit.html.haml" />
-        <option value="$PROJECT_DIR$/app/views/admin/users/_form.html.haml" />
-        <option value="$PROJECT_DIR$/app/views/admin/countries/edit.html.haml" />
-        <option value="$PROJECT_DIR$/app/views/admin/countries/_form.html.haml" />
-        <option value="$PROJECT_DIR$/app/views/admin/sessions/new.html.haml" />
-        <option value="$PROJECT_DIR$/app/assets/stylesheets/application.scss" />
-        <option value="$PROJECT_DIR$/app/assets/stylesheets/chosen.scss" />
-        <option value="$PROJECT_DIR$/app/assets/stylesheets/printable.scss" />
-        <option value="$PROJECT_DIR$/app/assets/stylesheets/sub.scss" />
         <option value="$PROJECT_DIR$/app/helpers/product_category_helper.rb" />
         <option value="$PROJECT_DIR$/app/controllers/product_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/product/index.html.erb.html" />
-        <option value="$PROJECT_DIR$/config/routes.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/products_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/products/index.html.erb.html" />
         <option value="$PROJECT_DIR$/app/views/products/index.html.erb" />
-        <option value="$PROJECT_DIR$/app/controllers/admin/addresses_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/admin/attachments_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/admin/countries_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/admin/customers_controller.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/admin/dashboard_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/admin/delivery_service_prices_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/admin/delivery_services_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/admin/orders_controller.rb" />
@@ -413,17 +167,42 @@
         <option value="$PROJECT_DIR$/app/controllers/admin/payments_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/admin/product_categories_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/admin/product_category_localisations_controller.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/admin/product_localisations_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/admin/products_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/admin/sessions_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/admin/settings_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/admin/stock_level_adjustments_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/admin/tax_rates_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/admin/users_controller.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/admin/variants_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.haml" />
         <option value="$PROJECT_DIR$/app/controllers/application_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/admin/application_controller.rb" />
+        <option value="$PROJECT_DIR$/app/views/admin/stock_level_adjustments/index.html.haml" />
+        <option value="$PROJECT_DIR$/Gemfile" />
+        <option value="$PROJECT_DIR$/app/controllers/products_controller.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/api/application_controller.rb" />
+        <option value="$PROJECT_DIR$/config/routes.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/api/products_controller.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/admin/dashboard_controller.rb" />
+        <option value="$PROJECT_DIR$/app/views/admin/variants/form.html.haml" />
+        <option value="$PROJECT_DIR$/app/views/admin/products/edit.html.haml" />
+        <option value="$PROJECT_DIR$/app/views/admin/products/_form.html.haml" />
+        <option value="$PROJECT_DIR$/app/views/admin/product_localisations/form.html.haml" />
+        <option value="$PROJECT_DIR$/app/views/admin/variants/index.html.haml" />
+        <option value="$PROJECT_DIR$/app/controllers/admin/variants_controller.rb" />
+        <option value="$PROJECT_DIR$/app/models/product/product_attributes.rb" />
+        <option value="$PROJECT_DIR$/app/models/order/actions.rb" />
+        <option value="$PROJECT_DIR$/app/models/order/billing.rb" />
+        <option value="$PROJECT_DIR$/app/models/order/delivery.rb" />
+        <option value="$PROJECT_DIR$/app/models/order/states.rb" />
+        <option value="$PROJECT_DIR$/app/views/admin/product_localisations/index.html.haml" />
+        <option value="$PROJECT_DIR$/app/controllers/admin/product_localisations_controller.rb" />
+        <option value="$PROJECT_DIR$/app/views/admin/customers/show.html.haml" />
+        <option value="$PROJECT_DIR$/app/views/admin/addresses/new.html.haml" />
+        <option value="$PROJECT_DIR$/app/controllers/admin/addresses_controller.rb" />
+        <option value="$PROJECT_DIR$/app/views/admin/customers/_addresses.html.haml" />
+        <option value="$PROJECT_DIR$/app/views/admin/addresses/edit.html.haml" />
+        <option value="$PROJECT_DIR$/app/views/admin/addresses/_form.html.haml" />
+        <option value="$PROJECT_DIR$/lib/shoppe/navigation_manager.rb" />
       </list>
     </option>
   </component>
@@ -433,10 +212,10 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="446" />
-    <option name="y" value="205" />
-    <option name="width" value="1865" />
-    <option name="height" value="847" />
+    <option name="x" value="178" />
+    <option name="y" value="233" />
+    <option name="width" value="1945" />
+    <option name="height" value="976" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -473,6 +252,172 @@
               <option name="myItemId" value="shoppe" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="shoppe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="globalize (v5.0.1, rbenv: 2.2.0) [gem]" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="shoppe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="globalize (v5.0.1, rbenv: 2.2.0) [gem]" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="globalize" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="shoppe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="globalize (v5.0.1, rbenv: 2.2.0) [gem]" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="globalize" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="active_record" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="shoppe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="activesupport (v4.2.5.1, rbenv: 2.2.0) [gem]" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="shoppe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="activesupport (v4.2.5.1, rbenv: 2.2.0) [gem]" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="active_support" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="shoppe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="activesupport (v4.2.5.1, rbenv: 2.2.0) [gem]" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="active_support" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core_ext" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="shoppe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="activesupport (v4.2.5.1, rbenv: 2.2.0) [gem]" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="active_support" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core_ext" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="object" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -481,6 +426,196 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="shoppe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="shoppe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="shoppe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="shoppe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="shoppe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tasks" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="shoppe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="shoppe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="shoppe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="shoppe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="shoppe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="db" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="shoppe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="shoppe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="shoppe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="shoppe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="shoppe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="shoppe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="layouts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="shoppe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="shoppe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="shoppe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="shoppe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="helpers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="shoppe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="shoppe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="shoppe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="shoppe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -497,11 +632,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/views/api/products" />
+      <recent name="$PROJECT_DIR$/app/controllers/api" />
       <recent name="$PROJECT_DIR$/app/views/layouts" />
       <recent name="$PROJECT_DIR$/app/controllers" />
       <recent name="$PROJECT_DIR$/app/views/products" />
-      <recent name="$PROJECT_DIR$/lib" />
-      <recent name="$PROJECT_DIR$/app/models/shoppe" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/controllers/admin" />
@@ -802,14 +937,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="446" y="205" width="1865" height="847" extended-state="0" />
-    <editor active="false" />
+    <frame x="178" y="233" width="1945" height="976" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23538874" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22570693" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23258707" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.115755625" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -834,393 +969,18 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/admin/delivery_service_prices/new.html.haml">
+    <entry file="file://$PROJECT_DIR$/Gemfile.lock">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.125">
-          <caret line="5" column="15" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="15" />
+        <state vertical-scroll-proportion="0.39008895">
+          <caret line="72" column="13" selection-start-line="72" selection-start-column="13" selection-end-line="72" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/admin/delivery_services/new.html.haml">
+    <entry file="file://$PROJECT_DIR$/Gemfile">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.875">
-          <caret line="3" column="66" selection-start-line="3" selection-start-column="66" selection-end-line="3" selection-end-column="66" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/admin/tax_rates/form.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.625">
-          <caret line="27" column="42" selection-start-line="27" selection-start-column="42" selection-end-line="27" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/admin/users/edit.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.5">
-          <caret line="4" column="12" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/admin/users/_form.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.25">
-          <caret line="26" column="42" selection-start-line="26" selection-start-column="42" selection-end-line="26" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/admin/countries/edit.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.125">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/admin/countries/_form.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.833333">
-          <caret line="34" column="42" selection-start-line="34" selection-start-column="42" selection-end-line="34" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/admin/sessions/new.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.875">
-          <caret line="11" column="60" selection-start-line="11" selection-start-column="60" selection-end-line="11" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.1372547">
-          <caret line="29" column="40" selection-start-line="29" selection-start-column="34" selection-end-line="29" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/chosen.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.88235295">
-          <caret line="3" column="20" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/dialog.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/elements.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-21.17647">
-          <caret line="72" column="10" selection-start-line="72" selection-start-column="8" selection-end-line="72" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/printable.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.1372547">
-          <caret line="27" column="14" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/reset.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0">
-          <caret line="0" column="23" selection-start-line="0" selection-start-column="22" selection-end-line="0" selection-end-column="23" />
-          <folding>
-            <marker date="1467075716000" expanded="true" signature="2804:2861" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/sub.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.117647">
-          <caret line="14" column="24" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/variables.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.625">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/application.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.1372547">
-          <caret line="47" column="33" selection-start-line="47" selection-start-column="30" selection-end-line="47" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/chosen.jquery.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <marker date="1467075716000" expanded="true" signature="18209:18220" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/mousetrap.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/order_form.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.07614213">
-          <caret line="4" column="98" selection-start-line="4" selection-start-column="95" selection-end-line="4" selection-end-column="98" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/admin/product_categories/index.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-18.125">
-          <caret line="29" column="26" selection-start-line="29" selection-start-column="26" selection-end-line="29" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/helpers/product_category_helper.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="22" column="68" selection-start-line="22" selection-start-column="68" selection-end-line="22" selection-end-column="68" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/routes.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.10186757">
-          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/admin/shared/error.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/products/index.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0">
-          <caret line="0" column="16" selection-start-line="0" selection-start-column="16" selection-end-line="0" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/admin/attachments_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1" column="39" selection-start-line="1" selection-start-column="39" selection-end-line="1" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/admin/countries_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1" column="37" selection-start-line="1" selection-start-column="37" selection-end-line="1" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/admin/customers_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1" column="37" selection-start-line="1" selection-start-column="37" selection-end-line="1" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/admin/dashboard_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1" column="37" selection-start-line="1" selection-start-column="37" selection-end-line="1" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/admin/delivery_service_prices_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1" column="49" selection-start-line="1" selection-start-column="49" selection-end-line="1" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/admin/delivery_services_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1" column="44" selection-start-line="1" selection-start-column="44" selection-end-line="1" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/admin/orders_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1" column="34" selection-start-line="1" selection-start-column="34" selection-end-line="1" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/admin/password_resets_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1" column="42" selection-start-line="1" selection-start-column="42" selection-end-line="1" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/admin/payments_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1" column="36" selection-start-line="1" selection-start-column="36" selection-end-line="1" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/admin/product_categories_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1" column="45" selection-start-line="1" selection-start-column="45" selection-end-line="1" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/admin/product_category_localisations_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="56" selection-start-line="2" selection-start-column="56" selection-end-line="2" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/admin/product_localisations_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="48" selection-start-line="2" selection-start-column="48" selection-end-line="2" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/admin/products_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1" column="36" selection-start-line="1" selection-start-column="36" selection-end-line="1" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/admin/settings_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/admin/stock_level_adjustments_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="49" selection-start-line="2" selection-start-column="49" selection-end-line="2" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/admin/tax_rates_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1" column="36" selection-start-line="1" selection-start-column="36" selection-end-line="1" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/admin/variants_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1" column="37" selection-start-line="1" selection-start-column="37" selection-end-line="1" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/admin/addresses_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1" column="37" selection-start-line="1" selection-start-column="30" selection-end-line="1" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/admin/users_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1" column="33" selection-start-line="1" selection-start-column="33" selection-end-line="1" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/admin/sessions_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/sub.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/admin.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.25">
-          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.5527319">
+          <caret line="29" column="9" selection-start-line="29" selection-start-column="9" selection-end-line="29" selection-end-column="9" />
           <folding />
         </state>
       </provider>
@@ -1228,23 +988,391 @@
     <entry file="file://$PROJECT_DIR$/app/controllers/products_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="38" selection-start-line="0" selection-start-column="38" selection-end-line="0" selection-end-column="38" />
+          <caret line="30" column="5" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/api/application_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="41" column="5" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.23955774">
+          <caret line="13" column="5" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/admin/application_controller.rb">
+    <entry file="file://$PROJECT_DIR$/app/views/api/products/index.json.jbuilder">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2359932">
-          <caret line="21" column="22" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/admin/products/index.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.0">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/admin/dashboard_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.055282556">
+          <caret line="3" column="26" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/admin/products/_table.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-26.666666">
+          <caret line="49" column="100" selection-start-line="49" selection-start-column="100" selection-end-line="49" selection-end-column="100" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/admin/products/edit.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.0">
+          <caret line="8" column="14" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/admin/products/_form.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-27.291666">
+          <caret line="135" column="56" selection-start-line="135" selection-start-column="56" selection-end-line="135" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/admin/variants/index.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.491481">
+          <caret line="25" column="89" selection-start-line="25" selection-start-column="89" selection-end-line="25" selection-end-column="89" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/admin/products_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2948403">
+          <caret line="16" column="21" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/admin/variants/form.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-19.375">
+          <caret line="31" column="44" selection-start-line="31" selection-start-column="44" selection-end-line="31" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/admin/variants_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="26" column="7" selection-start-line="26" selection-start-column="7" selection-end-line="26" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/i18n-0.7.0/lib/i18n/backend/simple.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3918919">
+          <caret line="60" column="12" selection-start-line="60" selection-start-column="12" selection-end-line="60" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/activerecord-4.2.5.1/lib/active_record/relation/query_methods.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.25921375">
+          <caret line="139" column="28" selection-start-line="139" selection-start-column="23" selection-end-line="139" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/activerecord-4.2.5.1/lib/active_record/querying.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.16584766">
+          <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/order/states.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.497543">
+          <caret line="27" column="9" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/order/delivery.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4791155">
+          <caret line="26" column="6" selection-start-line="26" selection-start-column="6" selection-end-line="26" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/order/billing.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.44226044">
+          <caret line="24" column="30" selection-start-line="0" selection-start-column="0" selection-end-line="101" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/order/actions.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4054054">
+          <caret line="22" column="21" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/product/product_attributes.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.27641279">
+          <caret line="15" column="3" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/actionview-4.2.5.1/lib/action_view/template.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33292383">
+          <caret line="99" column="4" selection-start-line="99" selection-start-column="4" selection-end-line="99" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/globalize-5.0.1/lib/globalize/active_record/class_methods.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2027027">
+          <caret line="11" column="29" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/product/variants.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.2222223">
+          <caret line="4" column="27" selection-start-line="4" selection-start-column="27" selection-end-line="4" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/api/products_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="3" column="27" selection-start-line="3" selection-start-column="27" selection-end-line="3" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/routes.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="25" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/globalize-5.0.1/lib/globalize/active_record.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/globalize-5.0.1/lib/globalize.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1693852">
+          <caret line="9" column="46" selection-start-line="9" selection-start-column="46" selection-end-line="9" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/product.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="70" selection-start-line="11" selection-start-column="70" selection-end-line="11" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/activesupport-4.2.5.1/lib/active_support/core_ext/object/blank.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4140527">
+          <caret line="22" column="6" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/globalize-5.0.1/lib/globalize/active_record/adapter.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="82" column="51" selection-start-line="82" selection-start-column="43" selection-end-line="82" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/admin/product_localisations/index.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4851229">
+          <caret line="25" column="103" selection-start-line="25" selection-start-column="91" selection-end-line="25" selection-end-column="103" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/schema.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33246753">
+          <caret line="238" column="55" selection-start-line="238" selection-start-column="55" selection-end-line="238" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/admin/product_localisations_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/admin/customers/show.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.125">
+          <caret line="13" column="42" selection-start-line="13" selection-start-column="42" selection-end-line="13" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/admin/product_localisations/form.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.125">
+          <caret line="5" column="14" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/admin/addresses_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="35" column="26" selection-start-line="35" selection-start-column="26" selection-end-line="35" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/admin/addresses/new.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.125">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/admin/customers/_addresses.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.875">
+          <caret line="19" column="66" selection-start-line="19" selection-start-column="66" selection-end-line="19" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/admin/addresses/edit.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.25">
+          <caret line="2" column="70" selection-start-line="2" selection-start-column="70" selection-end-line="2" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/admin/addresses/_form.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5821475">
+          <caret line="30" column="56" selection-start-line="30" selection-start-column="56" selection-end-line="30" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/shoppe.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="28" column="30" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/tasks/shoppe.rake">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="24" column="39" selection-start-line="24" selection-start-column="39" selection-end-line="24" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/shoppe/error.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/shoppe/default_navigation.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="21" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/shoppe/model_extension.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/helpers/application_helper.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2" column="40" selection-start-line="2" selection-start-column="37" selection-end-line="2" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/admin.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.875">
+          <caret line="19" column="30" selection-start-line="19" selection-start-column="15" selection-end-line="19" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/shoppe/navigation_manager.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.45454547">
+          <caret line="57" column="9" selection-start-line="57" selection-start-column="9" selection-end-line="57" selection-end-column="9" />
           <folding />
         </state>
       </provider>

@@ -17,4 +17,4 @@
               %td= address.address_type.capitalize
               %td= boolean_tag address.default
               %td= address.full_address
-              %td= link_to t('shoppe.customers.edit'), edit_customer_address_path(@customer, address)
+              %td= link_to t('shoppe.customers.edit'), edit_admin_customer_address_path(@customer, address)

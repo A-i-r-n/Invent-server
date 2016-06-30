@@ -133,6 +133,6 @@
 
   %p.submit
     - unless @product.new_record?
-      %span.right= link_to t('shoppe.delete') , @product, :class => 'button purple', :method => :delete, :data => {:confirm => "Are you sure you wish to remove this product?"}
+      %span.right= link_to t('shoppe.delete') , [:admin,@product], :class => 'button purple', :method => :delete, :data => {:confirm => "Are you sure you wish to remove this product?"}
     = f.submit t('shoppe.submit'),  :class => 'button green'
     = link_to t('shoppe.cancel'), [:admin,:products], :class => 'button'

@@ -58,7 +58,6 @@ module Shoppe
       end
 
       def url(request = nil)
-        puts "#{@url}-------------------"
         (@url.is_a?(Proc) && request && request.instance_eval(&@url)) ||
           @url ||
             Rails.application.routes.url_helpers.send("admin_#{identifier}_path")

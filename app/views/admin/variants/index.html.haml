@@ -2,8 +2,8 @@
 
 = content_for :header do
   %p.buttons
-    = link_to t('shoppe.variants.edit_product'), [:edit, @product], :class => 'button'
-    = link_to t('shoppe.variants.new_variant'), [:new, @product, :variant], :class => 'button green'
+    = link_to t('shoppe.variants.edit_product'), [:edit,:admin, @product], :class => 'button'
+    = link_to t('shoppe.variants.new_variant'), [:new,:admin, @product, :variant], :class => 'button green'
 
   %h2.products= t('shoppe.variants.variants_of', product: @product.name)
 
@@ -23,11 +23,11 @@
         - for variant in @variants
           %tr
             %td= variant.sku
-            %td= link_to variant.name, edit_product_variant_path(@product, variant)
+            %td= link_to variant.name, edit_admin_product_variant_path(@product, variant)
             %td= number_to_currency variant.price
             %td
               - if variant.stock_control?
-                %span.float-right= link_to t('shoppe.edit'), stock_level_adjustments_path(:item_type => variant.class, :item_id => variant.id), :class => 'edit', :rel => 'dialog', :data => {:dialog_width => 700, :dialog_behavior => 'stockLevelAdjustments'}
+                %span.float-right= link_to t('shoppe.edit'), admin_stock_level_adjustments_path(:item_type => variant.class, :item_id => variant.id), :class => 'edit', :rel => 'dialog', :data => {:dialog_width => 700, :dialog_behavior => 'stockLevelAdjustments'}
                 = boolean_tag(variant.in_stock?, nil, :true_text => variant.stock, :false_text => t('shoppe.variants.no_stock'))
               - else
                 &#8734;

@@ -2,8 +2,8 @@
 
 = content_for :header do
   %p.buttons
-    = link_to t('shoppe.localisations.back'), [:edit, @product], :class => 'button'
-    = link_to t('shoppe.localisations.new_localisation'), [:new, @product, :localisation], :class => 'button green'
+    = link_to t('shoppe.localisations.back'), [:edit,:admin, @product], :class => 'button'
+    = link_to t('shoppe.localisations.new_localisation'), [:new,:admin, @product, :localisation], :class => 'button green'
 
   %h2.products= t('shoppe.localisations.localisations_of', name: @product.name)
 
@@ -20,7 +20,8 @@
           %td{:colspan => 4}= t('shoppe.localisations.no_localisations')
       - else
         - for localisation in @localisations
+          -#- if localisation.id.present?
           %tr
             %td= localisation.locale
-            %td= link_to localisation.name, edit_product_localisation_path(@product, localisation)
+            %td= link_to localisation.name, edit_admin_product_localisation_path(@product, localisation)
             %td= localisation.permalink

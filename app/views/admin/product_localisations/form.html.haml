@@ -1,11 +1,11 @@
 - @page_title = "#{t('shoppe.localisations.localisations')} - #{@product.name}"
 = content_for :header do
-  %p.buttons= link_to t('shoppe.localisations.back_to_localisations'), [@product, :localisations], :class => 'button'
+  %p.buttons= link_to t('shoppe.localisations.back_to_localisations'), [:admin,@product, :localisations], :class => 'button'
   %h2.products= t('shoppe.localisations.localisations_of', name: @product.name)
 
 - loc = @localisation.new_record? ? :en : @localisation.locale.to_sym
 - Globalize.with_locale(loc) do
-  = form_for [@product, @localisation], :url => @localisation.new_record? ? product_localisations_path(@product) : product_localisation_path(@product, @localisation), :html => {:multipart => true} do |f|
+  = form_for [@product, @localisation], :url => @localisation.new_record? ? admin_product_localisations_path(@product) : admin_product_localisation_path(@product, @localisation), :html => {:multipart => true} do |f|
     = f.error_messages
 
     = field_set_tag t('shoppe.product.category_details') do
@@ -28,5 +28,5 @@
 
     %p.submit
       - unless @localisation.new_record?
-        %span.right= link_to t('shoppe.delete'), product_localisation_path(@product, @localisation), :class => 'button purple', :method => :delete, :data => {:confirm => t('shoppe.localisations.delete_confirmation')}
+        %span.right= link_to t('shoppe.delete'), admin_product_localisation_path(@product, @localisation), :class => 'button purple', :method => :delete, :data => {:confirm => t('shoppe.localisations.delete_confirmation')}
       = f.submit t('shoppe.localisations.save_localisation'), :class => 'button green'

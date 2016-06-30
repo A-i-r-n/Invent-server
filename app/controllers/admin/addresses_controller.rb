@@ -17,7 +17,7 @@ module Admin
       @address.default = true if @customer.addresses.count == 0
 
       if @customer.save
-        redirect_to @customer, flash: { notice: t('shoppe.addresses.created_successfully') }
+        redirect_to [:admin,@customer], flash: { notice: t('shoppe.addresses.created_successfully') }
       else
         render action: 'new'
       end
@@ -25,7 +25,7 @@ module Admin
 
     def update
       if @address.update(safe_params)
-        redirect_to @customer, flash: { notice: t('shoppe.addresses.updated_successfully') }
+        redirect_to [:admin,@customer], flash: { notice: t('shoppe.addresses.updated_successfully') }
       else
         render action: 'edit'
       end
@@ -33,7 +33,7 @@ module Admin
 
     def destroy
       @address.destroy
-      redirect_to @customer, flash: { notice: t('shoppe.addresses.deleted_successfully') }
+      redirect_to [:admin,@customer], flash: { notice: t('shoppe.addresses.deleted_successfully') }
     end
 
     private

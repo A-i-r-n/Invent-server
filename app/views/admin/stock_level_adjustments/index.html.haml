@@ -5,8 +5,8 @@
     - case @item
     - when Product
       - @active_nav = :products
-      = link_to t('shoppe.stock_level_adjustments.edit_product'), [:edit, @item], :class => 'button'
-      = link_to t('shoppe.stock_level_adjustments.back_to_product'), :products, :class => 'button'
+      = link_to t('shoppe.stock_level_adjustments.edit_product'), [:edit,:admin, @item], :class => 'button'
+      = link_to t('shoppe.stock_level_adjustments.back_to_product'), [:admin,:products], :class => 'button'
 
   %h2.products= t('shoppe.stock_level_adjustments.stock_levels_for', item_name: @item.name)
 
@@ -15,7 +15,7 @@
     = t('shoppe.stock_level_adjustments.current_stock_level_html', item_stock: @item.stock).html_safe
     %span.float-right= page_entries_info @stock_level_adjustments
 
-  = form_for @new_sla do |f|
+  = form_for [:admin,@new_sla] do |f|
     = hidden_field_tag 'item_type', params[:item_type]
     = hidden_field_tag 'item_id', params[:item_id]
     %table.data

@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   root "products#index"
+
+  namespace :api do
+    resources :products,only:[:index]
+  end
   namespace :admin do
     get 'attachment/:id/:filename.:extension' => 'attachments#show'
 

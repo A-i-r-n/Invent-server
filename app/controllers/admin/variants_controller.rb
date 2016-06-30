@@ -16,7 +16,7 @@ module Admin
     def create
       @variant = @product.variants.build(safe_params)
       if @variant.save
-        redirect_to [@product, :variants], notice: t('shoppe.variants.create_notice')
+        redirect_to [:admin,@product, :variants], notice: t('shoppe.variants.create_notice')
       else
         render action: 'form'
       end
@@ -28,7 +28,7 @@ module Admin
 
     def update
       if @variant.update(safe_params)
-        redirect_to edit_product_variant_path(@product, @variant), notice: t('shoppe.variants.update_notice')
+        redirect_to edit_admin_product_variant_path(@product, @variant), notice: t('shoppe.variants.update_notice')
       else
         render action: 'form'
       end
@@ -36,7 +36,7 @@ module Admin
 
     def destroy
       @variant.destroy
-      redirect_to [@product, :variants], notice: t('shoppe.variants.destroy_notice')
+      redirect_to [:admin, @product, :variants], notice: t('shoppe.variants.destroy_notice')
     end
 
     private
