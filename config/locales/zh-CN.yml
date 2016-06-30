@@ -1,0 +1,799 @@
+zh-CN:
+  activerecord:
+    models:
+      address:
+        one: "地址"
+        other: "所有地址"
+      country:
+        one: "地区"
+        other: "所有地区"
+      delivery_service:
+        one: "发货服务"
+        other: "所有发货服务"
+      delivery_service_price:
+        one: "发货服务价格"
+        other: "所有发货服务价格"
+      order:
+        one: "订单"
+        other: "所有订单"
+      order_item:
+        one: "订单条目"
+        other: "所有订单条目"
+      payment:
+        one: "支付"
+        other: "所有支付"
+      product:
+        one: "商品"
+        other: "所有商品"
+      product_attribute:
+        one: "商品属性"
+        other: "所有商品属性"
+      product_category:
+        one: "商品分类"
+        other: "所有商品分类"
+      setting:
+        one: "设置"
+        other: "所有设置"
+      stock_level_adjustment:
+        one: "库存水平调整"
+        other: "所有库存水平调整"
+      tax_rate:
+        one: "税额费率"
+        other: "所有税额费率"
+      user:
+        one: "用户"
+        other: "所有用户"
+
+    attributes:
+      address:
+        address_type: "地址类型"
+        address1: "地址 1"
+        address2: "地址 3"
+        address3: "地址 3"
+        address4: "地址 4"
+        postcode: "邮政编码"
+        country: "地区"
+      order:
+        billing_address1: "账单地址1"
+        billing_address3: "账单地址3"
+        billing_address4: "账单地址4"
+        billing_country: "账单地址"
+        billing_postcode: "账单邮政编码"
+        delivery_address1: "发货地址1"
+        delivery_address3: "发货地址3"
+        delivery_address4: "发货地址4"
+        delivery_country: "发货区域"
+        delivery_name: "发货名字"
+        delivery_service_id: "发货服务"
+        delivery_postcode: "发货邮政编码"
+        email_address: "E-Mail地址"
+        first_name: "名"
+        last_name: "姓"
+        phone_number: "电话号码"
+        status: "状态"
+        token: "Token"
+      country:
+        name: "名字"
+      delivery_service:
+        name: "名字"
+        courier: "送递员"
+      delivery_service_price:
+        code: "代号"
+        cost_price: "成本价"
+        max_weight: "最大重量"
+        min_weight: "最小重量"
+        price: "价格"
+      order_item:
+        ordered_item: "订单条目"
+        quantity: "数量"
+      payment:
+        amount: "数量"
+        method: "方法"
+        reference: "参考"
+      product:
+        cost_price: "成本价"
+        description: "描述"
+        name: "名字"
+        permalink: "永久链接"
+        price: "价格"
+        short_description: "简述"
+        sku: "SKU"
+        weight: "重量"
+      product_attribute:
+        key: "键"
+      product_category:
+        name: "名字"
+        permalink: "永久链接"
+      setting:
+        key: "键"
+        value: "值"
+        value_type: "值类型"
+      stock_level_adjustment:
+        adjustment: "调整"
+        description: "描述"
+        must_be_greater_or_equal_zero: "必须大于或小于零"
+      tax_rate:
+        address_type: "地址类型"
+        name: "名字"
+        rate: "费率"
+      user:
+        email_address: "E-Mail地址"
+        first_name: "名"
+        last_name: "姓"
+        password: "密码"
+        password_confirmation: "密码确认"
+    errors:
+      template:
+        body: ! '以下表单有一些问题:'
+        header:
+          one: 1 错误 禁止 %{model} 被存储
+          many: ! '%{count} 错误 禁止 %{model} 被存储'
+          other: ! '%{count} 错误 禁止 %{model} 被存储'
+      models:
+        product_category:
+          attributes:
+            permalink:
+              wrong_format: "只能包含字母数字,- 和 _"
+        delivery:
+          attributes:
+            delivery_service_id:
+              must_be_specified: "必须指明"
+              not_suitable: "不恰当"
+        order:
+          attributes:
+            delivery_service_id:
+              must_be_specified: "必须指明"
+        product:
+          attributes:
+            permalink:
+              wrong_format: "只能包含字母数字, - 和 _"
+              taken: "已经被使用"
+            base:
+              can_belong_to_root: "只能属于根产品"
+        order_item:
+          attributes:
+            quantity:
+              too_high_quantity: "数量大于仓库数量"
+        payment:
+          refund_failed: "归还必须小于支付 (%{refundable_amount})"
+
+  will_paginate:
+    next_label: "下一页 &#8594;"
+    page_gap: "&hellip;"
+    previous_label: "&#8592; 前一页"
+
+    page_entries_info:
+
+      single_page:
+        zero:  "没有发现 %{model} "
+        one:   "显示 1 %{model}"
+        other: "显示 所有 %{count} %{model}"
+
+      single_page_html:
+        zero:  "没有发现 %{model} "
+        one_html:   "显示 <b>1</b> %{model}"
+        other_html: "显示 <b>所有&nbsp;%{count}</b> %{model}"
+
+      multi_page: "显示 %{model} %{from} - %{to} 共 %{count} "
+      multi_page_html: "显示 %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> 共 <b>%{count}</b> "
+
+  helpers:
+    number_to_weight:
+      kg: "kg"
+    page_entries_info:
+      one_page:
+        display_entries: "显示入口"
+    attachment_preview:
+      delete: "删除"
+      delete_confirm: "你确定删除这个附件吗?"
+      no_attachment: "没有附件"
+
+  shoppe:
+
+    # common
+    cancel: "取消"
+    close: "关闭"
+    delete: "删除"
+    edit: "编辑"
+    import: "倒入"
+    remove: "移除"
+
+    removed_it: "%{it} 已经被成功删除"
+    save_settings: "保存设置"
+    separate_delivery_address: "分隔发货地址"
+    service_available: "服务可以使用"
+    service_default: "默认使用服务(如果可用)"
+    settings_title: "设置"
+    settings_not_in_demo: "抱歉,在设置环境中你不能改变设置"
+    set_prices: "设置价格"
+    shoppe_back: "返回商店"
+    sku: "SKU"
+    status: "状态"
+    stock: "仓库"
+    stock_current: "当前库存水平"
+    stock_control: "仓库控制"
+    stock_control_enable: "这个产品允许仓库控制"
+    stock_levels: "库存水平"
+    stock_levels_for: "库存水平 %{item}"
+    stock_none: "没有仓库"
+    system_settings: "系统设置"
+    tax_rate: "税额费率"
+    tax_rate_apply_to: "%{to} 适配的地区,将应用于订单"
+    tax_rate_delete_confirm: "你确定移除这个税额费率?"
+    tax_rate_details: "费率详情"
+    tax_rate_new: "新建税额费率"
+    tax_rate_note: "不要编辑已经使用的税率。
+     编辑税率时，应采取的护理，因为这可能会影响现有的订单。
+     在创建一个新的税率时，必须删除它，并创建一个新的。当你删除税率
+     它并没有从系统中删除，只有停用，所以现有的订单不受影响。"
+    tax_rates: "税额费率"
+    tax_rates_back: "返回税额费率"
+    tax_none: "没有税额"
+    telephone: "电话"
+    total: "总数"
+    total_weight: "总重量"
+    tracking_url: "跟踪URL"
+    unknown: "未知"
+    updated_it: "%{it} 已经更新成功"
+    users: "用户"
+    users_back: "返回用户"
+    user_delete_confirm: "你确定移除这个用户吗?"
+    user_details: "用户详情"
+    user: "用户"
+    user_edit: "编辑用户"
+    user_new: "新建用户"
+    user_not_in_demo: "抱歉,在开发模式下,你不能修改用户."
+    user_not_yourself: "你不能移除你自己"
+    variants: "品种"
+    variants_back: "返回品种"
+    variants_of: "%{product} 的品种"
+    variant_delete_confirm: "你确定移除这个品种吗?"
+    variant_of: "%{product} 的品种"
+    variant_new: "新建品种"
+    variant_save: "保存品种"
+    value: "值"
+    website_properties: "网站属性"
+    weight: "重量"
+    weight_allowance: "重量津贴"
+
+    submit: "提交"
+
+    attachments:
+      remove_notice: "附件移除成功"
+
+    countries:
+      back: "返回区域"
+      continent: "大陆"
+      countries: "地区"
+      country_details: "地区详情"
+      create_notice: "地区创建成功"
+      delete_confirmation: "你确定移除这个地区?"
+      destroy_notice: "移除地区成功"
+      eu?: "EU?"
+      eu_member: "EU 会员?"
+      is_eu_member: "地区是否 EU 会员?"
+      iso_alpha_2: "ISO 3166-1-alpha-2"
+      iso_alpha_3: "ISO 3166-1-alpha-3"
+      name: "名字"
+      new_country: "新建地区"
+      tld: "TLD"
+      update_notice: "地区更新成功"
+
+    delivery_service_prices:
+      all_countries: "所有区域"
+      back: "返回价格"
+      back_to_delivery_services: "返回发货服务"
+      code: "代号"
+      cost: "价格"
+      cost_price: "成本价"
+      countries: "区域"
+      create_notice: "价格创建成功"
+      delivery_services: "发货服务"
+      destroy_notice: "价格移除成功"
+      identification_weight: "净重"
+      max_weight: "最大重量"
+      min_weight: "最小重量"
+      new_price: "新建价格"
+      no_tax: "没有税额"
+      price: "价格"
+      pricing: "价格"
+      pricing_for: "%{delivery_name} 的发货价格"
+      tax_rate: "税额费率"
+      update_notice: "价格更新成功"
+      weight_allowance: "重量津贴"
+
+      help:
+        countries: "此交付率将只可供选择的区域在这里列出的订单。"
+
+    delivery_services:
+      active?: "激活?"
+      active: "激活"
+      active_info: "服务将可供使用"
+      back: "返回发货服务"
+      code: "代号"
+      courier: "快递员"
+      courier_name: "快递员名字"
+      create_notice: "发货服务创建成功"
+      default?: "默认?"
+      default: "默认"
+      default_info: "服务默认被使用(如果可以)"
+      delivery_services: "发货服务"
+      destroy_notice: "发货服务移除成功"
+      delete_confirmation: "你确定移除这个发货服务?"
+      details: "详情"
+      name: "名字"
+      new: "新建发货服务"
+      no_services: "没有发货服务."
+      prices: "价格"
+      set_prices: "设置价格"
+      tracking_url: "跟踪URL"
+      tracking_url_help_html: "使用<code>{{consignment_number}}</code>插入货物的数量."
+      update_notice: "发货服务更新成功"
+
+    imports:
+      example_file: "范例格式"
+      file_upload: "导入文件"
+      required_formats: "必须是 csv, xls or xlsx."
+      errors:
+        no_file: "没有选择导入文件"
+        unknown_format: "未知文件格式: %{filename}"
+
+    orders:
+      accept: "接受"
+      accept_notice: "订单接受成功"
+      add_payment: "加入支付"
+      add_item: "添加项目"
+      address: "地址"
+      amount: "数量"
+      back_to_order: "返回订单"
+      back_to_orders: "返回所有订单"
+      billing_address: "账单地址"
+      billing_delivery_address: "账单/发送 地址"
+      build_time: "创建时间"
+      company: "公司"
+      consignment_number: "单号"
+      cost: "成本"
+      country: "地区"
+      create_order: "创建订单"
+      create_notice: "订单创建成功"
+      customer: "客户"
+      delivery_address: "发货地址"
+      delivery_name: "发货名字"
+      edit_order: "编辑订单"
+      email_address: "E-Mail地址"
+      first_name: "姓"
+      from_payment: "从支付"
+      id: "ID"
+      in_progress_warning: "这个订单仍然是由你的商店的客户建立的。目前，您只能查看订单中的项目。"
+      invoice_number: "发票号码"
+      insufficient_stock_order: "库存不足订单 %{out_of_stock_items}. 已更新数量以最大可用总库存量。"
+      item: "项目"
+      last_name: "姓"
+      mark_as_shipped: "标记为装运。"
+      method: "方法"
+      missing_delivery_service: "没有提供合适的递送服务，订单不能创建没有关联的递送服务。"
+      name: "名字"
+      new_order: "新建订单"
+      no_delivery_required: "此订单所需的交货。"
+      no_orders: "没有订单"
+      no_payments: "没有为该订单记录的付款…"
+      notes: "笔记"
+      number: "数字"
+      order: "订单"
+      order_accepted: "订单接受"
+      order_balance: "订单价格"
+      order_items: "所有订单项目"
+      order_no_html: "订单 <b>#%{order_number}</b>"
+      order_number: "订单数"
+      order_received: "订单拒绝"
+      order_rejected: "订单拒绝"
+      order_shipped: "订单发货"
+      ordered_products: "订购的产品"
+
+      orders: "订单"
+      payment: "付款"
+      payment_remove_confirmation: "您确定要删除此付款吗?"
+      payments: "付款"
+      phone_number: "电话号码"
+      post_code: "邮政编码"
+      price: "价格"
+      product: "产品"
+      products: "产品"
+      qty: "数量"
+      quantity: "数量"
+      received_between: "接受区间"
+      reference: "参考"
+      refund: "退款"
+      refunded?: "退还?"
+      reject: "拒绝"
+      reject_notice: "订单已被成功拒绝"
+      save_order: "保存订单"
+      search: "搜索"
+      search_orders: "搜索订单"
+      select_country: "选择区域"
+      customer: "客户"
+      select_customer: "选择一个客户或空白"
+      separate_delivery_address: "单独的送货地址"
+      ship_notice: "订单已成功出货"
+      sku: "SKU"
+      sla_warning: "对数量的任何更改都将更新相关产品的适当的库存水平。"
+      status: "状态"
+      stock: "仓库"
+      sub_total: "小计"
+      tax: "税费"
+      telephone: "手机号"
+      total: "总数"
+      type: "种类"
+      unit_price: "单价"
+      update_notice: "订单保存成功"
+      use_separate_delivery_address?: "使用其他交货地址?"
+      weight: "重量"
+
+      status_bar:
+        by_user: "由 %{user}"
+        consignment_no_html: "托运 #<b>%{consignment_number}</b>"
+        from_ip: "起 %{ip}"
+        on_date: "终 %{on}"
+        tracking_url:  "跟踪信息"
+
+      despatch_note:
+        despatch_note: "包裹附单"
+        footer: "感谢下单!"
+        order_number: "订单号"
+        order_placed: "下单"
+        packed?: "包装?"
+        product: "产品"
+        quantity: "数量"
+        sku: "商品编码"
+        telephone: "电话"
+        total_weight: "总重"
+        weight: "重量"
+
+      statuses:
+        accepted: "接受"
+        building: "增加"
+        confirming: "确认"
+        received: "接收"
+        rejected: "不合格"
+        shipped: "发货"
+
+    product_category:
+      attachments: "附件"
+      back_to_categories: "返回列表种类"
+      category_details: "详细类别"
+      choose_product_category: "选择一个商品种类"
+      create_notice: "类别创建成功"
+      delete_confirmation:  "确认要删除该类别?"
+      description: "描述"
+      destroy_notice: "类别移除成功"
+      destroy_alert: "类别不能移除"
+      image: "图片"
+      name: "名称"
+      new_category: "新类别"
+      no_categories: "无类别显示"
+      permalink: "链接"
+      permalink_includes_ancestors: "前缀与父类别链接存储"
+      product_categories: "商品类别"
+      update_notice: "类别更新成功"
+      nesting:
+        blank_option: "无"
+        category_nesting: "嵌套"
+        category_parent: "父母"
+        current_category: "当前"
+        no_children: "儿童不宜"
+        hierarchy: "层级"
+
+    products:
+      add_attachments: "添加附件"
+      add_attribute: "添加属性"
+      attachments: "附件"
+      attributes: "属性"
+      back_to_products: "返回商品列表"
+      cost_price: "成本价"
+      create_notice: "商品创建成功"
+      datasheet: "数据表"
+      default_image: "默认图片"
+      description: "描述"
+      destroy_notice: "商品移除成功"
+      edit: "编辑"
+      enable_stock_control?:  "是否进行库存控制"
+      featured?: "精品?"
+      featured_info:  "如果选中,将会出现到你的主页"
+      import_products: "导入商品"
+      in_the_box: "盒子里装的是什么?"
+      name: "名字"
+      new_product: "新商品"
+      no_products: "无商品"
+      no_stock: "无库存"
+      no_tax: "无税"
+      on_sale?: "可买?"
+      on_sale_info:  "如果选择,该商品将被放入公共商城"
+      permalink: "链接"
+      price: "价格"
+      price_variants: "价格/种类"
+      pricing: Pricing
+      product_category: "产品目录"
+      product_information: "产品信息"
+      products: "产品"
+      public?: "公共?"
+      remove: "删除"
+      searchable?: "可查?"
+      short_description: "简介"
+      sku: "商品编号"
+      stock: "库存"
+      stock_control: "库存控制"
+      stock_levels: "库存标准"
+      tax_rate: "税率"
+      value: "价值"
+      variants: "种类"
+      update_notice: "商品更新成功"
+      website_properties: "网站属性"
+      weight: "重量"
+
+      filter:
+        sku: "通过商品库存筛选"
+        name_or_description: "通过商品名或描述筛选"
+
+      imports:
+        help:  "产品和类别相匹配的名字。如果没有找到产品,将创建一个新的与所有的属性。如果找到一个产品,只有数量将被更新和所有其他字段将被忽略。如果没有找到类别,这个名字将被创建。每行一个产品。你可以把永久链接字段空如果你不想添加一个自动生成的."
+        success: "产品导入成功"
+        examples:
+          first:
+            name: "长毛泰迪熊"
+            sku: "BEAR001"
+            permalink: "长毛泰迪熊"
+            description: "非常豪华。非常可爱的。适合所有年龄段。"
+            short_description: "卖给你的孩子."
+            weight: "1.2"
+            price: "84.95"
+            category_name: "泰迪熊"
+            qty: "20"
+          second:
+            name: "标准泰迪熊"
+            sku: "BEAR002"
+            permalink: ""
+            description: "聚氯乙烯制成而成。有点可爱。防泄漏。"
+            short_description: "这是个很牛的商品."
+            weight: "0.6"
+            price: "24.95"
+            category_name: "泰迪熊"
+            qty: "100"
+          third:
+            name: "呆呆的泰迪熊"
+            sku: "BEAR003"
+            permalink: "呆呆的泰迪熊"
+            description: "做工精美. 不是很可爱. 纯天然. 易燃."
+            short_description: "从遥远的阿姨那里购买这个熊."
+            weight: "0.521"
+            price: "1.95"
+            category_name: "泰迪熊"
+            qty: "50"
+
+    refund:
+      intro_html: "填写你想要退款的金额低于<b>%{amount}</b>,并点击退款按钮 "
+      issue_refund: "退款申请"
+      refund: "退款"
+
+    sessions:
+      admin_login: "管理员登陆"
+      create_alert: "邮箱或密码错误,请重试."
+      back_to_login: "返回登陆"
+      email:  "邮箱"
+      login: '登陆'
+      password: "密码"
+      reset: "重置"
+      reset_password: "重置密码"
+      reset_password?: "重置密码?"
+      reset_alert: "用户/邮箱不匹配"
+      reset_notice: "新密码将发生到 %{email_address} "
+
+    shared:
+      back_to_shoppe: "返回商店"
+      error: "错误"
+      error_occurred: "产生一个错误"
+
+    stock_level_adjustments:
+      add: "添加"
+      adjustment: "调整"
+      back_to_product: "返回商品列表"
+      create_notice: "调整成功"
+      current_stock_level_html: "当前库存为 <b>%{item_stock}</b>"
+      date: "日期"
+      description: "描述"
+      edit_product: "编辑商品"
+      invalid_item_type: "无效的商品类型 (必须在 %{suitable_objects}中)"
+      stock_levels_for: "{item_name}% 的库存情况"
+      stock_levels_title: "库存情况 - %{item_name}"
+
+    tax_rates:
+      address_type_option: "匹配国家 %{address} "
+      all_countries: "全世界"
+      back_to_tax_rates: "返回税率"
+      billing: "发票"
+      country_restriction: "国家限制"
+      create_notice: "新建税率成功"
+      delete_confirmation: "确认删除税率?"
+      delivery: "交付"
+      destroy_notice: "税率删除成功"
+      name: "名称"
+      new_tax_rate: "新税率"
+      rate: "比率"
+      rate_details: '税率详情'
+      tax_rates: "税率"
+      update_notice: "税率更新成功"
+
+    users:
+      back_to_users: "返回到用户界面"
+      create_notice: "注册成功"
+      delete_confirmation:  "确认删除用户?"
+      demo_mode_error: "很抱歉,模板中不可更改用户."
+      destroy_notice: "用户删除成功"
+      email: "邮箱"
+      first_name: "名"
+      last_name: "姓"
+      login: "登陆"
+      name: "名称"
+      new_user: "新用户"
+      password: "妈妈"
+      password_confirmation: "确认密码"
+      self_remove_error: "不可删除自己"
+      update_notice: "用户更新成功"
+      user_details: "用户详情"
+      users: "用户"
+
+    variants:
+      back_to_variants: "返回种类"
+      cost_price: "成本价格"
+      create_notice: "成功添加种类"
+      default_variant?: "默认种类?"
+      default_variant_info: "选中时,将作为默认种类"
+      delete_confirmation: "确认要删除该种类?"
+      destroy_notice: "种类删除成功"
+      edit_product: "编辑商品"
+      edit_variant: "编辑种类"
+      enable_stock_control?: "确认进行库存管理?"
+      image: "图片"
+      name: "名称"
+      no_products: "无产品."
+      no_stock: "无库存"
+      no_tax: "无税"
+      new_variant: "新种类"
+      on_sale?: "出售?"
+      on_sale_info: "如果被选择,该商品将会被显示到公共商城."
+      permalink: "链接"
+      price: "价格"
+      pricing: "定价"
+      product_information: "商品信息"
+      save_variant: "保存种类"
+      sku: "商品编号"
+      stock: "库存"
+      stock_control: "库存控制"
+      tax_rate: "税率"
+      update_notice: "种类更新成功"
+      variants: "种类"
+      variants_of: "Variants of %{product}"
+      website_properties: "网站属性"
+      weight: "重量"
+
+    payments:
+      create_notice: "支付成功"
+      destroy_notice: "成功取消支付"
+      refund_notice: "退款处理成功."
+
+    localisations:
+      localisations: "定位"
+      back: "返回"
+      back_to_localisations: "返回"
+      localisations_of: "定位名称 %{name}"
+      product_information: "产品信息"
+      locales: "位置"
+      choose_locale: "请选择定位"
+      save_localisation: "保存定位信息"
+      new_localisation: "新定位信息"
+      edit_localisation: "更改定位信息"
+      localisation_created: "定位信息创建成功"
+      localisation_updated: "定位信息更新成功"
+      localisation_destroyed: "定位信息删除成功"
+      language: "语言"
+      no_localisations: "无定位信息."
+      delete_confirmation: '你确定吗'
+
+    customers:
+      customers: "客户"
+      new_customer: "新客户"
+      search_customer: "搜索客户"
+      name: "名称"
+      company: "公司"
+      email: "邮件"
+      phone: "电话"
+      mobile_phone: '手机号码'
+      no_customers: "无用户."
+      search: "查询"
+      first_or_last_name: "姓名"
+      back_to_customers_list: "返回客户列表"
+      new_address: "新地址"
+      edit: "编辑"
+      customer_information: "客户信息"
+      cancel: "Cancel"
+      first_name: "名"
+      last_name: "姓"
+      delete: "删除"
+      save: "保存"
+      creating_customer: "创建用户中"
+      updating_customer: "更新用户..."
+      delete_confirmation: "你确定要删除该用户?"
+      type: "类型"
+      default: "默认"
+      address: "地址"
+      no_addresses: "无可用地址"
+      addresses: "地址"
+      adresse: "地址"
+      created_successfully: "用户创建成功."
+      updated_successfully: "用户更新成功."
+      deleted_successfully: "用户删除成功."
+
+    addresses:
+      address_information: "地址信息"
+      back_to_customer: "返回主页"
+      addresses: "新地址"
+      created_successfully: "地址创建成功."
+      updated_successfully: "地址更新成功."
+      deleted_successfully: "地址删除成功."
+
+    navigation:
+      admin_primary:
+        customers: "客户"
+        orders: "订单"
+        products: "商品"
+        product_categories: "商品分类"
+        delivery_services: "快递"
+        tax_rates: "税额"
+        users: "用户"
+        countries: "国籍"
+        settings: "设置"
+
+    settings:
+
+      settings: "设置"
+      system_settings: "系统设置"
+      demo_mode_error: "很抱歉,您不能修改模板设置."
+      update_notice:  '设置更新成功!'
+
+      types:
+        demo_mode: "布尔"
+
+      labels:
+        email_address: "店铺邮件地址"
+        store_name: "店铺名称"
+        currency_unit: "货币单位"
+        tax_name: "税名"
+        demo_mode: "范本"
+
+      options:
+        demo_mode:
+          affirmative: "开启"
+          negative: "关闭"
+
+      help:
+        currency_unit: "所有涉及到金钱数目的字符,只适用于单独管理必须实现的接口和基本应用程序。"
+        demo_mode: "如果启用,专柜管理界面将允许任何用户登录并且不允许更改您的用户;请小心使用"
+        email_address: "当发送出站消息时,必须使用一个电子邮件地址。"
+        store_name: "这是你的店铺的名称可通过专柜管理界面以及默认出站电子邮件消息来使用。"
+        tax_name: "'税'将显示在你的管理界面。在欧洲国家一般用增值税来替代。"
+
+      save_settings: "保存设置"
+      page_title: "设置"
+
+      defaults:
+        currency_unit: "$"
+        demo_mode: "错误"
+        email_address: "sales@example.com"
+        store_name: "Widgets Inc."
+        tax_name: "税金"
+
+  layouts:
+    shoppe:
+      application:
+        goto: "跳转"
+        logged_in_as: "Logged in as %{user_name}"
+        logout: "注销"

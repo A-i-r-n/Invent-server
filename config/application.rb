@@ -37,10 +37,10 @@ module Server
 
     config.time_zone = 'Beijing'
 
-    config.i18n.default_locale = "en"
+    config.i18n.default_locale = "zh-CN"
 
 
-    config.i18n.fallbacks = {:"pt-BR"=>'en'}
+    # config.i18n.fallbacks = {:"pt-BR"=>'en'}
 
     # config.web_console.whiny_requests = false
 

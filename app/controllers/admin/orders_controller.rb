@@ -66,7 +66,7 @@ module Admin
     def update
       @order.attributes = safe_params
       if !request.xhr? && @order.update_attributes(safe_params)
-        redirect_to @order, flash: { notice: t('shoppe.orders.update_notice') }
+        redirect_to [:admin,@order], flash: { notice: t('shoppe.orders.update_notice') }
       else
         render action: 'edit'
       end
@@ -79,21 +79,21 @@ module Admin
 
     def accept
       @order.accept!(current_user)
-      redirect_to @order, flash: { notice: t('shoppe.orders.accept_notice') }
+      redirect_to [:admin,@order], flash: { notice: t('shoppe.orders.accept_notice') }
     rescue Shoppe::Errors::PaymentDeclined => e
-      redirect_to @order, flash: { alert: e.message }
+      redirect_to [:admin,@order], flash: { alert: e.message }
     end
 
     def reject
       @order.reject!(current_user)
-      redirect_to @order, flash: { notice: t('shoppe.orders.reject_notice') }
+      redirect_to [:admin,@order], flash: { notice: t('shoppe.orders.reject_notice') }
     rescue Shoppe::Errors::PaymentDeclined => e
-      redirect_to @order, flash: { alert: e.message }
+      redirect_to [:admin,@order], flash: { alert: e.message }
     end
 
     def ship
       @order.ship!(params[:consignment_number], current_user)
-      redirect_to @order, flash: { notice: t('shoppe.orders.ship_notice') }
+      redirect_to [:admin,@order], flash: { notice: t('shoppe.orders.ship_notice') }
     end
 
     def despatch_note

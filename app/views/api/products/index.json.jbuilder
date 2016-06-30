@@ -1,8 +1,9 @@
-json.code 0 if @uploads.count>0
-json.data(@uploads) do |upload|
-	json.extract! upload, :created_at, :updated_at
-	json.image image_url(upload.uploaded_file(:large))
-	json.code "app"
-	json.status 1 if upload
-	json.link "none"
+json.code 0 if @products.count>0
+json.data(@products) do |category, products|
+  json.array!(products) do |product|
+    json.extract! product, :id,:name,:created_at, :updated_at
+    json.category do
+      json.extract! category, :id,:name
+    end
+  end
 end

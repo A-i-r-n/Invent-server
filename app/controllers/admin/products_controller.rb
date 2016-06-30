@@ -51,7 +51,7 @@ module Admin
 
     def update
       if @product.update(safe_params)
-        redirect_to [:edit, @product], flash: { notice: t('shoppe.products.update_notice') }
+        redirect_to [:edit,:admin, @product], flash: { notice: t('shoppe.products.update_notice') }
       else
         render action: 'edit'
       end
