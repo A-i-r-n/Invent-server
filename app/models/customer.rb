@@ -4,6 +4,8 @@
 
     # self.table_name = 'shoppe_customers'
 
+    belongs_to :user
+
     has_many :addresses, dependent: :restrict_with_exception, class_name: 'Address'
 
     has_many :orders, dependent: :restrict_with_exception, class_name: 'Order'
@@ -14,6 +16,10 @@
 
     # All customers ordered by their ID desending
     scope :ordered, -> { order(id: :desc) }
+
+    scope :root,->(vendor) {
+      where(vendor: vendor)
+    }
 
     # The name of the customer in the format of "Company (First Last)" or if they don't have
     # company specified, just "First Last".

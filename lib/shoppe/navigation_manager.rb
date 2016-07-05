@@ -37,6 +37,7 @@ module Shoppe
       item.manager          = self
       item.identifier       = identifier.to_s
       item.url              = options[:url]             if options[:url]
+      item.namespace        = options[:namespace]       if options[:namespace]
       item.link_options     = options[:link_options]    if options[:link_options]
       item.active_if        = block                     if block_given?
       items << item
@@ -52,15 +53,17 @@ module Shoppe
       attr_accessor :url
       attr_accessor :link_options
       attr_accessor :active_if
+      attr_accessor :namespace
 
       def description
         I18n.translate("shoppe.navigation.#{manager.identifier}.#{identifier}")
       end
 
       def url(request = nil)
+        prefix = @namespace.blank? ? "" : "#{@namespace}_"
         (@url.is_a?(Proc) && request && request.instance_eval(&@url)) ||
           @url ||
-            Rails.application.routes.url_helpers.send("admin_#{identifier}_path")
+            Rails.application.routes.url_helpers.send( "#{prefix}#{identifier}_path")
       end
 
       def active?(request)

@@ -511,7 +511,7 @@ zh-CN:
       permalink: "链接"
       price: "价格"
       price_variants: "价格/种类"
-      pricing: Pricing
+      pricing: "定价"
       product_category: "产品目录"
       product_information: "产品信息"
       products: "产品"
@@ -714,7 +714,7 @@ zh-CN:
       new_address: "新地址"
       edit: "编辑"
       customer_information: "客户信息"
-      cancel: "Cancel"
+      cancel: "取消"
       first_name: "名"
       last_name: "姓"
       delete: "删除"
@@ -742,6 +742,16 @@ zh-CN:
 
     navigation:
       admin_primary:
+        customers: "客户"
+        orders: "订单"
+        products: "商品"
+        product_categories: "商品分类"
+        delivery_services: "快递"
+        tax_rates: "税额"
+        users: "用户"
+        countries: "国籍"
+        settings: "设置"
+      seller_primary:
         customers: "客户"
         orders: "订单"
         products: "商品"

@@ -3,10 +3,34 @@ class User < ActiveRecord::Base
 
   has_secure_password
 
+  has_one :vendor
+
+  has_one :customer
+
   # Validations
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :email_address, presence: true
+
+  belongs_to :profile
+
+  scope :admin , -> {
+    joins(:profile).where(profiles:{label: :admin})
+  }
+
+  scope :vendor,->{
+    joins(:profile).where(profiles:{label: :vendor})
+  }
+
+  scope :customer,->{
+    joins(:profile).where(profiles:{label: :customer})
+  }
+
+  before_validation :set_default_profile
+
+  def set_default_profile
+    self.profile ||= Profile.find_by_label(User.count.zero? ? 'admin' : 'customer')
+  end
 
   # The user's first name & last name concatenated
   #

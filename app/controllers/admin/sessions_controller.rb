@@ -4,7 +4,7 @@ module Admin
     skip_before_filter :login_required, only: [:new, :create]
 
     def create
-      if user = User.authenticate(params[:email_address], params[:password])
+      if user = User.admin.authenticate(params[:email_address], params[:password])
         session[:shoppe_user_id] = user.id
         redirect_to [:admin,:orders]
       else

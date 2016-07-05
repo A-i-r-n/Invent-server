@@ -8,6 +8,8 @@ class Product < ActiveRecord::Base
   require_dependency 'product/product_attributes'
   require_dependency 'product/variants'
 
+  belongs_to :vendor
+
   # Attachments for this product
   has_many :attachments, as: :parent, dependent: :destroy, autosave: true, class_name: 'Attachment'
 
@@ -59,6 +61,10 @@ class Product < ActiveRecord::Base
   # Localisations
   translates :name, :permalink, :description, :short_description
   scope :ordered, -> { includes(:translations).order(:name) }
+
+  scope :root,->(vendor){
+    where(vendor: vendor)
+  }
 
   def attachments=(attrs)
     if attrs['default_image']['file'].present? then attachments.build(attrs['default_image']) end

@@ -13,6 +13,8 @@
     require_dependency 'order/billing'
     require_dependency 'order/delivery'
 
+    belongs_to :vendor
+
     # All items which make up this order
     has_many :order_items, dependent: :destroy, class_name: 'OrderItem', inverse_of: :order
     accepts_nested_attributes_for :order_items, allow_destroy: true, reject_if: proc { |a| a['ordered_item_id'].blank? }

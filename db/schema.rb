@@ -11,15 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150519173350) do
-
-  create_table "nifty_key_value_store", force: :cascade do |t|
-    t.integer "parent_id",   limit: 4
-    t.string  "parent_type", limit: 255
-    t.string  "group",       limit: 255
-    t.string  "name",        limit: 255
-    t.string  "value",       limit: 255
-  end
+ActiveRecord::Schema.define(version: 20160704054721) do
 
   create_table "addresses", force: :cascade do |t|
     t.integer  "customer_id",  limit: 4
@@ -67,6 +59,7 @@ ActiveRecord::Schema.define(version: 20150519173350) do
     t.string   "email",      limit: 255
     t.string   "phone",      limit: 255
     t.string   "mobile",     limit: 255
+    t.integer  "user_id", limit:4
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -101,6 +94,14 @@ ActiveRecord::Schema.define(version: 20150519173350) do
   end
 
   add_index "delivery_services", ["active"], name: "index_delivery_services_on_active", using: :btree
+
+  create_table "nifty_key_value_store", force: :cascade do |t|
+    t.integer "parent_id",   limit: 4
+    t.string  "parent_type", limit: 255
+    t.string  "group",       limit: 255
+    t.string  "name",        limit: 255
+    t.string  "value",       limit: 255
+  end
 
   create_table "order_items", force: :cascade do |t|
     t.integer  "order_id",          limit: 4
@@ -162,6 +163,7 @@ ActiveRecord::Schema.define(version: 20150519173350) do
     t.boolean  "exported",                                                        default: false
     t.string   "invoice_number",            limit: 255
     t.integer  "customer_id",               limit: 4
+    t.integer  "vendor_id", limit:4
   end
 
   add_index "orders", ["delivery_service_id"], name: "index_orders_on_delivery_service_id", using: :btree
@@ -204,14 +206,15 @@ ActiveRecord::Schema.define(version: 20150519173350) do
     t.string   "name",                         limit: 255
     t.string   "permalink",                    limit: 255
     t.text     "description",                  limit: 65535
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.integer  "parent_id",                    limit: 4
     t.integer  "lft",                          limit: 4
     t.integer  "rgt",                          limit: 4
     t.integer  "depth",                        limit: 4
     t.string   "ancestral_permalink",          limit: 255
     t.boolean  "permalink_includes_ancestors",               default: false
+    t.integer  "vendor_id",limit:4
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "product_categories", ["lft"], name: "index_product_categories_on_lft", using: :btree
@@ -228,19 +231,19 @@ ActiveRecord::Schema.define(version: 20150519173350) do
 
   create_table "product_category_translations", force: :cascade do |t|
     t.integer  "product_category_id", limit: 4,     null: false
-    t.string   "locale",                     limit: 255,   null: false
-    t.datetime "created_at",                               null: false
-    t.datetime "updated_at",                               null: false
-    t.string   "name",                       limit: 255
-    t.string   "permalink",                  limit: 255
-    t.text     "description",                limit: 65535
+    t.string   "locale",              limit: 255,   null: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+    t.string   "name",                limit: 255
+    t.string   "permalink",           limit: 255
+    t.text     "description",         limit: 65535
   end
 
   add_index "product_category_translations", ["locale"], name: "index_product_category_translations_on_locale", using: :btree
   add_index "product_category_translations", ["product_category_id"], name: "index_75826cc72f93d014e54dc08b8202892841c670b4", using: :btree
 
   create_table "product_translations", force: :cascade do |t|
-    t.integer  "product_id", limit: 4,     null: false
+    t.integer  "product_id",        limit: 4,     null: false
     t.string   "locale",            limit: 255,   null: false
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
@@ -255,6 +258,7 @@ ActiveRecord::Schema.define(version: 20150519173350) do
 
   create_table "products", force: :cascade do |t|
     t.integer  "parent_id",         limit: 4
+    t.integer  "vendor_id",         limit: 4
     t.string   "name",              limit: 255
     t.string   "sku",               limit: 255
     t.string   "permalink",         limit: 255
@@ -264,6 +268,10 @@ ActiveRecord::Schema.define(version: 20150519173350) do
     t.decimal  "weight",                          precision: 8, scale: 3, default: 0.0
     t.decimal  "price",                           precision: 8, scale: 2, default: 0.0
     t.decimal  "cost_price",                      precision: 8, scale: 2, default: 0.0
+
+    t.integer  "grade_num",         limit: 4,default:0
+    t.decimal  "grade_score",precision: 8, scale: 2, default: 0.0
+    t.integer  "great_num",limit: 4,default:0
     t.integer  "tax_rate_id",       limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -276,6 +284,22 @@ ActiveRecord::Schema.define(version: 20150519173350) do
   add_index "products", ["parent_id"], name: "index_products_on_parent_id", using: :btree
   add_index "products", ["permalink"], name: "index_products_on_permalink", using: :btree
   add_index "products", ["sku"], name: "index_products_on_sku", using: :btree
+
+  create_table "vendors", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.integer  "grade_num",limit:4 , default:0
+    t.decimal  "grade_score",precision:8,scale:2,default:0.0
+    t.integer  "user_id", limit:4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "grade",force: :cascade do |t|
+    t.decimal "score",precision:8,scale:2,default:0.0
+    t.text     "content",  limit: 65535
+    t.integer  "product_id",limit:4
+    t.integer  "user_id",limit:4
+  end
 
   create_table "settings", force: :cascade do |t|
     t.string "key",        limit: 255
@@ -313,8 +337,17 @@ ActiveRecord::Schema.define(version: 20150519173350) do
     t.string   "last_name",       limit: 255
     t.string   "email_address",   limit: 255
     t.string   "password_digest", limit: 255
+    t.integer  "grade_num", limit:4, default:0
+    t.decimal  "grade_score", precision:8, scale:2, default:0.0
+    t.integer  "profile_id",     limit:4
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.string  "label",limit: 255
+    t.string  "nicename",limit:255
+    t.text    "modules",limit: 65535
   end
 
   add_index "users", ["email_address"], name: "index_users_on_email_address", using: :btree

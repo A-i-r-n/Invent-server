@@ -1,4 +1,6 @@
 class Product < ActiveRecord::Base
+
+  belongs_to :seller
   # Validations
   validate { errors.add :base, :can_belong_to_root if parent && parent.parent }
 
@@ -9,7 +11,7 @@ class Product < ActiveRecord::Base
   belongs_to :parent, class_name: 'Product', foreign_key: 'parent_id'
 
   # All products which are not variants
-  scope :root, -> { where(parent_id: nil) }
+  scope :root, -> (vendor){ where(parent_id: nil,vendor: vendor) }
 
   # If a variant is created, the base product should be updated so that it doesn't have stock control enabled
   after_save do

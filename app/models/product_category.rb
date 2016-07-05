@@ -10,6 +10,8 @@ class ProductCategory < ActiveRecord::Base
 
   # self.table_name = 'shoppe_product_categories'
 
+  belongs_to :vendor
+
   # Attachments for this product category
   has_many :attachments, as: :parent, dependent: :destroy, class_name: 'Attachment'
 
@@ -23,6 +25,10 @@ class ProductCategory < ActiveRecord::Base
 
   # Root (no parent) product categories only
   scope :without_parent, -> { where(parent_id: nil) }
+
+  scope :root,->(vendor) {
+    where(vendor: vendor)
+  }
 
   # No descendants
   scope :except_descendants, ->(record) { where.not(id: (Array.new(record.descendants) << record).flatten) }
