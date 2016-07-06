@@ -1,5 +1,5 @@
 module Seller
-  class TaxRatesController < Seller::ApplicationController
+  class TaxRatesController < Seller::BaseController
     before_filter { @active_nav = :tax_rates }
     before_filter { params[:id] && @tax_rate = TaxRate.find(params[:id]) }
 

@@ -1,5 +1,5 @@
 module Seller
-  class CustomersController < Seller::ApplicationController
+  class CustomersController < Seller::BaseController
     before_filter { @active_nav = :customers }
     before_filter { params[:id] && @customer = Customer.find(params[:id]) }
 

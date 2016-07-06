@@ -1,5 +1,5 @@
 module Admin
-  class DeliveryServicesController < Admin::ApplicationController
+  class DeliveryServicesController < Admin::BaseController
     before_filter { @active_nav = :delivery_services }
     before_filter { params[:id] && @delivery_service = DeliveryService.find(params[:id]) }
 

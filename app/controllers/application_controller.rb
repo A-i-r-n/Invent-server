@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  # before_filter :login_required
+  include ::LoginSystem
 
 
   rescue_from ActiveRecord::DeleteRestrictionError do |e|
@@ -14,24 +14,6 @@ class ApplicationController < ActionController::Base
   end
 
   private
-
-  def login_required
-    redirect_to login_path unless logged_in?
-  end
-
-  def logged_in?
-    current_user.is_a?(User)
-  end
-
-  def current_user
-    @current_user ||= login_from_session || login_with_demo_mode || :false
-  end
-
-  def login_from_session
-    if session[:shoppe_user_id]
-      @user = User.find_by_id(session[:shoppe_user_id])
-    end
-  end
 
   def login_with_demo_mode
     @user = User.first if Shoppe.settings.demo_mode?

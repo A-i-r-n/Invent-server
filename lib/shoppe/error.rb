@@ -12,6 +12,10 @@ module Shoppe
       @options[:message]
     end
 
+    def code
+      @options[:code]
+    end
+
     attr_reader :options
   end
 end

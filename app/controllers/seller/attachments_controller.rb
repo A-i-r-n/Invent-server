@@ -1,5 +1,5 @@
 module Seller
-  class AttachmentsController < Seller::ApplicationController
+  class AttachmentsController < Seller::BaseController
     def destroy
       @attachment = Attachment.find_by!(token: params[:id])
       @attachment.destroy

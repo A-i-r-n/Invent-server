@@ -1,5 +1,5 @@
 module Seller
-  class CountriesController < Seller::ApplicationController
+  class CountriesController < Seller::BaseController
     before_filter { @active_nav = :countries }
     before_filter { params[:id] && @country = Country.find(params[:id]) }
 

@@ -1,5 +1,5 @@
 module Admin
-  class CustomersController < Admin::ApplicationController
+  class CustomersController < Admin::BaseController
     before_filter { @active_nav = :customers }
     before_filter { params[:id] && @customer = Customer.find(params[:id]) }
 

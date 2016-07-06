@@ -1,5 +1,5 @@
 module Admin
-  class UsersController < Admin::ApplicationController
+  class UsersController < Admin::BaseController
     before_filter { @active_nav = :users }
     before_filter { params[:id] && @user = User.find(params[:id]) }
     before_filter(only: [:create, :update, :destroy]) do

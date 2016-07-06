@@ -1,5 +1,5 @@
 module Admin
-  class TaxRatesController < Admin::ApplicationController
+  class TaxRatesController < Admin::BaseController
     before_filter { @active_nav = :tax_rates }
     before_filter { params[:id] && @tax_rate = TaxRate.find(params[:id]) }
 

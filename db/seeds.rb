@@ -12,13 +12,13 @@ customer_profile = Profile.create(label: 'customer', nicename: 'customer',
 
 
 
-User.create(email_address: 'admin', password: '123456', password_confirmation: '123456', first_name: 'Default', last_name: 'Admin')
+User.create(login: 'admin', password: '123456',verify_password:'123456')
 
 vendor = Vendor.create(name:"vendor",grade_num:0,grade_score:0.0)
-User.create(email_address: 'vendor', password: '123456', password_confirmation: '123456', first_name: 'Default', last_name: 'vendor',profile: vendor_profile,vendor: vendor)
+User.create(login: 'vendor', password: '123456',verify_password:'123456',profile: vendor_profile,vendor: vendor)
 
 customer = Customer.create(first_name:"customer",last_name:"customer",company:"company",email:"948993066@qq.com",mobile:"18868945291")
-User.create(email_address: 'customer', password: '123456', password_confirmation: '123456', first_name: 'Default', last_name: 'customer',profile: customer_profile,customer: customer)
+User.create(login: 'customer', password: '123456',verify_password:'123456',profile: customer_profile,customer: customer)
 
 
 # tax rates

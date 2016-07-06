@@ -1,5 +1,5 @@
 module Admin
-  class OrdersController < Admin::ApplicationController
+  class OrdersController < Admin::BaseController
     before_filter { @active_nav = :orders }
     before_filter { params[:id] && @order = Order.find(params[:id]) }
 

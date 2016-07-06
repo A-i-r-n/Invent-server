@@ -1,5 +1,5 @@
 module Admin
-  class AttachmentsController < Admin::ApplicationController
+  class AttachmentsController < Admin::BaseController
     def destroy
       @attachment = Attachment.find_by!(token: params[:id])
       @attachment.destroy

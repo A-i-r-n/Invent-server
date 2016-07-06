@@ -13,6 +13,8 @@ require 'nifty/key_value_store'
 require 'nifty/dialog'
 require 'carrierwave'
 
+require 'publify_login_system'
+
 module Shoppe
   class << self
     # The path to the root of the Shoppe application

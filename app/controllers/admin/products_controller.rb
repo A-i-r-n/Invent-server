@@ -1,5 +1,5 @@
 module Admin
-  class ProductsController < Admin::ApplicationController
+  class ProductsController < Admin::BaseController
     before_filter { @active_nav = :products }
     before_filter { params[:id] && @product = Product.root.find(params[:id]) }
 

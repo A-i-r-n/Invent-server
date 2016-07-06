@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     resources :products,only:[:index]
+    resources :vendors,only:[:index]
   end
 
   namespace :seller do
@@ -50,14 +51,20 @@ Rails.application.routes.draw do
     get 'settings' => 'settings#edit'
     post 'settings' => 'settings#update'
 
-    get 'login' => 'sessions#new'
-    post 'login' => 'sessions#create'
+    resources :accounts do
+      collection do
+        get 'login'
+        post 'login'
+        get 'signup'
+        post 'signup'
+        get 'logout'
+      end
+    end
 
     get 'login/reset' => 'password_resets#new'
     post 'login/reset' => 'password_resets#create'
 
-    delete 'logout' => 'sessions#destroy'
-    root 'dashboard#home'
+    root 'dashboard#index'
   end
 
   namespace :admin do
@@ -105,13 +112,19 @@ Rails.application.routes.draw do
     get 'settings' => 'settings#edit'
     post 'settings' => 'settings#update'
 
-    get 'login' => 'sessions#new'
-    post 'login' => 'sessions#create'
+    resources :accounts do
+      collection do
+        get 'login'
+        post 'login'
+        get 'signup'
+        post 'signup'
+        get 'logout'
+      end
+    end
 
     get 'login/reset' => 'password_resets#new'
     post 'login/reset' => 'password_resets#create'
 
-    delete 'logout' => 'sessions#destroy'
-    root 'dashboard#home'
+    root 'dashboard#index'
   end
 end

@@ -1,6 +1,6 @@
 require 'globalize'
 module Seller
-  class ProductCategoryLocalisationsController < Seller::ApplicationController
+  class ProductCategoryLocalisationsController < Seller::BaseController
     before_filter { @active_nav = :product_categories }
     before_filter { @product_category = ProductCategory.find(params[:product_category_id]) }
     before_filter { params[:id] && @localisation = @product_category.translations.find(params[:id]) }

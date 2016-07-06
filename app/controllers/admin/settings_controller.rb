@@ -1,5 +1,5 @@
 module Admin
-  class SettingsController < Admin::ApplicationController
+  class SettingsController < Admin::BaseController
     before_filter { @active_nav = :settings }
 
     def update

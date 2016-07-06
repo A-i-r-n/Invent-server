@@ -1,5 +1,5 @@
 module Admin
-  class CountriesController < Admin::ApplicationController
+  class CountriesController < Admin::BaseController
     before_filter { @active_nav = :countries }
     before_filter { params[:id] && @country = Country.find(params[:id]) }
 

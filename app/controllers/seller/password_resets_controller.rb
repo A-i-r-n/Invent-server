@@ -1,5 +1,5 @@
 module Seller
-  class PasswordResetsController < Seller::ApplicationController
+  class PasswordResetsController < Seller::BaseController
     layout 'sub'
     skip_before_filter :login_required
 

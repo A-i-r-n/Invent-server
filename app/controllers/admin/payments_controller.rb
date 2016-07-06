@@ -1,5 +1,5 @@
 module Admin
-  class PaymentsController < Admin::ApplicationController
+  class PaymentsController < Admin::BaseController
     before_filter { @order = Order.find(params[:order_id]) }
     before_filter { params[:id] && @payment = @order.payments.find(params[:id]) }
 

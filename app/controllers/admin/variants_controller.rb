@@ -1,5 +1,5 @@
 module Admin
-  class VariantsController <  Admin::ApplicationController
+  class VariantsController <  Admin::BaseController
     before_filter { @active_nav = :products }
     before_filter { @product = Product.find(params[:product_id]) }
     before_filter { params[:id] && @variant = @product.variants.find(params[:id]) }

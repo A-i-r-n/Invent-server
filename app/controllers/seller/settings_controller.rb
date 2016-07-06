@@ -1,5 +1,5 @@
 module Seller
-  class SettingsController < Seller::ApplicationController
+  class SettingsController < Seller::BaseController
     before_filter { @active_nav = :settings }
 
     def update

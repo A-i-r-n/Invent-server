@@ -13,13 +13,13 @@
       %header.logo
         %h1= link_to "Shoppe", seller_root_path
         %p v#{Shoppe::VERSION}
-      %p.logged= t('.logged_in_as', user_name: current_user.full_name)
+      %p.logged= t('.logged_in_as', user_name: current_user.login)
 
       %ul
         - for item in Shoppe::NavigationManager.find(:seller_primary).items
           %li= navigation_manager_link item
 
-        %li= link_to t('.logout'), [:seller,:logout], :method => :delete
+        %li= link_to t('.logout'), url_for(action: :logout,controller: :accounts)
 
     %header.main
       = yield :header

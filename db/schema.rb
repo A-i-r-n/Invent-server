@@ -333,10 +333,30 @@ ActiveRecord::Schema.define(version: 20160704054721) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "first_name",      limit: 255
-    t.string   "last_name",       limit: 255
-    t.string   "email_address",   limit: 255
-    t.string   "password_digest", limit: 255
+    t.string   "login",                     limit: 255
+    t.string   "password",                  limit: 255
+    t.string   "verify_password",           limit: 255
+    t.string   "idcard",                    limit: 255,                  default: ""
+    t.string   "email",                     limit: 255,                  default: ""
+    t.string   "name",                      limit: 255,                  default: ""
+    t.string   "real_name",                 limit: 255,                  default: ""
+    t.integer  "sex",                       limit: 1,                    default: 0
+    t.string   "channel",                   limit: 255
+    t.string   "phone",                     limit: 255
+    t.string   "birthday",                  limit: 255,                  default: ""
+    t.string   "location",                  limit: 255,                  default: ""
+    t.string   "slogan",                    limit: 255,                  default: ""
+    t.string   "company",                   limit: 255,                  default: ""
+    t.string   "job",                       limit: 255,                  default: ""
+    t.string   "remember_token",            limit: 255
+    t.string   "remember_token_last",            limit: 255
+    t.datetime "remember_token_expires_at"
+    t.string   "text_filter_id",            limit: 255,                  default: "1"
+    t.string   "state",                     limit: 255,                  default: "active"
+    t.datetime "last_connection"
+    t.text     "settings",                  limit: 65535
+    t.float    "latitude",                  limit: 24, default: 0
+    t.float    "longitude",                 limit: 24, default: 0
     t.integer  "grade_num", limit:4, default:0
     t.decimal  "grade_score", precision:8, scale:2, default:0.0
     t.integer  "profile_id",     limit:4
@@ -350,6 +370,6 @@ ActiveRecord::Schema.define(version: 20160704054721) do
     t.text    "modules",limit: 65535
   end
 
-  add_index "users", ["email_address"], name: "index_users_on_email_address", using: :btree
+  add_index "users", ["login"], name: "index_users_on_login", using: :btree
 
 end

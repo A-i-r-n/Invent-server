@@ -1,6 +1,6 @@
 module Seller
-  class DashboardController < Seller::ApplicationController
-    def home
+  class DashboardController < Seller::BaseController
+    def index
       redirect_to [:seller,:orders]
     end
   end

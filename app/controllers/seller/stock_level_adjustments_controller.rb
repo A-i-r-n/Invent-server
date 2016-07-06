@@ -1,5 +1,5 @@
 module Seller
-  class StockLevelAdjustmentsController < Seller::ApplicationController
+  class StockLevelAdjustmentsController < Seller::BaseController
     SUITABLE_OBJECTS = ['Product'].freeze
     before_filter do
       fail Shoppe::Error, t('shoppe.stock_level_adjustments.invalid_item_type', suitable_objects:  SUITABLE_OBJECTS.to_sentence) unless SUITABLE_OBJECTS.include?(params[:item_type])

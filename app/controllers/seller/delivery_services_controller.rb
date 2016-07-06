@@ -1,5 +1,5 @@
 module Seller
-  class DeliveryServicesController < Seller::ApplicationController
+  class DeliveryServicesController < Seller::BaseController
     before_filter { @active_nav = :delivery_services }
     before_filter { params[:id] && @delivery_service = DeliveryService.find(params[:id]) }
 

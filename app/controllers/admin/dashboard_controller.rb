@@ -1,6 +1,6 @@
 module Admin
-  class DashboardController < Admin::ApplicationController
-    def home
+  class DashboardController < Admin::BaseController
+    def index
       redirect_to [:admin,:orders]
     end
   end

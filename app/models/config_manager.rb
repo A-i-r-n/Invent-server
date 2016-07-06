@@ -15,7 +15,6 @@ module ConfigManager
       item.ruby_type = type
       item.default = default
       fields[name.to_s] = item
-      self.settings ||= {}
       add_setting_accessor(item)
     end
 
@@ -45,6 +44,7 @@ module ConfigManager
 
     def add_setting_writer(item)
       send(:define_method, "#{item.name}=") do |newvalue|
+        self.settings ||= {}
         retval = settings[item.name] = canonicalize(item.name, newvalue)
         retval
       end

@@ -1,5 +1,5 @@
 module Admin
-  class PasswordResetsController < Admin::ApplicationController
+  class PasswordResetsController < Admin::BaseController
     layout 'sub'
     skip_before_filter :login_required
 
