@@ -2,8 +2,17 @@ Rails.application.routes.draw do
   root "products#index"
 
   namespace :api do
-    resources :products,only:[:index]
-    resources :vendors,only:[:index]
+    resources :products,only:[:index,:show] do
+      collection do
+        get ':id/images',action: 'images'
+      end
+    end
+    resources :vendors,only:[:index] do
+      resources :product_categories
+    end
+    resources :product_categories do
+      resources :products
+    end
   end
 
   namespace :seller do

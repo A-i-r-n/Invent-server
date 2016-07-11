@@ -807,3 +807,9 @@ zh-CN:
         goto: "跳转"
         logged_in_as: "Logged in as %{user_name}"
         logout: "注销"
+  date:
+    formats:
+      default: "%Y-%m-%d"
+  time:
+    formats:
+      default: "%Y-%m-%d %H:%M"

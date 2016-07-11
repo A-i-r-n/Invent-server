@@ -32,6 +32,7 @@ gem 'yard-activerecord', '~> 0'
 gem 'markdown', '~> 1.0'
 
 gem 'jbuilder', '~> 2.0'
+gem 'yajl-ruby'
 
 
 group :development, :test do

@@ -15,6 +15,10 @@ require 'carrierwave'
 
 require 'publify_login_system'
 
+require 'multi_json'
+MultiJson.use :yajl
+# Jbuilder.key_format camelize: :lower
+
 module Shoppe
   class << self
     # The path to the root of the Shoppe application
