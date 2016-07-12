@@ -65,18 +65,16 @@ module Api
         end
       end
 
-      self.current_user = User.authenticate(params[:user][:login], params[:user][:password])
+      self.current_user = User.customer.authenticate(params[:login], params[:password])
       if logged_in?
         successful_login
         respond_to do |format|
           format.json { render 'user' }
         end
       else
-        @login = params[:user][:login]
-        if session[:times].nil?
-          session[:times]=0;
-        end
-        session[:times]+=1
+        @login = params[:login]
+        session[:times] ||= 0
+        session[:times] += 1
         return(render json: {:code=>1,msg:{error:"用户名或密码错误!"}}) #t('accounts.login.error'))
       end
     end
@@ -198,19 +196,18 @@ module Api
     def successful_login
       session[:user_id] = current_user.id
       @user = current_user
-      # if params[:remember_me] == '1'
-      current_user.remember_me
-      # unless current_user.remember_token?
-      cookies[:auth_token] = {
-          value: current_user.remember_token,
-          expires: current_user.remember_token_expires_at,
-          httponly: true # Help prevent auth_token theft.
-      }
-      # end
+      if params[:remember_me] == '1'
+        current_user.remember_me unless current_user.remember_token?
+        cookies[:auth_token] = {
+            value: current_user.remember_token,
+            expires: current_user.remember_token_expires_at,
+            httponly: true # Help prevent auth_token theft.
+        }
+      end
       # add_to_cookies(:publify_user_profile, current_user.profile_label, '/')
 
       current_user.update_connection_time
-      flash[:success] = t('accounts.login.success')
+      # flash[:success] = t('accounts.login.success')
       # redirect_back_or_default
     end
 

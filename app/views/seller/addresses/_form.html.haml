@@ -1,4 +1,4 @@
-= form_for @address, url: [:seller,@customer, @address] do |f|
+= form_for @address, url: [:seller,@customer, @address],:html => {:class => 'orderForm newOrder'} do |f|
   = f.error_messages
 
   = field_set_tag t('shoppe.addresses.address_information') do
@@ -25,6 +25,16 @@
       %dl.third
         %dt= f.label :country_id
         %dd= f.collection_select :country_id, Country.ordered, :id, :name, {include_blank: true}, {class: 'chosen', data: { placeholder: t('shoppe.orders.select_country')}}
+    .splitContainer
+      %dl.third
+        %dt= f.label :pid
+        %dd= f.collection_select :pid, Area.root, :id, :name, {include_blank: true}, {class: 'chosen', data: { placeholder: t('shoppe.orders.select_country')}}
+      %dl.third
+        %dt= f.label :cid
+        %dd= f.collection_select :cid, Area.children(@address.pid), :id, :name, {include_blank: true}, {class: 'chosen', data: { placeholder: t('shoppe.orders.select_country')}}
+      %dl.third
+        %dt= f.label :sid
+        %dd= f.collection_select :sid, Area.children(@address.cid), :id, :name, {include_blank: true}, {class: 'chosen', data: { placeholder: t('shoppe.orders.select_country')}}
 
   %p.submit
     - unless @address.new_record?

@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20160704054721) do
     t.string   "address4",     limit: 255
     t.string   "postcode",     limit: 255
     t.integer  "country_id",   limit: 4
+    t.integer  "area_id",   limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -50,6 +51,18 @@ ActiveRecord::Schema.define(version: 20160704054721) do
     t.string  "tld",       limit: 255
     t.string  "currency",  limit: 255
     t.boolean "eu_member",             default: false
+  end
+
+  create_table "areas", force: :cascade do |t|
+    t.string  "name",      limit: 255
+    t.string  "code2",     limit: 255
+    t.string  "code3",     limit: 255
+    t.string  "continent", limit: 255
+    t.string  "currency",  limit: 255
+    t.boolean "eu_member",             default: false
+    t.integer "parent_id", limit: 4
+    t.integer  "lft",                          limit: 4
+    t.integer  "rgt",                          limit: 4
   end
 
   create_table "customers", force: :cascade do |t|

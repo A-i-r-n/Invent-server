@@ -16,7 +16,7 @@ module Api
       @products_paged = Product.includes(:translations, :stock_level_adjustments, :product_categories, :variants)
                             .order(:name)
                             .where(conditions)
-      @products = @products_paged.page(params[:page])
+      @products = @products_paged.page(params[:page]||=1)
       # .group_by(&:product_category)
       # .sort_by { |cat, _pro| cat.name }
 

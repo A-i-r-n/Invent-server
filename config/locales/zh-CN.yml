@@ -53,6 +53,10 @@ zh-CN:
         address4: "地址 4"
         postcode: "邮政编码"
         country: "地区"
+        cid: "地区"
+        pid: "省市"
+        cid: "城市"
+        sid: "街道"
       order:
         billing_address1: "账单地址1"
         billing_address3: "账单地址3"

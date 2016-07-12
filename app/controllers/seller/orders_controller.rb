@@ -16,7 +16,7 @@ module Seller
     def create
       Order.transaction do
         @order = Order.new(safe_params)
-        @order = current_user.vendor
+        @order.vendor = current_user.vendor
         @order.status = 'confirming'
 
         if !safe_params['customer_id'].blank?

@@ -19,7 +19,7 @@ module Seller
 
     def create
       @customer = Customer.new(safe_params)
-      @customer.vendor = current_user.vendor
+      # @customer.vendor = current_user.vendor
       if @customer.save
         redirect_to [:seller,@customer], flash: { notice: t('shoppe.customers.created_successfully') }
       else

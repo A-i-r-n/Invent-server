@@ -1,4 +1,5 @@
-  class Address < ActiveRecord::Base
+class Address < ActiveRecord::Base
+
     # An array of all the available types for an address
     TYPES = %w(billing delivery).freeze
 
@@ -27,6 +28,7 @@
     validates :address4, presence: true
     validates :postcode, presence: true
     validates :country, presence: true
+    validates :area_id, presence: true
 
     # All addresses ordered by their id asending
     scope :ordered, -> { order(id: :desc) }
@@ -34,7 +36,40 @@
     scope :billing, -> { where(address_type: 'billing') }
     scope :delivery, -> { where(address_type: 'delivery') }
 
-    def full_address
-      [address1, address2, address3, address4, postcode, country.try(:name)].join(', ')
+    attr_accessor :pid,:cid,:sid
+
+    before_validation do
+        self.area_id = ([pid, cid, sid] - [nil,""]).last
     end
-  end
+
+    after_find :set_area_id
+
+    def set_area_id
+        area = self.area_id ?  Area.find(self.area_id) : nil
+        i = 0
+        p = area
+        arr = []
+        while i < 3
+            break if p.nil?
+            arr << p.id
+            p = p.parent
+            i+=1
+        end
+        arr =  arr.reverse
+        (3 - arr.count).times { arr << nil if arr.count < 3 }
+        self.pid,self.cid,self.sid = arr
+    end
+
+    def display_name
+        areas = Area.where(id:[self.pid, self.cid,self.sid])
+        str = ''
+        areas.each do |area|
+            str << "#{area.name} "
+        end
+        str
+    end
+
+    def full_address
+        [address1, address2, address3, address4, postcode, country.try(:name)].join(', ')
+    end
+end

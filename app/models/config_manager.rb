@@ -25,11 +25,12 @@ module ConfigManager
     private
 
     def add_setting_accessor(item)
-      add_setting_reader(item)
       add_setting_writer(item)
+      add_setting_reader(item)
     end
 
     def add_setting_reader(item)
+
       send(:define_method, item.name) do
         raw_value = settings[item.name]
         raw_value.nil? ? item.default : raw_value
@@ -44,7 +45,7 @@ module ConfigManager
 
     def add_setting_writer(item)
       send(:define_method, "#{item.name}=") do |newvalue|
-        self.settings ||= {}
+        settings ||= {}
         retval = settings[item.name] = canonicalize(item.name, newvalue)
         retval
       end

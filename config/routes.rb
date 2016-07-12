@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   root "products#index"
 
+  # match 'api/captcha' => 'easy_captcha/captcha#captcha', :via => :get
+
+  get 'api/captcha',to: 'easy_captcha/captcha#captcha'
+
   namespace :api do
     resources :products,only:[:index,:show] do
       collection do
@@ -12,6 +16,12 @@ Rails.application.routes.draw do
     end
     resources :product_categories do
       resources :products
+    end
+    resources :users do
+      collection do
+        post 'login'
+        get 'info'
+      end
     end
   end
 
