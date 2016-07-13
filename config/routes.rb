@@ -14,13 +14,19 @@ Rails.application.routes.draw do
     resources :vendors,only:[:index] do
       resources :product_categories
     end
-    resources :product_categories do
-      resources :products
-    end
-    resources :users do
+
+    resources :accounts,path: 'account' do
       collection do
         post 'login'
         get 'info'
+      end
+    end
+    resources :product_categories do
+      resources :products
+    end
+    resources :users,path:'user' do
+      collection do
+        get 'addresses'
       end
     end
   end

@@ -3,6 +3,8 @@ module Api
 
     # before_filter :login_required
 
+    protect_from_forgery with: :exception, only: [:delete] #[:edit, :update, :delete]
+
     private
 
     def login_with_demo_mode

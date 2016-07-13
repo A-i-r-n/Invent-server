@@ -37,7 +37,6 @@ module Seller
     end
 
     def update
-      puts "#{safe_params}----aaa---"
       @address.update_attributes(safe_params)
       if !request.xhr? && @address.save
         redirect_to [:seller,@customer], flash: { notice: t('shoppe.addresses.updated_successfully') }

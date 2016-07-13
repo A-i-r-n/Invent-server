@@ -60,7 +60,7 @@ class Address < ActiveRecord::Base
         self.pid,self.cid,self.sid = arr
     end
 
-    def display_name
+    def full_name
         areas = Area.where(id:[self.pid, self.cid,self.sid])
         str = ''
         areas.each do |area|

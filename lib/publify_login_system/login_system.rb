@@ -10,7 +10,7 @@ module LoginSystem
   end
 
   def current_user=(new_user)
-    session[:user] = (new_user.nil? || new_user.is_a?(Symbol)) ? nil : new_user.id
+    session[:user_id] = (new_user.nil? || new_user.is_a?(Symbol)) ? nil : new_user.id
     @current_user = new_user
   end
 
@@ -25,6 +25,7 @@ module LoginSystem
   end
 
   def login_required
+    puts "#{authorized?}---#{session[:user_id]}--"
     authorized? || access_denied
   end
 
@@ -48,8 +49,8 @@ module LoginSystem
         render text: "Could't authenticate you", status: '401 Unauthorized'
       end
       format.json do
-        @msg = {code:2000,message:"2000 Unauthorized"}
-        render 'shared/error'
+        # @msg = {code:1000,message:"1000 Unauthorized"}
+        render json: {code: 1000, data:{msg: "1000 Unauthorized"}}
       end
     end
     false
@@ -64,7 +65,7 @@ module LoginSystem
   end
 
   def login_from_session
-    self.current_user = User.find_by_id(session[:user]) if session[:user]
+    self.current_user = User.find_by_id(session[:user_id]) if session[:user_id]
   end
 
   def login_from_basic_auth

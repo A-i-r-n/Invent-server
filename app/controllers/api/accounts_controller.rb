@@ -11,23 +11,18 @@ module Api
         format.json {render "user"}
       end
     end
+
     def info
       @user = current_user
-      respond_to do |format|
-        format.json {render "user"}
-      end
-    end
-
-    def update_info
-      @user = current_user
-      @user.update_attributes(params.require(:user).permit!)
-
-      respond_to do |format|
+      if request.post?
+        @user.update_attributes(params.require(:user).permit!)
         if @user.save
-          format.json { render "user" }
+          render "user"
         else
-          format.json { render json:{code:-1,msg:{error:"#{@user.errors.full_message[0]}"}}}
+          render json:{code: 1 ,msg: {error:"#{@user.errors.full_message[0]}"}}
         end
+      else
+        render "user"
       end
     end
 
@@ -68,9 +63,7 @@ module Api
       self.current_user = User.customer.authenticate(params[:login], params[:password])
       if logged_in?
         successful_login
-        respond_to do |format|
-          format.json { render 'user' }
-        end
+        render 'user'
       else
         @login = params[:login]
         session[:times] ||= 0
@@ -99,9 +92,7 @@ module Api
       if @user.save
         self.current_user = @user
         session[:user_id] = @user.id
-        respond_to do |format|
-          format.json {render 'user'}
-        end
+        render 'user'
       else
         render json:{code: 1, msg:{error:"#{@user.errors.full_messages[0]}"}}
       end
@@ -141,14 +132,12 @@ module Api
 
       return(render json: {code: 1,msg:{errors:"两次输入密码不一致"}}) if params[:password] !=params[:confirm]
 
-      respond_to do |format|
-        if @user.update_password(params[:password])
-          format.json {render 'user'}
-        else
-          format.json {render json:{code: 1,msg:{errors:"#{@user.errors.full_messages[0]}"}}}
-        end
-
+      if @user.update_password(params[:password])
+        render 'user'
+      else
+        render json:{code: 1,msg:{errors:"#{@user.errors.full_messages[0]}"}}
       end
+
 
 
       # return unless request.post?
@@ -194,6 +183,8 @@ module Api
     # end
 
     def successful_login
+
+      puts "#{session[:user_id]}-----------"
       session[:user_id] = current_user.id
       @user = current_user
       if params[:remember_me] == '1'
