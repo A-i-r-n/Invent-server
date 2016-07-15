@@ -26,6 +26,7 @@ Shoppe::NavigationManager.build(:seller_primary) do
   add_item :products,{namespace: :seller}
   add_item :product_categories,{namespace: :seller}
   add_item :delivery_services,{namespace: :seller}
+  add_item :carriage_templates,{namespace: :seller}
   add_item :tax_rates,{namespace: :seller}
   add_item :users,{namespace: :seller}
   add_item :countries,{namespace: :seller}

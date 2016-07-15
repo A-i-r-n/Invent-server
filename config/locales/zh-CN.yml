@@ -160,7 +160,6 @@ zh-CN:
               too_high_quantity: "数量大于仓库数量"
         payment:
           refund_failed: "归还必须小于支付 (%{refundable_amount})"
-
   will_paginate:
     next_label: "下一页 &#8594;"
     page_gap: "&hellip;"
@@ -761,6 +760,7 @@ zh-CN:
         products: "商品"
         product_categories: "商品分类"
         delivery_services: "快递"
+        carriage_templates: "运费模板"
         tax_rates: "税额"
         users: "用户"
         countries: "国籍"
@@ -817,3 +817,4 @@ zh-CN:
   time:
     formats:
       default: "%Y-%m-%d %H:%M"
+      long: "%Y-%m-%d %H:%M"

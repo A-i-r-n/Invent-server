@@ -108,6 +108,22 @@ ActiveRecord::Schema.define(version: 20160704054721) do
 
   add_index "delivery_services", ["active"], name: "index_delivery_services_on_active", using: :btree
 
+  create_table "carriage_templates", force: :cascade do |t|
+    t.string   "name",         limit: 255
+    t.integer  "valuation",   limit: 4
+    t.boolean  "active",                   default: true
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "carriage_template_prices", force: :cascade do |t|
+    t.decimal  "start",                       precision: 8, scale: 2
+    t.decimal  "plus",                        precision: 8, scale: 2
+    t.decimal "postage",                      precision: 8, scale: 2
+    t.decimal "postageplus",                  precision: 8, scale: 2
+    t.text    "express_areas",                     limit: 65535
+  end
+
   create_table "nifty_key_value_store", force: :cascade do |t|
     t.integer "parent_id",   limit: 4
     t.string  "parent_type", limit: 255

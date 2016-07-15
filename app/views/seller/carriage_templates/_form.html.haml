@@ -1,0 +1,100 @@
+= form_for [:seller,@carriage_template] do |f|
+  = f.error_messages
+  = field_set_tag t('shoppe.delivery_services.details') do
+    .splitContainer
+      %dl.half
+        %dt= f.label :name, t('shoppe.delivery_services.name')
+        %dd= f.text_field :name, class: 'focus text'
+      -#%dl.half
+      -#  %dt= f.label :code, t('shoppe.delivery_services.code')
+      -#  %dd= f.text_field :code, class: 'text'
+    .splitContainer
+      %dl.half
+        %dt= f.label :active, t('shoppe.delivery_services.active')
+        %dd.checkbox
+          = f.check_box :active
+          = f.label :active,  t('shoppe.delivery_services.active_info')
+  = field_set_tag t('shoppe.products.attributes') do
+    .margin
+      %table.productAttributes
+        %thead
+          %tr
+            %td= t('shoppe.products.name')
+            %td= t('shoppe.products.value')
+            %td.searchable= t('shoppe.products.searchable?')
+            %td.searchable= t('shoppe.products.public?')
+            %td.remove= t('shoppe.products.remove')
+            %td
+        %tbody
+          %tr.template{:style => 'display:none;'}
+            %td
+              %p{style: 'float:left',class:"selected-text"} 未选择城市
+              %span.float-right{:class =>'areas-dialog'}
+                = link_to t('shoppe.products.edit') , "javascript:void(0)", :class => 'edit', :rel => 'dialog', :data => { :dialog_behavior => 'areasSelect'}
+                -#:dialog_width => 700,
+                %input{type:"hidden",value:""}
+            %td= text_field_tag 'product[product_attributes_array][][value]', '', :placeholder => t('shoppe.products.value')
+            %td.searchable= check_box_tag 'product[product_attributes_array][][searchable]', '1'
+            %td.searchable= check_box_tag 'product[product_attributes_array][][public]', '1'
+            %td.remove= link_to t('shoppe.remove') , '#', :class => 'button button-mini purple'
+            %td.handle
+          - for price in @carriage_template.carriage_template_prices
+            %tr
+              %td= text_field_tag 'product[product_attributes_array][][key]', price.name, :placeholder => t('shoppe.products.name')
+              -#%td= text_field_tag 'product[product_attributes_array][][value]', attribute.value, :placeholder => t('shoppe.products.value')
+              -#%td.searchable= check_box_tag 'product[product_attributes_array][][searchable]', '1', attribute.searchable?
+              -#%td.searchable= check_box_tag 'product[product_attributes_array][][public]', '1', attribute.public?
+              -#%td.remove= link_to t("shoppe.remove"), '#', :class => 'button button-mini purple'
+              -#%td.handle
+      %p.addAttribute= link_to t('shoppe.products.add_attribute') , '#', :data => {:behavior => 'addAttributeToAttributesTable'}, :class => 'button button-mini green'
+      -#%dl.half
+      -#  %dt= f.label :default, t('shoppe.delivery_services.default')
+      -#  %dd.checkbox
+      -#    = f.check_box :default
+      -#    = f.label :default,  t('shoppe.delivery_services.default_info')
+
+  -#= field_set_tag  t('shoppe.delivery_services.courier') do
+  -#  .splitContainer
+  -#    %dl.half
+  -#      %dt= f.label :courier,  t('shoppe.delivery_services.courier_name')
+  -#      %dd= f.text_field :courier, class: 'text'
+  -#    %dl.half
+  -#      %dt= f.label :tracking_url,  t('shoppe.delivery_services.tracking_url')
+  -#      %dd
+  -#        = f.text_field :tracking_url, class: 'text'
+  -#        %p.help=  t('shoppe.delivery_services.tracking_url_help_html')
+
+  -#%p.submit
+  -#  - unless @delivery_service.new_record?
+  -#    %span.right= link_to  t('shoppe.delete'), [:seller,@delivery_service], class: 'button purple', method: :delete, data: {confirm: t('shoppe.delivery_services.delete_confirmation')}
+  -#  = f.submit t('shoppe.submit'), class: 'button green'
+  -#  = link_to t('shoppe.cancel'), [:seller,:delivery_services], class: 'button'
+%div.dialog-areas{style:"display:none"}
+  %ul
+    -#%li
+    -#  -#%div.ecity.clearfix
+    -#  -#  %div.ecity.gcity
+    -#  -#    %span.group-label
+    -#  -#      %input{type:"checkbox"}
+    -#  -#      %label "uu"
+    -#  %div.province-list
+        -#- for ecity in Area.root
+    - Area.root.each_with_index do |ecity,index|
+      -if index%4 == 0
+        %li
+          %div.province-list
+          %div.ecity
+      %span.gareas
+        %input{type:"checkbox"}
+        %lable= ecity.name
+        %span.check_num
+        =image_tag('drop_arrow.gif')
+      %div.citys
+        - for city in Area.children(ecity.id)
+          %span.areas
+            %input{type:"checkbox",value: city.id}
+            %label=city.name
+        %p{style: "text-align:right;"}
+          %input{type: "button",value:"关闭"}
+  %li
+    %input{type: "button",value:"确认",class:"confirm"}

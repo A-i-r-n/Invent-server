@@ -60,6 +60,19 @@ class Address < ActiveRecord::Base
         self.pid,self.cid,self.sid = arr
     end
 
+    def province
+        @p ||= Area.find(self.pid)
+    end
+
+    def city
+        @c ||= Area.find(self.cid)
+    end
+
+    def street
+        @s ||= Area.find(self.sid)
+    end
+
+
     def full_name
         areas = Area.where(id:[self.pid, self.cid,self.sid])
         str = ''

@@ -68,6 +68,9 @@ Rails.application.routes.draw do
     resources :delivery_services do
       resources :delivery_service_prices
     end
+
+    resources :carriage_templates
+
     resources :tax_rates
     resources :users
     resources :countries
