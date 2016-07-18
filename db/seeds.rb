@@ -59,8 +59,16 @@ lorem = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
          culpa qui officia deserunt mollit anim id est laborum.'
+carriage_template = CarriageTemplate.new(name:"carriage_template")
 
-pro = Product.new(vendor: vendor,name: 'Yealink T20P', sku: 'YL-SIP-T20P', description: lorem, short_description: 'If cheap & cheerful is what you’re after, the Yealink T20P is what you’re looking for.', weight: 1.119, price: 54.99, cost_price: 44.99, tax_rate: tax_rate, featured: true)
+if carriage_template.save
+  carriage_template.carriage_template_prices.create(key:"carriage_template_price",start: 1, plus:1,postage: 1,postageplus: 1,
+                                           express_areas_ids:"2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
+                                           express_areas_names:"东城区,西城区,崇文区,宣武区,朝阳区,丰台区,石景山区,海淀区,门头沟区,房山区,通州区,顺义区,昌平区,大兴区,平谷区,怀柔区,密云县,延庆县")
+end
+
+
+pro = Product.new(carriage_template: carriage_template,vendor: vendor,name: 'Yealink T20P', sku: 'YL-SIP-T20P', description: lorem, short_description: 'If cheap & cheerful is what you’re after, the Yealink T20P is what you’re looking for.', weight: 1.119, price: 54.99, cost_price: 44.99, tax_rate: tax_rate, featured: true)
 pro.product_category_ids = cat1.id
 pro.default_image_file = get_file('t20p.jpg')
 if pro.save
@@ -73,7 +81,7 @@ if pro.save
   pro.product_attributes.create(key: 'Power over ethernet?', value: 'Yes', position: 1)
 end
 
-pro = Product.new(vendor: vendor,name: 'Yealink T22P', sku: 'YL-SIP-T22P', description: lorem, short_description: lorem, weight: 1.419, price: 64.99, cost_price: 56.99, tax_rate: tax_rate)
+pro = Product.new(carriage_template: carriage_template,vendor: vendor,name: 'Yealink T22P', sku: 'YL-SIP-T22P', description: lorem, short_description: lorem, weight: 1.419, price: 64.99, cost_price: 56.99, tax_rate: tax_rate)
 pro.product_category_ids = cat1.id
 pro.default_image_file = get_file('t22p.jpg')
 if pro.save
@@ -86,7 +94,7 @@ if pro.save
   pro.product_attributes.create(key: 'Power over ethernet?', value: 'Yes', position: 1)
 end
 
-pro = Product.new(vendor: vendor,name: 'Yealink T26P', sku: 'YL-SIP-T26P', description: lorem, short_description: lorem, weight: 2.23, price: 88.99, cost_price: 78.99, tax_rate: tax_rate)
+pro = Product.new(carriage_template: carriage_template,vendor: vendor,name: 'Yealink T26P', sku: 'YL-SIP-T26P', description: lorem, short_description: lorem, weight: 2.23, price: 88.99, cost_price: 78.99, tax_rate: tax_rate)
 pro.product_category_ids = cat1.id
 pro.default_image_file = get_file('t26p.jpg')
 if pro.save
@@ -99,7 +107,7 @@ if pro.save
   pro.product_attributes.create(key: 'Power over ethernet?', value: 'Yes', position: 1)
 end
 
-pro = Product.new(vendor: vendor,name: 'Yealink T46GN', sku: 'YL-SIP-T46GN', description: lorem, short_description: 'Colourful, sharp, fast & down right sexy. The Yealink T46P will make your scream', weight: 2.23, price: 149.99, cost_price: 139.99, tax_rate: tax_rate, featured: true)
+pro = Product.new(carriage_template: carriage_template,vendor: vendor,name: 'Yealink T46GN', sku: 'YL-SIP-T46GN', description: lorem, short_description: 'Colourful, sharp, fast & down right sexy. The Yealink T46P will make your scream', weight: 2.23, price: 149.99, cost_price: 139.99, tax_rate: tax_rate, featured: true)
 pro.product_category_ids = cat1.id
 pro.default_image_file = get_file('t46gn.jpg')
 if pro.save
@@ -112,7 +120,7 @@ if pro.save
   pro.product_attributes.create(key: 'Power over ethernet?', value: 'Yes', position: 1)
 end
 
-pro = Product.new(vendor: vendor,name: 'Snom 870', sku: 'SM-870', description: lorem, short_description: 'The perfect & beautiful VoIP phone for the discerning professional desk.', featured: true)
+pro = Product.new(carriage_template: carriage_template,vendor: vendor,name: 'Snom 870', sku: 'SM-870', description: lorem, short_description: 'The perfect & beautiful VoIP phone for the discerning professional desk.', featured: true)
 pro.product_category_ids = cat1.id
 pro.default_image_file = get_file('snom-870-grey.jpg')
 if pro.save
@@ -136,7 +144,7 @@ if pro.save
   end
 end
 
-pro = Product.new(vendor: vendor,name: 'Yealink Mono Headset', sku: 'YL-YHS32', description: lorem, short_description: 'If you\'re often on the phone, this headset will make your life 100x easier. Guaranteed*.', weight: 0.890, price: 34.99, cost_price: 24.99, tax_rate: tax_rate, featured: true)
+pro = Product.new(carriage_template: carriage_template,vendor: vendor,name: 'Yealink Mono Headset', sku: 'YL-YHS32', description: lorem, short_description: 'If you\'re often on the phone, this headset will make your life 100x easier. Guaranteed*.', weight: 0.890, price: 34.99, cost_price: 24.99, tax_rate: tax_rate, featured: true)
 pro.product_category_ids = cat2.id
 pro.default_image_file = get_file('yhs32.jpg')
 if pro.save
@@ -144,7 +152,7 @@ if pro.save
   pro.product_attributes.create(key: 'Model', value: 'YHS32', position: 1)
 end
 
-pro = Product.new(vendor: vendor,name: 'Snom Wired Headset (MM2)', sku: 'SM-MM2', description: lorem, short_description: lorem, weight: 0.780, price: 38.00, cost_price: 30, tax_rate: tax_rate)
+pro = Product.new(carriage_template: carriage_template,vendor: vendor,name: 'Snom Wired Headset (MM2)', sku: 'SM-MM2', description: lorem, short_description: lorem, weight: 0.780, price: 38.00, cost_price: 30, tax_rate: tax_rate)
 pro.product_category_ids = cat2.id
 pro.default_image_file = get_file('snom-mm2.jpg')
 if pro.save
@@ -153,7 +161,7 @@ if pro.save
   pro.product_attributes.create(key: 'Model', value: 'MM2', position: 1)
 end
 
-pro = Product.new(vendor: vendor,name: 'Snom Wired Headset (MM3)', sku: 'SM-MM3', description: lorem, short_description: lorem, weight: 0.780, price: 38.00, cost_price: 30, tax_rate: tax_rate)
+pro = Product.new(carriage_template: carriage_template,vendor: vendor,name: 'Snom Wired Headset (MM3)', sku: 'SM-MM3', description: lorem, short_description: lorem, weight: 0.780, price: 38.00, cost_price: 30, tax_rate: tax_rate)
 pro.product_category_ids = cat2.id
 pro.default_image_file = get_file('snom-mm2.jpg')
 if pro.save
@@ -162,7 +170,7 @@ if pro.save
   pro.product_attributes.create(key: 'Model', value: 'MM3', position: 1)
 end
 
-pro = Product.new(vendor: vendor,name: 'Yealink W52P', sku: 'TL-SIP-W52P', description: lorem, short_description: 'Wireless SIP phones are hard to come by but this beauty from Yealink is fab.', weight: 1.280, price: 99.99, cost_price: 89.99, tax_rate: tax_rate, featured: true)
+pro = Product.new(carriage_template: carriage_template,vendor: vendor,name: 'Yealink W52P', sku: 'TL-SIP-W52P', description: lorem, short_description: 'Wireless SIP phones are hard to come by but this beauty from Yealink is fab.', weight: 1.280, price: 99.99, cost_price: 89.99, tax_rate: tax_rate, featured: true)
 pro.product_category_ids = cat1.id
 pro.default_image_file = get_file('w52p.jpg')
 if pro.save

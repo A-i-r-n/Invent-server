@@ -1,6 +1,6 @@
   class CarriageTemplate < ActiveRecord::Base
 
-    has_many :carriage_template_prices, -> { order(:name) }, class_name: 'CarriageTemplatePrice'
+    has_many :carriage_template_prices, -> { order(:key) }, class_name: 'CarriageTemplatePrice'
 
     # Used for setting an array of product attributes which will be updated. Usually
     # received from a web browser.

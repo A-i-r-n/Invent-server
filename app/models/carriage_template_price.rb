@@ -6,6 +6,10 @@
     #
     # # The delivery service which this price belongs to
     belongs_to :carriage_template, class_name: 'CarriageTemplate'
+
+    # Validations
+    validates :key, presence: true
+
     #
     # # The tax rate which should be applied
     # belongs_to :tax_rate, class_name: 'TaxRate'
@@ -24,4 +28,34 @@
     # #
     # # @param weight [BigDecimal] the weight of the order
     # scope :for_weight, -> (weight) { where('min_weight <= ? AND max_weight >= ?', weight, weight) }
+
+    # Create/update attributes for a product based on the provided hash of
+    # keys & values.
+    #
+    # @param array [Array]
+    def self.update_from_array(array)
+      existing_keys = pluck(:key)
+      index = 0
+      array.each do |hash|
+        next if hash['key'].blank?
+        index += 1
+        params = hash
+                     # .merge(searchable: hash['searchable'].to_s == '1',
+                     #        public: hash['public'].to_s == '1',
+                     #        position: index)
+        if existing_attr = where(key: hash['key']).first
+          if hash['express_area'].blank?
+            existing_attr.destroy
+            index -= 1
+          else
+            existing_attr.update_attributes(params)
+          end
+        else
+          attribute = create(params)
+        end
+      end
+      where(key: existing_keys - array.map { |h| h['key'] }).delete_all
+      true
+    end
+
   end

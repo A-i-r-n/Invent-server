@@ -39,7 +39,7 @@ module Seller
     private
 
     def safe_params
-      params[:carriage_templates].permit(:name, carriage_templates_array: [:name,:express_areas])
+      params[:carriage_template].permit(:name, carriage_template_prices_array: [:key,:start,:plus,:postage,:postageplus,:express_areas_ids,:express_areas_names])
     end
   end
 end

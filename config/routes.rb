@@ -29,6 +29,8 @@ Rails.application.routes.draw do
         get 'addresses'
       end
     end
+
+    resources :orders
   end
 
   namespace :seller do

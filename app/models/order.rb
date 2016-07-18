@@ -12,6 +12,7 @@
     require_dependency 'order/actions'
     require_dependency 'order/billing'
     require_dependency 'order/delivery'
+    require_dependency 'order/carriage'
 
     belongs_to :vendor
 

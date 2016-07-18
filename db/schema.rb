@@ -112,16 +112,22 @@ ActiveRecord::Schema.define(version: 20160704054721) do
     t.string   "name",         limit: 255
     t.integer  "valuation",   limit: 4
     t.boolean  "active",                   default: true
+    # t.integer "product_id", limit:4
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "carriage_template_prices", force: :cascade do |t|
+    t.string   "key",                         limit:255
     t.decimal  "start",                       precision: 8, scale: 2
     t.decimal  "plus",                        precision: 8, scale: 2
     t.decimal "postage",                      precision: 8, scale: 2
     t.decimal "postageplus",                  precision: 8, scale: 2
-    t.text    "express_areas",                     limit: 65535
+    t.text    "express_areas_ids",                     limit: 65535
+    t.text    "express_areas_names",                     limit: 65535
+    t.integer "carriage_template_id",limit:4
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "nifty_key_value_store", force: :cascade do |t|
@@ -166,9 +172,6 @@ ActiveRecord::Schema.define(version: 20160704054721) do
     t.datetime "received_at"
     t.datetime "accepted_at"
     t.datetime "shipped_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "delivery_service_id",       limit: 4
     t.decimal  "delivery_price",                          precision: 8, scale: 2
     t.decimal  "delivery_cost_price",                     precision: 8, scale: 2
     t.decimal  "delivery_tax_rate",                       precision: 8, scale: 2
@@ -187,12 +190,16 @@ ActiveRecord::Schema.define(version: 20160704054721) do
     t.string   "delivery_address3",         limit: 255
     t.string   "delivery_address4",         limit: 255
     t.string   "delivery_postcode",         limit: 255
-    t.integer  "delivery_country_id",       limit: 4
     t.decimal  "amount_paid",                             precision: 8, scale: 2, default: 0.0
     t.boolean  "exported",                                                        default: false
     t.string   "invoice_number",            limit: 255
     t.integer  "customer_id",               limit: 4
-    t.integer  "vendor_id", limit:4
+    t.integer  "address_id",                limit: 4
+    t.integer  "vendor_id",                 limit: 4
+    t.integer  "delivery_service_id",       limit: 4
+    t.integer  "delivery_country_id",       limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "orders", ["delivery_service_id"], name: "index_orders_on_delivery_service_id", using: :btree
@@ -286,8 +293,6 @@ ActiveRecord::Schema.define(version: 20160704054721) do
   add_index "product_translations", ["product_id"], name: "index_product_translations_on_product_id", using: :btree
 
   create_table "products", force: :cascade do |t|
-    t.integer  "parent_id",         limit: 4
-    t.integer  "vendor_id",         limit: 4
     t.string   "name",              limit: 255
     t.string   "sku",               limit: 255
     t.string   "permalink",         limit: 255
@@ -302,6 +307,9 @@ ActiveRecord::Schema.define(version: 20160704054721) do
     t.decimal  "grade_score",precision: 8, scale: 2, default: 0.0
     t.integer  "great_num",limit: 4,default:0
     t.integer  "tax_rate_id",       limit: 4
+    t.integer  "parent_id",         limit: 4
+    t.integer  "vendor_id",         limit: 4
+    t.integer  "carriage_template_id",limit:4
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "featured",                                                default: false

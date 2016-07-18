@@ -8,7 +8,6 @@ module Api
         @order = Order.new(safe_params)
         @order.status = 'confirming'
 
-
         if !safe_params['customer_id'].blank?
           @customer = Customer.find safe_params[:customer_id]
           @order.first_name = @customer.first_name
@@ -38,15 +37,16 @@ module Api
 
         if !request.xhr? && @order.save
           @order.confirm!
-          redirect_to [:admin,@order], flash: { notice: t('shoppe.orders.create_notice') }
-        else
-          @order.order_items.build(ordered_item_type: 'Product')
-          render action: 'new'
+        #   redirect_to [:admin,@order], flash: { notice: t('shoppe.orders.create_notice') }
+        # else
+        #   @order.order_items.build(ordered_item_type: 'Product')
+        #   render action: 'new'
         end
+        render 'order'
       end
-    rescue Shoppe::Errors::InsufficientStockToFulfil => e
-      flash.now[:alert] = t('shoppe.orders.insufficient_stock_order', out_of_stock_items: e.out_of_stock_items.map { |t| t.ordered_item.full_name }.to_sentence)
-      render action: 'new'
+      # rescue Shoppe::Errors::InsufficientStockToFulfil => e
+      #   flash.now[:alert] = t('shoppe.orders.insufficient_stock_order', out_of_stock_items: e.out_of_stock_items.map { |t| t.ordered_item.full_name }.to_sentence)
+      #   render action: 'new'
     end
 
     private
@@ -60,6 +60,7 @@ module Api
           :delivery_price, :delivery_service_id, :delivery_tax_amount,
           :email_address, :phone_number,
           :notes,
+          :address_id,
           order_items_attributes: [:ordered_item_id, :ordered_item_type, :quantity, :unit_price, :tax_amount, :id, :weight]
       )
     end

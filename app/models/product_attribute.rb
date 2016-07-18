@@ -2,7 +2,7 @@ class ProductAttribute < ActiveRecord::Base
   # self.table_name = 'shoppe_product_attributes'
 
   # Validations
-  validates :key, presence: true
+  validates :key, presence: true,uniqueness: true
 
   # The associated product
   #

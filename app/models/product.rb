@@ -13,6 +13,8 @@ class Product < ActiveRecord::Base
   # Attachments for this product
   has_many :attachments, as: :parent, dependent: :destroy, autosave: true, class_name: 'Attachment'
 
+  belongs_to :carriage_template
+
   # The product's categorizations
   #
   # @return [Shoppe::ProductCategorization]
