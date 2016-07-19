@@ -27,6 +27,7 @@ Rails.application.routes.draw do
     resources :users,path:'user' do
       collection do
         get 'addresses'
+        get 'address'
       end
     end
 

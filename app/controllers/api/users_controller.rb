@@ -7,6 +7,10 @@ module Api
       @addresses = Address.where(customer: current_user.customer).page(params[:page]||=1)
     end
 
+    def address
+      @address = Address.where(customer: current_user.customer).default.first
+    end
+
     def unread_count
 
     end

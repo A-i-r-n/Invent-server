@@ -174,6 +174,7 @@ ActiveRecord::Schema.define(version: 20160704054721) do
     t.datetime "shipped_at"
     t.decimal  "delivery_price",                          precision: 8, scale: 2
     t.decimal  "delivery_cost_price",                     precision: 8, scale: 2
+    t.decimal  "carriage_price",                     precision: 8, scale: 2
     t.decimal  "delivery_tax_rate",                       precision: 8, scale: 2
     t.decimal  "delivery_tax_amount",                     precision: 8, scale: 2
     t.integer  "accepted_by",               limit: 4

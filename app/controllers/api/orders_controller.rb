@@ -35,14 +35,18 @@ module Api
           end
         end
 
-        if !request.xhr? && @order.save
-          @order.confirm!
-        #   redirect_to [:admin,@order], flash: { notice: t('shoppe.orders.create_notice') }
-        # else
-        #   @order.order_items.build(ordered_item_type: 'Product')
-        #   render action: 'new'
+        case params[:method]
+          when 'edit'
+          when 'submit'
+            if @order.save
+              @order.confirm!
+            else
+              return(render json: {code: 1, data: {msg: "#{@order.errors.full_messages[0]}"}})
+            end
         end
+
         render 'order'
+
       end
       # rescue Shoppe::Errors::InsufficientStockToFulfil => e
       #   flash.now[:alert] = t('shoppe.orders.insufficient_stock_order', out_of_stock_items: e.out_of_stock_items.map { |t| t.ordered_item.full_name }.to_sentence)

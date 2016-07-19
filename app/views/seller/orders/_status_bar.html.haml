@@ -13,7 +13,7 @@
         %p
           = t('shoppe.orders.status_bar.on_date', on: @order.accepted_at.to_s(:short))
           - if @order.accepter
-            = t('shoppe.orders.status_bar.by_user', user: @order.accepter.short_name)
+            = t('shoppe.orders.status_bar.by_user', user: @order.accepter.login)
 
     - elsif @order.rejected?
       %li.rejected

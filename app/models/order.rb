@@ -30,8 +30,8 @@
     # Validations
     validates :token, presence: true
     with_options if: proc { |o| !o.building? } do |order|
-      order.validates :email_address, format: { with: EMAIL_REGEX }
-      order.validates :phone_number, format: { with: PHONE_REGEX }
+      # order.validates :email_address, format: { with: EMAIL_REGEX }
+      # order.validates :phone_number, format: { with: PHONE_REGEX }
     end
 
     # Set some defaults

@@ -9,13 +9,13 @@ class Order < ActiveRecord::Base
 
   # Validations
   with_options if: proc { |o| !o.building? } do |order|
-    order.validates :first_name, presence: true
-    order.validates :last_name, presence: true
-    order.validates :billing_address1, presence: true
-    order.validates :billing_address3, presence: true
-    order.validates :billing_address4, presence: true
-    order.validates :billing_postcode, presence: true
-    order.validates :billing_country, presence: true
+    # order.validates :first_name, presence: true
+    # order.validates :last_name, presence: true
+    # order.validates :billing_address1, presence: true
+    # order.validates :billing_address3, presence: true
+    # order.validates :billing_address4, presence: true
+    # order.validates :billing_postcode, presence: true
+    # order.validates :billing_country, presence: true
   end
 
   # The name for billing purposes
@@ -66,9 +66,10 @@ class Order < ActiveRecord::Base
   #
   # @return [BigDecimal]
   def total
-    delivery_price +
-        delivery_tax_amount +
-        order_items.inject(BigDecimal(0)) { |t, i| t + i.total }
+    carriage_price +
+      delivery_price +
+          delivery_tax_amount +
+          order_items.inject(BigDecimal(0)) { |t, i| t + i.total }
   end
 
   # The total amount due on the order

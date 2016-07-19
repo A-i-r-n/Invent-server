@@ -2,6 +2,9 @@
   %dl
     %dt= f.label :customer_id, t('shoppe.orders.customer')
     %dd= f.collection_select :customer_id, Customer.ordered, :id, :name, {:include_blank => true}, {:data => {:placeholder => t('shoppe.orders.select_customer')}}
+  %dl
+    %dt= f.label :customer_id, t('shoppe.orders.customer')
+    %dd= f.collection_select :address_id, Address.all, :id, :full_name, {:include_blank => true}, {:data => {:placeholder => t('shoppe.orders.select_customer')}}
   .splitContainer
     %dl.third
       %dt= f.label :first_name, t('shoppe.orders.first_name')
