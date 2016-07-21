@@ -32,6 +32,13 @@ class Product < ActiveRecord::Base
     !variants.empty?
   end
 
+  # Does this product have any variants?
+  #
+  # @return [Boolean]
+  def has_variants
+    has_variants? ? 1 : 0
+  end
+
   # Returns the default variant for the product or nil if none exists.
   #
   # @return [Shoppe::Product]

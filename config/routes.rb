@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     resources :products,only:[:index,:show] do
       collection do
         get ':id/images',action: 'images'
+        get ':id/variants',action: 'variants'
+        get ':id/attributes',action: 'attributes'
       end
     end
     resources :vendors,only:[:index] do

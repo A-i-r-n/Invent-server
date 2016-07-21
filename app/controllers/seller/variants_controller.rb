@@ -42,7 +42,7 @@ module Seller
     private
 
     def safe_params
-      params[:product].permit(:name, :permalink, :sku, :default_image_file, :price, :cost_price, :tax_rate_id, :weight, :stock_control, :active, :default)
+      params[:product].permit(:name, :permalink, :sku, :default_image_file, :price, :cost_price, :tax_rate_id, :weight, :stock_control, :active, :default,product_attribute_ids: [])
     end
   end
 end

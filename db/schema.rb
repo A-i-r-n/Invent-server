@@ -225,7 +225,7 @@ ActiveRecord::Schema.define(version: 20160704054721) do
   add_index "payments", ["parent_payment_id"], name: "index_payments_on_parent_payment_id", using: :btree
 
   create_table "product_attributes", force: :cascade do |t|
-    t.integer  "product_id", limit: 4
+    # t.integer  "product_id", limit: 4
     t.string   "key",        limit: 255
     t.string   "value",      limit: 255
     t.integer  "position",   limit: 4,   default: 1
@@ -235,9 +235,14 @@ ActiveRecord::Schema.define(version: 20160704054721) do
     t.boolean  "public",                 default: true
   end
 
+  create_table "product_attributions", force: :cascade do |t|
+    t.integer "product_id",          limit: 4, null: false
+    t.integer "product_attribute_id", limit: 4, null: false
+  end
+
   add_index "product_attributes", ["key"], name: "index_product_attributes_on_key", using: :btree
   add_index "product_attributes", ["position"], name: "index_product_attributes_on_position", using: :btree
-  add_index "product_attributes", ["product_id"], name: "index_product_attributes_on_product_id", using: :btree
+  # add_index "product_attributes", ["product_id"], name: "index_product_attributes_on_product_id", using: :btree
 
   create_table "product_categories", force: :cascade do |t|
     t.string   "name",                         limit: 255
@@ -253,6 +258,7 @@ ActiveRecord::Schema.define(version: 20160704054721) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
 
   add_index "product_categories", ["lft"], name: "index_product_categories_on_lft", using: :btree
   add_index "product_categories", ["permalink"], name: "index_product_categories_on_permalink", using: :btree

@@ -1,7 +1,7 @@
 module Api
   class ProductsController < Api::BaseController
 
-    before_action :set_product, only: [:show, :edit, :update, :destroy ,:images]
+    before_action :set_product, only: [:show, :edit, :update, :destroy ,:images,:variants,:attributes]
 
     def index
 
@@ -28,6 +28,15 @@ module Api
 
     def images
       @attachments = @product.attachments
+    end
+
+
+    def attributes
+      @product_attributes = @product.has_variants? ? @product.product_attributes.group_by(&:key) : []
+    end
+
+    def variants
+      @products = @product.variants
     end
 
     private

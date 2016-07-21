@@ -4,16 +4,32 @@ class ProductAttribute < ActiveRecord::Base
   # Validations
   validates :key, presence: true,uniqueness: true
 
-  # The associated product
+
+  # The product's categorizations
   #
-  # @return [Shoppe::Product]
-  belongs_to :product, class_name: 'Product'
+  # @return [Shoppe::ProductCategorization]
+  has_many :product_attributions, dependent: :restrict_with_exception, class_name: 'ProductAttribution', inverse_of: :product_attribute
+
+  #
+  # @return [Shoppe::ProductCategory]
+  has_many :products, class_name: 'Product', through: :product_attributions
+
+  # if fail ,go back
+  # # The associated product
+  # #
+  # # @return [Shoppe::Product]
+  # belongs_to :product, class_name: 'Product'
 
   # All attributes which are searchable
   scope :searchable, -> { where(searchable: true) }
 
   # All attributes which are public
   scope :publicly_accessible, -> { where(public: true) }
+
+
+  scope :root,->(product_id){
+    where(product_id: product_id)
+  }
 
   # Return the available options as a hash
   #
@@ -23,6 +39,10 @@ class ProductAttribute < ActiveRecord::Base
       h[key] = attributes.map(&:value).uniq
       h
     end
+  end
+
+  def full_name
+    "#{key} #{value}"
   end
 
   # Create/update attributes for a product based on the provided hash of

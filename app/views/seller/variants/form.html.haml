@@ -4,7 +4,7 @@
     = link_to t('shoppe.variants.back_to_variants'), [:admin,@product, :variants], :class => 'button'
   %h2.products= t('shoppe.variants.variants_of', product:@product.name)
 
-= form_for [:admin,@product, @variant], :url => @variant.new_record? ? admin_product_variants_path(@product) : admin_product_variant_path(@product, @variant), :html => {:multipart => true} do |f|
+= form_for [:seller,@product, @variant], :url => @variant.new_record? ? seller_product_variants_path(@product) : seller_product_variant_path(@product, @variant), :html => {:multipart => true} do |f|
   = f.error_messages
   = field_set_tag t('shoppe.variants.product_information') do
     .splitContainer
@@ -59,6 +59,12 @@
         %dd.checkbox
           = f.check_box :default
           = f.label :default, t('shoppe.variants.default_variant_info')
+
+  = field_set_tag t('shoppe.variants.website_properties') do
+    .splitContainer
+      %dl.half
+        %dt= f.label :product_categories, t('shoppe.product_category.product_categories')
+        %dd= f.collection_select :product_attribute_ids, @product.product_attributes, :id, :full_name, {:prompt => false}, {:class => 'chosen', :multiple => true, :data => {:placeholder => t('shoppe.product_category.choose_product_category') } }
 
   %p.submit
     - unless @variant.new_record?
