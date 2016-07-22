@@ -25,7 +25,6 @@ module LoginSystem
   end
 
   def login_required
-    puts "#{authorized?}---#{session[:user_id]}--"
     authorized? || access_denied
   end
 

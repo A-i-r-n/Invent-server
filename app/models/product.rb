@@ -44,6 +44,11 @@ class Product < ActiveRecord::Base
     product.validates :description, presence: true
     product.validates :short_description, presence: true
   end
+
+  with_options if: proc {|p| p.parent.present? } do |product|
+    product.validate :has_included_attr
+  end
+
   validates :name, presence: true
   validates :permalink, presence: true, uniqueness: true, permalink: true
   validates :sku, presence: true
@@ -210,6 +215,22 @@ class Product < ActiveRecord::Base
   # Validates
 
   def has_at_least_one_product_category
-    # errors.add(:base, 'must add at least one product category') if product_categories.blank?
+    errors.add(:base, 'must add at least one product category') if product_categories.blank?
   end
+
+  def has_included_attr
+    filter_variants = self.parent.variants.find_all{|product| product.id != self.id }
+    included = false
+    filter_variants.map { |product|
+      (product.product_attribute_ids - self.product_attribute_ids).empty? ||
+          (self.product_attribute_ids - product.product_attribute_ids).empty?
+    }.each { |has|
+      included = true
+      break if has
+      included = false
+    }
+    errors.add(:base,"属性选择错误!!!") if included
+  end
+
+
 end

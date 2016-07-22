@@ -184,7 +184,6 @@ module Api
 
     def successful_login
 
-      puts "#{session[:user_id]}-----------"
       session[:user_id] = current_user.id
       @user = current_user
       if params[:remember_me] == '1'

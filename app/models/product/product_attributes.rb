@@ -6,6 +6,8 @@ class Product < ActiveRecord::Base
   # @return [Shoppe::ProductCategory]
   has_many :product_attributes, class_name: 'ProductAttribute', through: :product_attributions # -> { order(:position) }
 
+  # validates_presence_of :product_attributes
+
 
   # if fail,go back
   # # Product attributes for this product
@@ -19,7 +21,8 @@ class Product < ActiveRecord::Base
   # the contents of the product_attributes_array array.
   after_save do
     if product_attributes_array && product_attributes_array.is_a?(Array)
-      product_attributes.update_from_array(product_attributes_array)
+      product_attributes.update_from_array(product_attributes_array,self)
     end
   end
+
 end

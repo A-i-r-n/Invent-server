@@ -11,6 +11,7 @@ Rails.application.routes.draw do
         get ':id/images',action: 'images'
         get ':id/variants',action: 'variants'
         get ':id/attributes',action: 'attributes'
+        get ':id/detail',action: 'detail'
       end
     end
     resources :vendors,only:[:index] do

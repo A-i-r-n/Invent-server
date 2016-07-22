@@ -1,7 +1,7 @@
 module Api
   class ProductsController < Api::BaseController
 
-    before_action :set_product, only: [:show, :edit, :update, :destroy ,:images,:variants,:attributes]
+    before_action :set_product, only: [:show, :edit, :update, :destroy ,:images,:variants,:attributes,:detail]
 
     def index
 
@@ -37,6 +37,10 @@ module Api
 
     def variants
       @products = @product.variants
+    end
+
+    def detail
+      render 'detail',layout: 'api'
     end
 
     private

@@ -2,7 +2,7 @@ class ProductAttribute < ActiveRecord::Base
   # self.table_name = 'shoppe_product_attributes'
 
   # Validations
-  validates :key, presence: true,uniqueness: true
+  validates :key, presence: true#,uniqueness: true
 
 
   # The product's categorizations
@@ -49,8 +49,9 @@ class ProductAttribute < ActiveRecord::Base
   # keys & values.
   #
   # @param array [Array]
-  def self.update_from_array(array)
-    existing_keys = pluck(:key)
+  def self.update_from_array(array,product)
+    existing_keys = product.product_attributes.pluck(:key)
+    existing_values = product.product_attributes.pluck(:value)
     index = 0
     array.each do |hash|
       next if hash['key'].blank?
@@ -58,7 +59,8 @@ class ProductAttribute < ActiveRecord::Base
       params = hash.merge(searchable: hash['searchable'].to_s == '1',
                           public: hash['public'].to_s == '1',
                           position: index)
-      if existing_attr = where(key: hash['key']).first
+
+      if existing_attr = product.product_attributes.where(key: hash['key'],value: hash['value']).first
         if hash['value'].blank?
           existing_attr.destroy
           index -= 1
@@ -66,10 +68,10 @@ class ProductAttribute < ActiveRecord::Base
           existing_attr.update_attributes(params)
         end
       else
-        attribute = create(params)
+        attribute = product.product_attributes.create(params)
       end
     end
-    where(key: existing_keys - array.map { |h| h['key'] }).delete_all
+    product.product_attributes.where(value: existing_values - array.map { |h| h['value'] }).delete_all #key: existing_keys - array.map { |h| h['key'] },
     true
   end
 

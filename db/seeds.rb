@@ -1,6 +1,5 @@
 # encoding: UTF-8
 
-
 CountryImporter.import
 
 AreaImporter.import
@@ -44,8 +43,10 @@ if ds.save
 end
 
 # categories
-cat1 = ProductCategory.where(name: 'VoIP Phones',vendor: vendor).first_or_create
-cat2 = ProductCategory.where(name: 'VoIP Accessories',vendor: vendor).first_or_create
+# cat1 = ProductCategory.create(name: '电话',vendor: vendor,permalink:"permalink")
+# cat1.save(validate:false)
+
+cat1 = ProductCategory.where(name: 'VoIP Accessories',vendor: vendor).first_or_create
 
 def get_file(name, content_type = 'image/jpeg')
   file = ActionDispatch::Http::UploadedFile.new(tempfile: File.open(File.join(Rails.root, 'db', 'seeds_data', name), 'rb'))
@@ -69,27 +70,26 @@ if carriage_template.save
                                            express_areas_names:"东城区,西城区,崇文区,宣武区,朝阳区,丰台区,石景山区,海淀区,门头沟区,房山区,通州区,顺义区,昌平区,大兴区,平谷区,怀柔区,密云县,延庆县")
 end
 
-
 pro = Product.new(carriage_template: carriage_template,vendor: vendor,name: 'Yealink T20P', sku: 'YL-SIP-T20P', description: lorem, short_description: 'If cheap & cheerful is what you’re after, the Yealink T20P is what you’re looking for.', weight: 1.119, price: 54.99, cost_price: 44.99, tax_rate: tax_rate, featured: true)
 pro.product_category_ids = cat1.id
 pro.default_image_file = get_file('t20p.jpg')
 if pro.save
   pro.stock_level_adjustments.create(description: 'Initial Stock', adjustment: 17)
-  pro.product_attributes.create(key: 'Manufacturer', value: 'Yealink', position: 1)
-  pro.product_attributes.create(key: 'Model', value: 'T20P', position: 1)
-  pro.product_attributes.create(key: 'Colour', value: 'Black', position: 1)
-  pro.product_attributes.create(key: 'Lines', value: '3', position: 1)
-  pro.product_attributes.create(key: 'Colour Screen?', value: 'No', position: 1)
-  pro.product_attributes.create(key: 'Power over ethernet?', value: 'Yes', position: 1)
+  attr1 = pro.product_attributes.create(key: '颜色', value: '红色', position: 1)
+  attr2 = pro.product_attributes.create(key: '颜色', value: '白色', position: 1)
+  attr3 = pro.product_attributes.create(key: '大小', value: '12', position: 1)
+  attr4 = pro.product_attributes.create(key: '大小', value: '15', position: 1)
 
   v1 = pro.variants.create(name: 'White/Grey', sku: 'SM-870-GREY', price: 230.00, cost_price: 220, tax_rate: tax_rate, weight: 1.35, default: true)
   v1.default_image_file = get_file('snom-870-grey.jpg')
+  v1.product_attribute_ids = attr1.id,attr3.id
   if v1.save
     v1.stock_level_adjustments.create(description: 'Initial Stock', adjustment: 4)
   end
 
   v2 = pro.variants.create(name: 'Black', sku: 'SM-870-BLK', price: 230.00, cost_price: 220, tax_rate: tax_rate, weight: 1.35)
   v2.default_image_file = get_file('snom-870-blk.jpg')
+  v2.product_attribute_ids = attr2.id,attr4.id
   if v2.save
     v2.stock_level_adjustments.create(description: 'Initial Stock', adjustment: 2)
   end
