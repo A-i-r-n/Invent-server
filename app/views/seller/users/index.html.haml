@@ -13,5 +13,5 @@
     %tbody
       - for user in @users
         %tr
-          %td= link_to user.full_name, [:edit,:seller , user]
-          %td= user.email_address
+          %td= link_to user.login, [:edit,:seller , user]
+          %td= user.email

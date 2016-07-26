@@ -19,8 +19,6 @@ module Api
       @products = @products_paged.page(params[:page]||=1)
       # .group_by(&:product_category)
       # .sort_by { |cat, _pro| cat.name }
-
-      # render json: @products
     end
 
     def show

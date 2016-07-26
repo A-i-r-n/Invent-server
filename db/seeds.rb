@@ -1,5 +1,12 @@
 # encoding: UTF-8
 
+def get_file(name, content_type = 'image/jpeg')
+  file = ActionDispatch::Http::UploadedFile.new(tempfile: File.open(File.join(Rails.root, 'db', 'seeds_data', name), 'rb'))
+  file.original_filename = name
+  file.content_type = content_type
+  file
+end
+
 CountryImporter.import
 
 AreaImporter.import
@@ -11,11 +18,16 @@ vendor_profile = Profile.create(label: 'vendor', nicename: 'vendor',
 customer_profile = Profile.create(label: 'customer', nicename: 'customer',
                              modules: [:dashboard, :profile ])
 
-
-
 User.create(login: 'admin', password: '123456',verify_password:'123456')
 
+admin_cat1 = ProductCategory.where(name: 'Accessories').first_or_create
+
+admin_cat1.attachments.build(file: get_file('index_food.png'), role: 'default_image').save
+
 vendor = Vendor.create(name:"vendor",grade_num:0,grade_score:0.0)
+
+vendor.attachments.build(file: get_file('t22p.jpg'), role: 'default_image').save
+
 User.create(login: 'vendor', password: '123456',verify_password:'123456',profile: vendor_profile,vendor: vendor)
 
 customer = Customer.create(first_name:"customer",last_name:"customer",company:"company",email:"948993066@qq.com",phone:"18868945291",mobile:"18868945291")
@@ -46,14 +58,10 @@ end
 # cat1 = ProductCategory.create(name: '电话',vendor: vendor,permalink:"permalink")
 # cat1.save(validate:false)
 
-cat1 = ProductCategory.where(name: 'VoIP Accessories',vendor: vendor).first_or_create
 
-def get_file(name, content_type = 'image/jpeg')
-  file = ActionDispatch::Http::UploadedFile.new(tempfile: File.open(File.join(Rails.root, 'db', 'seeds_data', name), 'rb'))
-  file.original_filename = name
-  file.content_type = content_type
-  file
-end
+
+seller_cat1 = ProductCategory.where(name: 'VoIP Accessories',vendor: vendor).first_or_create
+
 
 lorem = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
@@ -71,7 +79,8 @@ if carriage_template.save
 end
 
 pro = Product.new(carriage_template: carriage_template,vendor: vendor,name: 'Yealink T20P', sku: 'YL-SIP-T20P', description: lorem, short_description: 'If cheap & cheerful is what you’re after, the Yealink T20P is what you’re looking for.', weight: 1.119, price: 54.99, cost_price: 44.99, tax_rate: tax_rate, featured: true)
-pro.product_category_ids = cat1.id
+pro.product_category_ids = seller_cat1.id
+pro.product_category_id  = admin_cat1.id
 pro.default_image_file = get_file('t20p.jpg')
 if pro.save
   pro.stock_level_adjustments.create(description: 'Initial Stock', adjustment: 17)

@@ -134,6 +134,12 @@
           = f.check_box :featured
           = f.label :featured, t('shoppe.products.featured_info')
 
+  = field_set_tag  "运费" do
+    .splitContainer
+      %dl.half
+        %dt= f.label :billing_country_id, "模板"
+        %dd= f.collection_select :carriage_template_id, CarriageTemplate.all, :id, :name, {:include_blank => true}, {:data => {:placeholder => t('shoppe.orders.select_country')}}
+
   %p.submit
     - unless @product.new_record?
       %span.right= link_to t('shoppe.delete') , [:seller,@product], :class => 'button purple', :method => :delete, :data => {:confirm => "Are you sure you wish to remove this product?"}

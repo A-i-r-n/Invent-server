@@ -15,30 +15,12 @@ class Order < ActiveRecord::Base
     @cid ||= Address.find(address_id).cid
   end
 
-  def ordered_products
-    order_items.map { |item| item.ordered_item  }
-  end
-
   def carriage_pricing
-    price_total = 0
-    ordered_products.each { |product|
-      next if product.nil?
-      carriage_template = product.carriage_template
-      next if carriage_template.nil?
-      template_prices = carriage_template.carriage_template_prices
-      template_prices.each { |price|
-        contain = price.express_areas_ids.split(',').include?("#{city_id}")
-        price_total += (price.postage + (total_weight - price.start) * (price.postageplus/price.plus)) if contain
-      }
-    }
-    price_total
+    order_items.inject(BigDecimal(0)) { |t,i | t += i.carriage_price  }
   end
 
   def carriage_price
     read_attribute(:carriage_price) || carriage_pricing || BigDecimal(0)
   end
 
-
-
 end
-

@@ -2,7 +2,7 @@
 
 = content_for :header do
   %p.buttons
-    = link_to t('shoppe.delivery_services.prices'), [:seller,@delivery_service, :delivery_service_prices], :class => 'button'
+    = link_to t('shoppe.delivery_services.prices'), seller_carriage_template_carriage_template_prices_path(@carriage_template), :class => 'button'
     = link_to t('shoppe.delivery_services.back'), [:seller,:delivery_services], :class => 'button'
   %h2.delivery_services= t('shoppe.delivery_services.delivery_services')
 

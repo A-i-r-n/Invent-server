@@ -24,6 +24,8 @@ class Product < ActiveRecord::Base
   # @return [Shoppe::ProductCategory]
   has_many :product_categories, class_name: 'ProductCategory', through: :product_categorizations
 
+  belongs_to :product_category
+
   # The product's tax rate
   #
   # @return [Shoppe::TaxRate]
@@ -47,6 +49,7 @@ class Product < ActiveRecord::Base
 
   with_options if: proc {|p| p.parent.present? } do |product|
     product.validate :has_included_attr
+    product.validate :has_attr
   end
 
   validates :name, presence: true
@@ -229,7 +232,12 @@ class Product < ActiveRecord::Base
       break if has
       included = false
     }
-    errors.add(:base,"属性选择错误!!!") if included
+    errors.add(:base,"属性选择错误,可能商品属性重叠!!!") if included
+  end
+
+  def has_attr
+    has = self.parent.product_attributes.map(&:key).uniq - self.product_attributes.map(&:key)
+    errors.add(:base,"请将属性选择完整!!!") if ! has.empty?
   end
 
 

@@ -71,11 +71,14 @@ Rails.application.routes.draw do
       end
     end
     resources :stock_level_adjustments, only: [:index, :create]
+
     resources :delivery_services do
       resources :delivery_service_prices
     end
 
-    resources :carriage_templates
+    resources :carriage_templates do
+      resources :carriage_template_prices
+    end
 
     resources :tax_rates
     resources :users

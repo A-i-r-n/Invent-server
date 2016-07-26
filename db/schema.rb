@@ -225,7 +225,6 @@ ActiveRecord::Schema.define(version: 20160704054721) do
   add_index "payments", ["parent_payment_id"], name: "index_payments_on_parent_payment_id", using: :btree
 
   create_table "product_attributes", force: :cascade do |t|
-    # t.integer  "product_id", limit: 4
     t.string   "key",        limit: 255
     t.string   "value",      limit: 255
     t.integer  "position",   limit: 4,   default: 1
@@ -254,7 +253,7 @@ ActiveRecord::Schema.define(version: 20160704054721) do
     t.integer  "depth",                        limit: 4
     t.string   "ancestral_permalink",          limit: 255
     t.boolean  "permalink_includes_ancestors",               default: false
-    t.integer  "vendor_id",limit:4
+    t.integer  "vendor_id",                    limit:4
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -313,6 +312,7 @@ ActiveRecord::Schema.define(version: 20160704054721) do
     t.integer  "grade_num",         limit: 4,default:0
     t.decimal  "grade_score",precision: 8, scale: 2, default: 0.0
     t.integer  "great_num",limit: 4,default:0
+    t.integer  "product_category_id",          limit: 4
     t.integer  "tax_rate_id",       limit: 4
     t.integer  "parent_id",         limit: 4
     t.integer  "vendor_id",         limit: 4
