@@ -1,6 +1,9 @@
 module Api
   class AccountsController < Api::BaseController
 
+    before_filter :login_required,except: [:login, :signup]
+
+
     def avatar
       @up = upload params[:user][:filename]
       @user = current_user

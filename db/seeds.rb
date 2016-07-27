@@ -26,7 +26,11 @@ admin_cat1.attachments.build(file: get_file('index_food.png'), role: 'default_im
 
 vendor = Vendor.create(name:"vendor",grade_num:0,grade_score:0.0)
 
-vendor.attachments.build(file: get_file('t22p.jpg'), role: 'default_image').save
+vendor.attachments.build(file: get_file('t22p.jpg'), role: 'default_image')
+
+vendor.product_category_id = admin_cat1.id
+
+vendor.save
 
 User.create(login: 'vendor', password: '123456',verify_password:'123456',profile: vendor_profile,vendor: vendor)
 

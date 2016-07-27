@@ -4,4 +4,6 @@ class Vendor < ActiveRecord::Base
   # Attachments for this product
   has_many :attachments, as: :parent, dependent: :destroy, autosave: true, class_name: 'Attachment'
 
+  belongs_to :product_category
+
 end

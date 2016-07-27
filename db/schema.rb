@@ -325,6 +325,14 @@ ActiveRecord::Schema.define(version: 20160704054721) do
     t.boolean  "default",                                                 default: false
   end
 
+  create_table "carts", force: :cascade do |t|
+    t.integer "num",           limit: 4
+    t.integer "product_id",    limit: 4
+    t.integer "user_id",limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   add_index "products", ["parent_id"], name: "index_products_on_parent_id", using: :btree
   add_index "products", ["permalink"], name: "index_products_on_permalink", using: :btree
   add_index "products", ["sku"], name: "index_products_on_sku", using: :btree
@@ -334,6 +342,7 @@ ActiveRecord::Schema.define(version: 20160704054721) do
     t.integer  "grade_num",limit:4 , default:0
     t.decimal  "grade_score",precision:8,scale:2,default:0.0
     t.integer  "user_id", limit:4
+    t.integer  "product_category_id",limit: 4
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end

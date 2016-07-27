@@ -27,6 +27,7 @@ Rails.application.routes.draw do
     resources :product_categories do
       resources :products
     end
+    resources :carts
     resources :users,path:'user' do
       collection do
         get 'addresses'
