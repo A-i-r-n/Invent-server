@@ -1,4 +1,4 @@
-json.extract! product, :id,:name,:price,:has_variants,:created_at, :updated_at
+json.extract! product, :id,:name,:price,:has_variants,:weight,:created_at, :updated_at
 attachment = product.attachments.order(id: :asc).first
 if attachment.present? && attachment.image?
   json.image_url image_url(attachment.file.url)

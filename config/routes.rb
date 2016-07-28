@@ -28,6 +28,8 @@ Rails.application.routes.draw do
       resources :products
     end
     resources :carts
+    resources :collections
+
     resources :users,path:'user' do
       collection do
         get 'addresses'

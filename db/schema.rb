@@ -326,8 +326,16 @@ ActiveRecord::Schema.define(version: 20160704054721) do
   end
 
   create_table "carts", force: :cascade do |t|
-    t.integer "num",           limit: 4
+    t.integer "num",           limit: 4, default: 0
     t.integer "product_id",    limit: 4
+    t.integer "user_id",limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "collections", force: :cascade do |t|
+    t.integer "parent_id",limit: 4
+    t.string "parent_type",limit: 255
     t.integer "user_id",limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
