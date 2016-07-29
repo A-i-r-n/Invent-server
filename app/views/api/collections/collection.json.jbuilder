@@ -1,7 +1,6 @@
 json.code (@collection ? 0 : 1)
 json.data do
-  json.extract! @collection,:id,:num,:product_id
-
+  json.extract! @collection,:id
   case @collection.parent
     when Product
       json.set! 'product' do

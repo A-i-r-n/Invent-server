@@ -8,7 +8,8 @@ module Api
     end
 
     def create
-      @collection = Collection.new(safe_params)
+      @collection = Collection.find_or_create_by(safe_params)
+      @collection.user = current_user
       if @collection.save
         render 'collection'
       else

@@ -3,6 +3,11 @@ module Api
 
     before_action :set_product, only: [:show, :edit, :update, :destroy]
 
+    def index
+      @query = Order.ordered.received.includes(order_items: :ordered_item).page(params[:page]).search(params[:q])
+      @orders = @query.result
+    end
+
     def create
       Order.transaction do
         @order = Order.new(safe_params)

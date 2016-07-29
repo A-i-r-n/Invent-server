@@ -90,6 +90,10 @@ class Product < ActiveRecord::Base
     parent ? "#{parent.name} (#{name})" : name
   end
 
+  def vendor_id
+    read_attribute(:vendor_id) || parent.vendor_id
+  end
+
   # Is this product orderable?
   #
   # @return [Boolean]

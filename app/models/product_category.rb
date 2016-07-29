@@ -69,7 +69,7 @@ class ProductCategory < ActiveRecord::Base
   private
 
   def set_permalink
-    self.permalink = name.parameterize if permalink.blank? && name.is_a?(String)
+    self.permalink = PinYin.permlink("#{name}") if permalink.blank? && name.is_a?(String) #name.parameterize
   end
 
   def set_ancestral_permalink

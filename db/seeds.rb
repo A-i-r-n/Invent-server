@@ -20,9 +20,29 @@ customer_profile = Profile.create(label: 'customer', nicename: 'customer',
 
 User.create(login: 'admin', password: '123456',verify_password:'123456')
 
-admin_cat1 = ProductCategory.where(name: 'Accessories').first_or_create
-
+admin_cat1 = ProductCategory.where(name: '美食').first_or_create
 admin_cat1.attachments.build(file: get_file('index_food.png'), role: 'default_image').save
+
+admin_cat2 = ProductCategory.where(name: '酒店').first_or_create
+admin_cat2.attachments.build(file: get_file('index_hotel.png'), role: 'default_image').save
+
+admin_cat3 = ProductCategory.where(name: '娱乐').first_or_create
+admin_cat3.attachments.build(file: get_file('index_amuse.png'), role: 'default_image').save
+
+admin_cat4 = ProductCategory.where(name: '丽人').first_or_create
+admin_cat4.attachments.build(file: get_file('index_bauty.png'), role: 'default_image').save
+
+admin_cat5 = ProductCategory.where(name: '母婴').first_or_create
+admin_cat5.attachments.build(file: get_file('index_mother.png'), role: 'default_image').save
+
+admin_cat6 = ProductCategory.where(name: '超市').first_or_create
+admin_cat6.attachments.build(file: get_file('index_market.png'), role: 'default_image').save
+
+admin_cat7 = ProductCategory.where(name: '服饰').first_or_create
+admin_cat7.attachments.build(file: get_file('index_clothes.png'), role: 'default_image').save
+
+admin_cat8 = ProductCategory.where(name: '其他').first_or_create
+admin_cat8.attachments.build(file: get_file('index_service.png'), role: 'default_image').save
 
 vendor = Vendor.create(name:"vendor",grade_num:0,grade_score:0.0)
 
@@ -64,7 +84,7 @@ end
 
 
 
-seller_cat1 = ProductCategory.where(name: 'VoIP Accessories',vendor: vendor).first_or_create
+seller_cat1 = ProductCategory.where(name: '电话',vendor: vendor).first_or_create
 
 
 lorem = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do

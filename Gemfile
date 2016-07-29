@@ -37,6 +37,8 @@ gem 'yajl-ruby'
 gem 'easy_captcha'#, :git => 'git://github.com/traxanos/easy_captcha.git'
 gem 'rmagick'
 
+gem 'ruby-pinyin'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
