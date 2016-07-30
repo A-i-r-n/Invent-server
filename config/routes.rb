@@ -29,7 +29,7 @@ Rails.application.routes.draw do
     end
     resources :carts
     resources :collections
-
+    resources :banners
     resources :users,path:'user' do
       collection do
         get 'addresses'

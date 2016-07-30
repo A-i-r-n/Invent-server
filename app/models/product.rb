@@ -111,6 +111,10 @@ class Product < ActiveRecord::Base
     default_variant ? default_variant.price : read_attribute(:price)
   end
 
+  def product_vendor
+    self.vendor || parent.vendor
+  end
+
   # Is this product currently in stock?
   #
   # @return [Boolean]

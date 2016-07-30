@@ -1,12 +1,13 @@
 module Api
   class CartsController < Api::BaseController
 
-    before_filter :login_required,except: [:login, :signup]
+    # before_filter :login_required,except: [:login, :signup]
 
     before_filter { params[:id] && @cart = Cart.find(params[:id]) }
 
     def index
-      @carts = Cart.where(user: current_user)
+      @carts = Cart.where(user: current_user)# .all.group_by(&:product_vendor)
+      # render json: @carts
     end
 
     def create

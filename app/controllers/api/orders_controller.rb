@@ -4,7 +4,8 @@ module Api
     before_action :set_product, only: [:show, :edit, :update, :destroy]
 
     def index
-      @query = Order.ordered.received.includes(order_items: :ordered_item).page(params[:page]).search(params[:q])
+      conditions = params[:status] != 'all' ? {status: params[:status]} : {}
+      @query = Order.ordered.where(conditions).includes(order_items: :ordered_item).page(params[:page]).search(params[:q])
       @orders = @query.result
     end
 

@@ -433,4 +433,11 @@ ActiveRecord::Schema.define(version: 20160704054721) do
 
   add_index "users", ["login"], name: "index_users_on_login", using: :btree
 
+  create_table "banners", force: :cascade do |t|
+    t.string   "name",limit:255
+    t.string   "link",limit:255
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
 end

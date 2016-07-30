@@ -7,6 +7,11 @@ def get_file(name, content_type = 'image/jpeg')
   file
 end
 
+banner = Banner.create(name:"banner",link:"link")
+banner_attachment = Attachment.new(file: get_file('test_index_banner.png'), role: 'default_image')
+banner.attachment = banner_attachment
+banner_attachment.save
+
 CountryImporter.import
 
 AreaImporter.import
