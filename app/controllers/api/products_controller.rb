@@ -44,6 +44,7 @@ module Api
     private
     def set_product
       @product = Product.find(params[:id])
+      current_user && @product && VisitorLog.find_or_create_by(user:current_user,parent_type:"Product",parent_id:@product.id)
     end
   end
 end

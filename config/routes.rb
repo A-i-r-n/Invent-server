@@ -14,6 +14,9 @@ Rails.application.routes.draw do
         get ':id/detail',action: 'detail'
       end
     end
+
+    match 'vendor/settle_in', to: 'vendors#settle_in', via: [:get,:post]
+
     resources :vendors,only:[:index] do
       resources :product_categories
     end
@@ -29,7 +32,8 @@ Rails.application.routes.draw do
     end
     resources :carts
     resources :collections
-    resources :banners
+    resources :banners,only:[:index]
+    resources :visitor_logs,only:[:index]
     resources :users,path:'user' do
       collection do
         get 'addresses'

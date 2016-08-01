@@ -6,8 +6,7 @@ module Api
     before_filter { params[:id] && @cart = Cart.find(params[:id]) }
 
     def index
-      @carts = Cart.where(user: current_user)# .all.group_by(&:product_vendor)
-      # render json: @carts
+      @carts = Cart.all.group_by(&:product_vendor) #.where(user: current_user)
     end
 
     def create

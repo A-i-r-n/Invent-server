@@ -34,6 +34,7 @@ module Shoppe
           end
         end
       end
+
     end
   end
 end

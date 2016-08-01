@@ -440,4 +440,12 @@ ActiveRecord::Schema.define(version: 20160704054721) do
     t.datetime "updated_at"
   end
 
+  create_table "visitor_logs", force: :cascade do |t|
+    t.integer  "parent_id",   limit:4
+    t.string   "parent_type", limit:255
+    t.integer  "user_id",     limit:4
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
 end

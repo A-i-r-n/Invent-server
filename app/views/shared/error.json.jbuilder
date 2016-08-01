@@ -1,4 +1,4 @@
 json.code @msg[:code]
-json.msg do
-  json.errors @msg[:message]
+json.data do
+  json.msg @msg[:msg]
 end

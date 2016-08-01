@@ -1,7 +1,7 @@
 module Admin
-class UsersController < Admin::BaseController
-    before_filter { @active_nav = :users }
-    before_filter { params[:id] && @user = User.find(params[:id]) }
+class VendorsController < Admin::BaseController
+    before_filter { @active_nav = :vendors }
+    before_filter { params[:id] && @vendor = Vendor.find(params[:id]) }
     before_filter(only: [:create, :update, :destroy]) do
       if Shoppe.settings.demo_mode?
         fail Shoppe::Error, t('shoppe.users.demo_mode_error')
@@ -9,7 +9,7 @@ class UsersController < Admin::BaseController
     end
 
     def index
-      @users = User.all
+      @vendors = Vendor.page(params[:page])
     end
 
     def new
@@ -17,7 +17,7 @@ class UsersController < Admin::BaseController
     end
 
     def create
-      @user = User.new(safe_params)
+      @vendor = Vendor.new(safe_params)
       if @user.save
         redirect_to [:admin,:users], flash: { notice: t('shoppe.users.create_notice') }
       else
@@ -45,7 +45,7 @@ class UsersController < Admin::BaseController
     private
 
     def safe_params
-      params[:user].permit(:first_name, :last_name, :email_address, :password, :password_confirmation)
+      params[:vendor].permit(:first_name, :last_name, :email_address, :password, :password_confirmation)
     end
   end
 end

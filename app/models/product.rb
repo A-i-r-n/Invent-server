@@ -60,7 +60,7 @@ class Product < ActiveRecord::Base
   validates :cost_price, numericality: true, allow_blank: true
 
   # Before validation, set the permalink if we don't already have one
-  before_validation { self.permalink = name.parameterize if permalink.blank? && name.is_a?(String) }
+  before_validation { self.permalink = PinYin.permlink("#{name}") if permalink.blank? && name.is_a?(String) } #.parameterize
 
   # All active products
   scope :active, -> { where(active: true) }
