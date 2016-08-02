@@ -10,9 +10,7 @@ module Api
       if @up.present?
         @user.update(resource:@up)
       end
-      respond_to do |format|
-        format.json {render "user"}
-      end
+      render 'user'
     end
 
     def info
@@ -22,7 +20,7 @@ module Api
         if @user.save
           render "user"
         else
-          render json:{code: 1 ,msg: {error:"#{@user.errors.full_message[0]}"}}
+          render_json_error_message(e_msg(@user))
         end
       else
         render "user"
@@ -30,24 +28,21 @@ module Api
     end
 
     def modify_pwd
+      @user = current_user
       case params[:category]
         when "0"
-          if current_user.password != User.password_hash(params[:current_password])
-            return(render json:{code: 1,msg:{errors:"当前密码错误"}})
+          if @user.password != User.password_hash(params[:current_password])
+            return render_json_error_message("当前密码错误")
           end
-          if current_user.update_password(params[:password])
-            respond_to do |format|
-              format.json {render json:{code:0,data:"更新成功"}}
-            end
+          if @user.update_password(params[:password])
+            render 'user'
           end
         when "1"
-          if current_user.verify_password != User.password_hash(params[:current_password])
-            return(render json:{code: 1,msg:{errors:"当前密码错误"}})
+          if @user.verify_password != User.password_hash(params[:current_password])
+            return render_json_error_message("当前密码错误")
           end
-          if current_user.update_verify_password(params[:password])
-            respond_to do |format|
-              format.json {render json:{code:0,data:"更新成功"}}
-            end
+          if @user.update_verify_password(params[:password])
+            render 'user'
           end
       end
     end
@@ -59,7 +54,7 @@ module Api
     def login
       if params[:j_captcha]
         if !captcha_valid? params[:j_captcha]
-          return(render json: { :code=>1,msg:{error:"无效验证吗"}})
+          return render_json_error_message("无效验证吗")
         end
       end
 
@@ -71,7 +66,7 @@ module Api
         @login = params[:login]
         session[:times] ||= 0
         session[:times] += 1
-        return(render json: {:code=>1,msg:{error:"用户名或密码错误!"}}) #t('accounts.login.error'))
+        return render_json_error_message("用户名或密码错误!") #t('accounts.login.error'))
       end
     end
 
@@ -79,7 +74,7 @@ module Api
 
       if params[:j_captcha]
         if !captcha_valid? params[:j_captcha]
-          return(render json: { :code=>1,msg:{error:"无效验证吗"}})
+          return render_json_error_message("无效验证吗")
         end
       end
 
@@ -97,7 +92,7 @@ module Api
         session[:user_id] = @user.id
         render 'user'
       else
-        render json:{code: 1, msg:{error:"#{@user.errors.full_messages[0]}"}}
+        render_json_error_message(e_msg(@user))
       end
     end
 
@@ -163,9 +158,7 @@ module Api
       session[:user_id] = nil
       cookies.delete :auth_token
       cookies.delete :publify_user_profile
-      respond_to do |format|
-        format.json { render json:{code: 0,data:"删除成功"} }
-      end
+      render_json_success_message("删除成功")
     end
 
     # private
@@ -205,7 +198,7 @@ module Api
     end
 
     def redirect_back_or_default
-      redirect_to(session[:return_to] || { controller: 'admin/dashboard', action: 'index' })
+      redirect_to(session[:return_to] || url_for({ controller: 'dashboard', action: 'index' }))
       session[:return_to] = nil
     end
 

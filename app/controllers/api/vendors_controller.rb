@@ -6,7 +6,7 @@ module Api
     def index
       conditions = {}
       ! params[:product_category_id].blank? &&  conditions.merge!({product_category_id: params[:product_category_id] })
-      ! params[:area_id].blank? && conditions.merge!({})
+      ! params[:area_id].blank? && conditions.merge!({area_id: params[:area_id]})
       ! params[:siftings].blank? && conditions.merge!({})
 
       @vendors_paged = Vendor.where(conditions).order(:name)

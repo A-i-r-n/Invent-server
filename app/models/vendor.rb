@@ -6,6 +6,8 @@ class Vendor < ActiveRecord::Base
 
   belongs_to :product_category
 
+  belongs_to :area
+
 
   def attachments=(attrs)
     attachments.build(attrs['image']) if attrs['image']['file'].present?

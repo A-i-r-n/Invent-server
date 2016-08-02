@@ -11,6 +11,23 @@ module Api
       @user = User.first if Shoppe.settings.demo_mode?
     end
 
+    def render_json_error_message(msg)
+      {code: 1 ,msg: msg}.tap do |msg|
+        render 'shared/error',@msg = msg
+      end
+    end
+
+    def render_json_success_message(msg)
+      {code: 0 ,msg: msg}.tap do |msg|
+        render 'shared/success',@msg = msg
+      end
+    end
+
+    def e_msg(obj)
+      obj.errors.full_messages[0]
+    end
+
+
     helper_method :current_user, :logged_in?
   end
 end

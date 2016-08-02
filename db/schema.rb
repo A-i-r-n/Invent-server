@@ -308,19 +308,18 @@ ActiveRecord::Schema.define(version: 20160704054721) do
     t.decimal  "weight",                          precision: 8, scale: 3, default: 0.0
     t.decimal  "price",                           precision: 8, scale: 2, default: 0.0
     t.decimal  "cost_price",                      precision: 8, scale: 2, default: 0.0
-
-    t.integer  "grade_num",         limit: 4,default:0
-    t.decimal  "grade_score",precision: 8, scale: 2, default: 0.0
-    t.integer  "great_num",limit: 4,default:0
-    t.integer  "product_category_id",          limit: 4
-    t.integer  "tax_rate_id",       limit: 4
-    t.integer  "parent_id",         limit: 4
-    t.integer  "vendor_id",         limit: 4
-    t.integer  "carriage_template_id",limit:4
+    t.integer  "grade_num",                                              limit: 4,default:0
+    t.decimal  "grade_score",                                            precision: 8, scale: 2, default: 0.0
+    t.integer  "great_num",                                              limit: 4,default:0
+    t.integer  "product_category_id",                                    limit: 4
+    t.integer  "tax_rate_id",                                            limit: 4
+    t.integer  "parent_id",                                              limit: 4
+    t.integer  "vendor_id",                                              limit: 4
+    t.integer  "carriage_template_id",                                   limit:4
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "featured",                                                default: false
-    t.text     "in_the_box",        limit: 65535
+    t.text     "in_the_box",                                              limit: 65535
     t.boolean  "stock_control",                                           default: true
     t.boolean  "default",                                                 default: false
   end
@@ -328,7 +327,7 @@ ActiveRecord::Schema.define(version: 20160704054721) do
   create_table "carts", force: :cascade do |t|
     t.integer "num",           limit: 4, default: 0
     t.integer "product_id",    limit: 4
-    t.integer "user_id",limit: 4
+    t.integer "user_id",       limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -346,20 +345,21 @@ ActiveRecord::Schema.define(version: 20160704054721) do
   add_index "products", ["sku"], name: "index_products_on_sku", using: :btree
 
   create_table "vendors", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.integer  "grade_num",limit:4 , default:0
-    t.decimal  "grade_score",precision:8,scale:2,default:0.0
-    t.integer  "user_id", limit:4
-    t.integer  "product_category_id",limit: 4
+    t.string   "name",                   limit: 255
+    t.integer  "grade_num",              limit:4 , default:0
+    t.decimal  "grade_score",            precision:8,scale:2,default:0.0
+    t.integer  "user_id",                limit:4
+    t.integer  "product_category_id",    limit: 4
+    t.integer  "area_id",                limit:4
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
 
   create_table "grade",force: :cascade do |t|
-    t.decimal "score",precision:8,scale:2,default:0.0
-    t.text     "content",  limit: 65535
-    t.integer  "product_id",limit:4
-    t.integer  "user_id",limit:4
+    t.decimal "score",          precision:8,scale:2,default:0.0
+    t.text     "content",       limit: 65535
+    t.integer  "product_id",    limit:4
+    t.integer  "user_id",       limit:4
   end
 
   create_table "settings", force: :cascade do |t|
@@ -418,24 +418,24 @@ ActiveRecord::Schema.define(version: 20160704054721) do
     t.text     "settings",                  limit: 65535
     t.float    "latitude",                  limit: 24, default: 0
     t.float    "longitude",                 limit: 24, default: 0
-    t.integer  "grade_num", limit:4, default:0
-    t.decimal  "grade_score", precision:8, scale:2, default:0.0
-    t.integer  "profile_id",     limit:4
+    t.integer  "grade_num",                 limit:4, default:0
+    t.decimal  "grade_score",               precision:8, scale:2, default:0.0
+    t.integer  "profile_id",                limit:4
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "profiles", force: :cascade do |t|
-    t.string  "label",limit: 255
-    t.string  "nicename",limit:255
-    t.text    "modules",limit: 65535
+    t.string  "label",      limit: 255
+    t.string  "nicename",   limit:255
+    t.text    "modules",    limit: 65535
   end
 
   add_index "users", ["login"], name: "index_users_on_login", using: :btree
 
   create_table "banners", force: :cascade do |t|
-    t.string   "name",limit:255
-    t.string   "link",limit:255
+    t.string   "name",        limit:255
+    t.string   "link",        limit:255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
