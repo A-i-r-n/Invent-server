@@ -5,12 +5,16 @@ module Api
 
     def index
       conditions = {}
+      location = {}
       ! params[:product_category_id].blank? &&  conditions.merge!({product_category_id: params[:product_category_id] })
       ! params[:area_id].blank? && conditions.merge!({area_id: params[:area_id]})
       ! params[:siftings].blank? && conditions.merge!({})
+      ! params[:lat].blank? && ! params[:lng].blank? && location.merge!({lat: params[:lat],lng: params[:lng]})
 
-      @vendors_paged = Vendor.where(conditions).order(:name)
+      @vendors_paged = Vendor.with_distance(location).where(conditions).order_by(location,params[:order_by_distance] == '1')
+
       @vendors = @vendors_paged.page(params[:page] ||= 1)
+
     end
 
     def settle_in

@@ -346,8 +346,11 @@ ActiveRecord::Schema.define(version: 20160704054721) do
 
   create_table "vendors", force: :cascade do |t|
     t.string   "name",                   limit: 255
+    t.integer  "sold_num",               limit: 4, default: 0
     t.integer  "grade_num",              limit:4 , default:0
     t.decimal  "grade_score",            precision:8,scale:2,default:0.0
+    t.decimal  "latitude",               precision: 8, scale: 2, default: 0.0
+    t.decimal  "longitude",              precision: 8, scale: 2, default: 0.0
     t.integer  "user_id",                limit:4
     t.integer  "product_category_id",    limit: 4
     t.integer  "area_id",                limit:4
@@ -363,9 +366,9 @@ ActiveRecord::Schema.define(version: 20160704054721) do
   end
 
   create_table "settings", force: :cascade do |t|
-    t.string "key",        limit: 255
-    t.string "value",      limit: 255
-    t.string "value_type", limit: 255
+    t.string  "key",        limit: 255
+    t.string  "value",      limit: 255
+    t.string  "value_type", limit: 255
   end
 
   add_index "settings", ["key"], name: "index_settings_on_key", using: :btree
