@@ -36,7 +36,7 @@ Rails.application.routes.draw do
     resources :visitor_logs,only:[:index]
 
     get "areas/:name/streets",to: "areas#streets"
-
+    resources :areas,only: [:index]
     resources :users,path:'user' do
       collection do
         get 'addresses'

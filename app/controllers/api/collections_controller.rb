@@ -13,7 +13,7 @@ module Api
       if @collection.save
         render 'collection'
       else
-        render json: { code: 0,data:{ msg: "#{@collection.errors.full_messages[0]}" }}
+        render_json_error_message(e_msg(@collection))
       end
     end
 

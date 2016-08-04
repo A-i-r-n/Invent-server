@@ -7,7 +7,7 @@ module Api
       conditions = {}
       location = {}
       ! params[:product_category_id].blank? &&  conditions.merge!({product_category_id: params[:product_category_id] })
-      ! params[:area_id].blank? && conditions.merge!({area_id: params[:area_id]})
+      ! params[:sid].blank? && conditions.merge!({sid: params[:sid]})
       ! params[:siftings].blank? && conditions.merge!({})
       ! params[:lat].blank? && ! params[:lng].blank? && location.merge!({lat: params[:lat],lng: params[:lng]})
 
@@ -27,9 +27,7 @@ module Api
         if @vendor.save
           render 'vendor'
         else
-          {code: 0,msg:"#{@vendor.errors.full_messages[0]}"}.tap do |msg|
-            render 'shared/error',@msg = msg
-          end
+          render_json_error_message(e_msg(@vendor))
         end
       else
         render 'vendor'

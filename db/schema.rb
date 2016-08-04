@@ -14,6 +14,8 @@
 ActiveRecord::Schema.define(version: 20160704054721) do
 
   create_table "addresses", force: :cascade do |t|
+    t.string   "name",        limit: 255
+    t.string   "phone",      limit: 255
     t.integer  "customer_id",  limit: 4
     t.string   "address_type", limit: 255
     t.boolean  "default"
@@ -23,9 +25,12 @@ ActiveRecord::Schema.define(version: 20160704054721) do
     t.string   "address4",     limit: 255
     t.string   "postcode",     limit: 255
     t.integer  "country_id",   limit: 4
-    t.integer  "area_id",   limit: 4
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    # t.integer  "area_id",   limit: 4
+    t.integer  "pid",  limit: 4
+    t.integer  "cid",  limit: 4
+    t.integer  "sid",  limit: 4
+    t.datetime  "created_at"
+    t.datetime  "updated_at"
   end
 
   add_index "addresses", ["customer_id"], name: "index_addresses_on_customer_id", using: :btree
@@ -353,7 +358,10 @@ ActiveRecord::Schema.define(version: 20160704054721) do
     t.decimal  "longitude",              precision: 8, scale: 2, default: 0.0
     t.integer  "user_id",                limit:4
     t.integer  "product_category_id",    limit: 4
-    t.integer  "area_id",                limit:4
+    t.integer  "pid",                    limit:4
+    t.integer  "cid",                    limit:4
+    t.integer  "sid",                    limit:4
+    t.string   "address",                limit:255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end

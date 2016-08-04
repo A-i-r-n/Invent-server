@@ -21,6 +21,12 @@ class Address < ActiveRecord::Base
     # @return [Shoppe::Country]
     belongs_to :country, class_name: 'Country'
 
+    belongs_to :province,class_name: 'Area',foreign_key: :pid
+
+    belongs_to :city , class_name: 'Area',foreign_key: :cid
+
+    belongs_to :street , class_name: 'Area',foreign_key: :sid
+
     # Validations
     validates :address_type, presence: true, inclusion: { in: TYPES }
     validates :address1, presence: true
@@ -28,7 +34,7 @@ class Address < ActiveRecord::Base
     validates :address4, presence: true
     validates :postcode, presence: true
     validates :country, presence: true
-    validates :area_id, presence: true
+    # validates :area_id, presence: true
 
     # All addresses ordered by their id asending
     scope :ordered, -> { order(id: :desc) }
@@ -36,48 +42,48 @@ class Address < ActiveRecord::Base
     scope :billing, -> { where(address_type: 'billing') }
     scope :delivery, -> { where(address_type: 'delivery') }
 
-    attr_accessor :pid,:cid,:sid
+    # attr_accessor :pid,:cid,:sid
+    #
+    # before_validation do
+    #     self.area_id = ([pid, cid, sid] - [nil,""]).last
+    # end
+    #
+    # after_find :set_area_id
+    #
+    # def set_area_id
+    #     area = self.area_id ?  Area.find(self.area_id) : nil
+    #     i = 0
+    #     p = area
+    #     arr = []
+    #     while i < 3
+    #         break if p.nil?
+    #         arr << p.id
+    #         p = p.parent
+    #         i+=1
+    #     end
+    #     arr =  arr.reverse
+    #     (3 - arr.count).times { arr << nil if arr.count < 3 }
+    #     self.pid,self.cid,self.sid = arr
+    # end
 
-    before_validation do
-        self.area_id = ([pid, cid, sid] - [nil,""]).last
-    end
-
-    after_find :set_area_id
-
-    def set_area_id
-        area = self.area_id ?  Area.find(self.area_id) : nil
-        i = 0
-        p = area
-        arr = []
-        while i < 3
-            break if p.nil?
-            arr << p.id
-            p = p.parent
-            i+=1
-        end
-        arr =  arr.reverse
-        (3 - arr.count).times { arr << nil if arr.count < 3 }
-        self.pid,self.cid,self.sid = arr
-    end
-
-    def province
-        @p ||= Area.find(self.pid)
-    end
-
-    def city
-        @c ||= Area.find(self.cid)
-    end
-
-    def street
-        @s ||= Area.find(self.sid)
-    end
+    # def province
+    #     @p ||= Area.find(self.pid)
+    # end
+    #
+    # def city
+    #     @c ||= Area.find(self.cid)
+    # end
+    #
+    # def street
+    #     @s ||= Area.find(self.sid)
+    # end
 
 
     def full_name
-        areas = Area.where(id:[self.pid, self.cid,self.sid])
+        areas = [provice,city,street]
         str = ''
         areas.each do |area|
-            str << "#{area.name} "
+            str << "#{area.name} " if area.present?
         end
         str
     end

@@ -6,10 +6,12 @@ class Vendor < ActiveRecord::Base
 
   belongs_to :product_category
 
-  belongs_to :area
+  belongs_to :province ,class_name: "Area",foreign_key: :pid
+  belongs_to :city ,class_name: "Area",foreign_key: :cid
+  belongs_to :street ,class_name: "Area",foreign_key: :sid
 
   def self.with_distance(location)
-    columns = [:id,:name,:grade_num,:grade_score,:latitude,:longitude,:user_id,:product_category_id,:area_id,:sold_num,:created_at,:updated_at]
+    columns = [:id,:name,:grade_num,:grade_score,:latitude,:longitude,:user_id,:product_category_id,:pid,:cid,:sid,:sold_num,:created_at,:updated_at]
     location.empty? ? self : select(columns ," #{mysql_distance(location[:lat],location[:lng])} as distance ")
   end
 
@@ -18,8 +20,17 @@ class Vendor < ActiveRecord::Base
           +COS(#{lat}*PI()/180)*COS(latitude*PI()/180)*POW(SIN((#{long}*PI()/180-longitude*PI()/180)/2),2)))*1000) "
   end
 
+  def distance
+    read_attribute(:distance) || BigDecimal(0)
+  end
+
+  def location
+    "#{province && province.name} #{city && city.name} #{street && street.name}".gsub(/^\s|\s$/,"")
+  end
+
+
   def self.order_by(location,order_by_distance)
-    (location.empty? && order_by_distance) ? order(:created_at) : order(" distance asc ")
+    (location.empty? && ! order_by_distance) ? order(:created_at) : order(" distance asc ")
   end
 
   def attachments=(attrs)

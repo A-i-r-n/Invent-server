@@ -49,7 +49,7 @@ admin_cat7.attachments.build(file: get_file('index_clothes.png'), role: 'default
 admin_cat8 = ProductCategory.where(name: '其他').first_or_create
 admin_cat8.attachments.build(file: get_file('index_service.png'), role: 'default_image').save
 
-vendor = Vendor.create(name:"vendor",grade_num:0,grade_score:0.0)
+vendor = Vendor.create(name:"vendor",grade_num:0,grade_score:0.0,pid:1,cid:2)
 
 vendor.attachments.build(file: get_file('t22p.jpg'), role: 'default_image')
 
@@ -62,7 +62,7 @@ User.create(login: 'vendor', password: '123456',verify_password:'123456',profile
 customer = Customer.create(first_name:"customer",last_name:"customer",company:"company",email:"948993066@qq.com",phone:"18868945291",mobile:"18868945291")
 User.create(login: 'customer', password: '123456',verify_password:'123456',profile: customer_profile,customer: customer)
 
-address = Address.create(customer:customer,address_type:'billing',default: 1,address1:"no need",address2:"no need",
+address = Address.create(customer:customer,name: "陈中杭",phone: "18868945291",address_type:'billing',default: 1,address1:"no need",address2:"no need",
                       address3:"no need",address4:"no need",postcode:"311311",country_id:15,pid:1,cid:2)
 
 # tax rates

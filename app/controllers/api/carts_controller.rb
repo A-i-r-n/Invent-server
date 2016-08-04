@@ -1,12 +1,12 @@
 module Api
   class CartsController < Api::BaseController
 
-    # before_filter :login_required,except: [:login, :signup]
+    before_filter :login_required,except: [:login, :signup]
 
     before_filter { params[:id] && @cart = Cart.find(params[:id]) }
 
     def index
-      @carts = Cart.all.group_by(&:product_vendor) #.where(user: current_user)
+      @carts = Cart.where(user: current_user).group_by(&:product_vendor)
     end
 
     def create
@@ -16,7 +16,7 @@ module Api
       if @cart.save
         render 'cart'
       else
-        render json: {code: 1, data: {msg: "#{@cart.errors.full_messages[0]}"}}
+        render_json_error_message(e_msg(@cart))
       end
     end
 
@@ -24,7 +24,7 @@ module Api
       if @cart.update(safe_params)
         render 'cart'
       else
-        render json: {code: 1, data: {msg: "#{@cart.errors.full_messages[0]}"}}
+        render_json_error_message(e_msg(@cart))
       end
     end
 

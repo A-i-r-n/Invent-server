@@ -30,14 +30,18 @@
       where(parent_id: nil)
     }
 
-    scope :children,->(pid){
-      case
-        when pid
-          where(parent_id: pid)
-        else
-          []
-      end
-    }
+    def has_children
+      children.size > 0 ? 1 : 0
+    end
+
+    # scope :children,->(pid){
+    #   case
+    #     when pid
+    #       where(parent_id: pid)
+    #     else
+    #       []
+    #   end
+    # }
 
 
   end

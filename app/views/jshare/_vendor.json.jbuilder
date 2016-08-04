@@ -1,4 +1,4 @@
-json.extract! vendor, :id,:name,:grade_num,:grade_score,:distance,:sold_num,:created_at, :updated_at
+json.extract! vendor, :id,:name,:grade_num,:grade_score,:distance,:location,:sold_num,:created_at, :updated_at
 licence_attachment = vendor.attachments.for('licence_image')
 if licence_attachment then json.licence_image_url image_url(licence_attachment.file.url) end
 
