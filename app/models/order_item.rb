@@ -106,13 +106,20 @@ class OrderItem < ActiveRecord::Base
   end
 
   def carriage_template
-    ordered_item.try(:carriage_template) || (ordered_item.parent && ordered_item.parent.try(:carriage_template))
+    ordered_item.try(:carriage_template) || (ordered_item && ordered_item.parent && ordered_item.parent.try(:carriage_template))
+  end
+
+  def carriage_required?
+    order.address_id.present?
+  end
+
+  def city_id
+    @cid ||= Address.find(order.address_id).cid
   end
 
   def carriage_price
     price_total = 0
-    city_id = order.city_id
-    if carriage_template
+    if carriage_template && carriage_required?
       template_prices = carriage_template.carriage_template_prices
       template_price = template_prices.find_all{ |p| p.express_areas_ids.split(',').include?("#{city_id}") }.first
       price_total += (template_price.postage + (total_weight - template_price.start) * (template_price.postageplus/template_price.plus))

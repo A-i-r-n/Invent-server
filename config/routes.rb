@@ -115,6 +115,14 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
+
+    resources :vendors do
+      member do
+        post :accept
+        post :reject
+      end
+    end
+
     get 'attachment/:id/:filename.:extension' => 'attachments#show'
 
     resources :customers do

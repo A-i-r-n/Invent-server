@@ -1,0 +1,28 @@
+- @page_title = t('shoppe.orders.orders')
+
+= content_for :header do
+  %p.buttons
+    = link_to t('shoppe.orders.new_order'), :new_admin_vendor, :class => 'button green'
+    = link_to t('shoppe.orders.search_orders'), '#', :class => 'button', :rel => 'searchOrders'
+  %h2.orders
+    = t('shoppe.orders.orders')
+    %span= page_entries_info @vendors
+
+-#= render 'search_form'
+
+.table
+  %table.data
+    %thead
+      %tr
+        %th= :id
+        %th= :商户名
+    %tbody
+      - if @vendors.empty?
+        %tr.empty
+          %td{:colspan => 6}= t('shoppe.orders.no_orders')
+      - else
+        - for vendor in @vendors
+          %tr
+            %td= link_to vendor.id, admin_vendor_path(vendor)
+            %td= vendor.name
+= paginate @vendors

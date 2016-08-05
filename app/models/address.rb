@@ -80,7 +80,7 @@ class Address < ActiveRecord::Base
 
 
     def full_name
-        areas = [provice,city,street]
+        areas = [province,city,street]
         str = ''
         areas.each do |area|
             str << "#{area.name} " if area.present?

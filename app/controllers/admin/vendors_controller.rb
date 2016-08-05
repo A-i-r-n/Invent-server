@@ -9,7 +9,7 @@ class VendorsController < Admin::BaseController
     end
 
     def index
-      @vendors = Vendor.page(params[:page])
+      @vendors = Vendor.received.page(params[:page])
     end
 
     def new
@@ -26,6 +26,10 @@ class VendorsController < Admin::BaseController
     end
 
     def edit
+    end
+
+    def show
+
     end
 
     def update

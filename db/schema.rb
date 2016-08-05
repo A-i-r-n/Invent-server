@@ -350,10 +350,10 @@ ActiveRecord::Schema.define(version: 20160704054721) do
   add_index "products", ["sku"], name: "index_products_on_sku", using: :btree
 
   create_table "vendors", force: :cascade do |t|
-    t.string   "name",                   limit: 255
-    t.integer  "sold_num",               limit: 4, default: 0
-    t.integer  "grade_num",              limit:4 , default:0
-    t.decimal  "grade_score",            precision:8,scale:2,default:0.0
+    t.string   "name",                   limit: 255,   default: ""
+    t.integer  "sold_num",               limit: 4,     default: 0
+    t.integer  "grade_num",              limit:4 ,     default:0
+    t.decimal  "grade_score",            precision:8,  scale:2,default:0.0
     t.decimal  "latitude",               precision: 8, scale: 2, default: 0.0
     t.decimal  "longitude",              precision: 8, scale: 2, default: 0.0
     t.integer  "user_id",                limit:4
@@ -362,6 +362,7 @@ ActiveRecord::Schema.define(version: 20160704054721) do
     t.integer  "cid",                    limit:4
     t.integer  "sid",                    limit:4
     t.string   "address",                limit:255
+    t.string   "status",                 limit:255, default: 'received'
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end

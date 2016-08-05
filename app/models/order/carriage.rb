@@ -11,10 +11,6 @@ class Order < ActiveRecord::Base
     write_attribute :carriage_price, carriage_pricing
   end
 
-  def city_id
-    @cid ||= Address.find(address_id).cid
-  end
-
   def carriage_pricing
     order_items.inject(BigDecimal(0)) { |t,i | t += i.carriage_price  }
   end

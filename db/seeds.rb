@@ -49,7 +49,7 @@ admin_cat7.attachments.build(file: get_file('index_clothes.png'), role: 'default
 admin_cat8 = ProductCategory.where(name: '其他').first_or_create
 admin_cat8.attachments.build(file: get_file('index_service.png'), role: 'default_image').save
 
-vendor = Vendor.create(name:"vendor",grade_num:0,grade_score:0.0,pid:1,cid:2)
+vendor = Vendor.create(name:"vendor",grade_num:0,grade_score:0.0,pid:1,cid:2,status:'accepted')
 
 vendor.attachments.build(file: get_file('t22p.jpg'), role: 'default_image')
 

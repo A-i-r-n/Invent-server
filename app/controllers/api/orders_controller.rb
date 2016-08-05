@@ -5,7 +5,7 @@ module Api
 
     def index
       conditions = params[:status] != 'all' ? {status: params[:status]} : {}
-      @query = Order.ordered.where(conditions).includes(order_items: :ordered_item).page(params[:page]).search(params[:q])
+      @query = Order.ordered.where(conditions).includes(order_items: :ordered_item).page(params[:page]).per(10).search(params[:q])
       @orders = @query.result
     end
 
