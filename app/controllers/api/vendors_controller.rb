@@ -1,7 +1,7 @@
 module Api
   class VendorsController < Api::BaseController
 
-    before_action :login_required ,only:[:settle_in]
+    before_action :login_required ,only:[:settle_in,:accept]
 
     def index
       conditions = {}
@@ -23,7 +23,13 @@ module Api
       @vendor = current_vendor
       if request.post?
         @vendor.update_attributes(safe_params)
-        if !@vendor.save
+        case params[:method]
+          when 'edit'
+            @vendor.status = 'confirming'
+          when 'submit'
+            @vendor.status =  'received'
+        end
+        if ! @vendor.save
           return render_json_error_message(e_msg(@vendor))
         end
       end
@@ -34,7 +40,7 @@ module Api
     def safe_params
       params[:vendor][:sid] ||= nil
       file_params = [:file, :parent_id, :role, :parent_type, file: []]
-      params[:vendor].permit(:name,:pid,:cid,:sid,:product_category_id,attachments: [ image: file_params ]
+      params[:vendor].permit(:name,:pid,:cid,:sid,:address,:latitude,:longitude,:product_category_id,attachments: [ image: file_params ]
       )
     end
 

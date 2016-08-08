@@ -33,17 +33,30 @@ class VendorsController < Admin::BaseController
     end
 
     def update
-      if @user.update(safe_params)
-        redirect_to [:edit,:admin, @user], flash: { notice: t('shoppe.users.update_notice') }
+      if @vendor.update(safe_params)
+        redirect_to [:edit,:admin, @vendro], flash: { notice: t('shoppe.users.update_notice') }
       else
         render action: 'edit'
       end
     end
 
     def destroy
-      fail Shoppe::Error, t('shoppe.users.self_remove_error') if @user == current_user
-      @user.destroy
-      redirect_to [:admin,:users], flash: { notice: t('shoppe.users.destroy_notice') }
+      @vendor.destroy
+      redirect_to [:admin,:vendorsa], flash: { notice: t('shoppe.users.destroy_notice') }
+    end
+
+    def accept
+      @vendor.accept
+      redirect_to [:admin,@vendor], flash: { notice: t('shoppe.orders.accept_notice') }
+    rescue Shoppe::Errors::PaymentDeclined => e
+      redirect_to [:admin,@vendor], flash: { alert: e.message }
+    end
+
+    def reject
+      @vendor.reject
+      redirect_to [:admin,@vendor], flash: { notice: t('shoppe.orders.reject_notice') }
+    rescue Shoppe::Errors::PaymentDeclined => e
+      redirect_to [:admin,@vendor], flash: { alert: e.message }
     end
 
     private

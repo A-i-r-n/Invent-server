@@ -4,7 +4,7 @@
   %p.buttons
     = link_to t('shoppe.edit'), [:edit,:admin, @vendor], :class => 'button'
     - if @vendor.accepted?
-      = link_to t('shoppe.orders.despatch_note.despatch_note'), [:despatch_note,:admin, @vendor], :class => 'button', :rel => 'print'
+      -#= link_to t('shoppe.orders.despatch_note.despatch_note'), [:despatch_note,:admin, @vendor], :class => 'button', :rel => 'print'
     = link_to t('shoppe.orders.back_to_orders'), [:admin,:orders], :class => 'button grey'
   -#%h2.orders= t('shoppe.orders.order_no_html', order_number: @order.number)
 

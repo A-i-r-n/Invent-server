@@ -361,8 +361,8 @@ ActiveRecord::Schema.define(version: 20160704054721) do
     t.integer  "pid",                    limit:4
     t.integer  "cid",                    limit:4
     t.integer  "sid",                    limit:4
-    t.string   "address",                limit:255
-    t.string   "status",                 limit:255, default: 'received'
+    t.string   "address",                limit:255,    default: ""
+    t.string   "status",                 limit:255, default: 'confirming'
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
@@ -458,6 +458,13 @@ ActiveRecord::Schema.define(version: 20160704054721) do
     t.integer  "user_id",     limit:4
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "bank_cards", force: :cascade do |t|
+    t.string  "no",         limit:255,  default:""
+    t.string  "id_card",    limit:255,  default:""
+    t.string  "user_name",  limit:255,  default:""
+    t.string  "phone",      limit:255,  default:""
   end
 
 end

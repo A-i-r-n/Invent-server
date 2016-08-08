@@ -1,6 +1,7 @@
 class Vendor < ActiveRecord::Base
 
-  STATUSES = %w(received accepted rejected).freeze
+  define_model_callbacks :acceptance
+  STATUSES = %w(confirming received accepted rejected).freeze
 
   belongs_to :user
 
@@ -53,6 +54,42 @@ class Vendor < ActiveRecord::Base
   # @return [Boolean]
   def accepted?
     status == 'accepted'
+  end
+
+  def licence_image
+    attachments.order(created_at: :desc).for('licence_image')
+  end
+
+  def default_image
+    attachments.order(created_at: :desc).for('default_image')
+  end
+
+  # Mark order as accepted
+  #
+  # @param user [Shoppe::User] the user who carried out this action
+  def accept#!(user = nil)
+    run_callbacks :acceptance do
+      # self.accepted_at = Time.now
+      # self.accepter = user if user
+      self.status = 'accepted'
+      save!
+      # order_items.each(&:accept!)
+      # deliver_accepted_order_email
+    end
+  end
+
+  # Mark order as rejected
+  #
+  # @param user [Shoppe::User] the user who carried out the action
+  def reject#!(user = nil)
+    run_callbacks :rejection do
+      # self.rejected_at = Time.now
+      # self.rejecter = user if user
+      self.status = 'rejected'
+      save!
+      # order_items.each(&:reject!)
+      # deliver_rejected_order_email
+    end
   end
 
 end

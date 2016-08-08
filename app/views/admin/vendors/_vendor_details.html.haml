@@ -1,10 +1,17 @@
-.details
-  .left
-    %dl
-      %dt= t('shoppe.orders.name')
-      -#%dd= @order.full_name
-      -#%dt= t('shoppe.orders.company')
-      -#%dd= @order.company.blank? ? '-' : @order.company
+.details{style: "background:white;padding:10px"}
+  -#.left
+  -#  %dl
+  -#    %dt= t('shoppe.orders.name')
+  -#    %dd= @vendor.name
+  -#    %dt= '分类'
+  -#    %dd= @vendor.product_category.name
+  -#    %dt= '省市'
+  -#    %dd= @vendor.province.name
+  -#    %dt= '城市'
+  -#    %dd= @vendor.city.name
+  -#    %dt= '区域'
+  -#    %dd= @vendor.street.name
+
       -#%dt
       -#  - if @order.separate_delivery_address?
       -#    = t('shoppe.orders.billing_address')
@@ -26,32 +33,44 @@
       -#  %dd= @order.delivery_address4
       -#  %dd= @order.delivery_postcode
       -#  %dd= @order.delivery_country.try(:name)
-  .right
-    %dl
-      -#%dt= t('shoppe.orders.email_address')
-      -#%dd= mail_to @order.email_address
-      -#%dt= t('shoppe.orders.telephone')
-      -#%dd= @order.phone_number
-      -#%dt= t('shoppe.orders.weight')
-      -#%dd= number_to_weight @order.total_weight
-      -#- if @order.received?
-      -#  %dt= t('shoppe.orders.build_time')
-      -#  %dd= distance_of_time_in_words(@order.created_at, @order.received_at)
-      -#- if @order.invoiced?
-      -#  %dt= t('shoppe.orders.invoice_number')
-      -#  %dd= @order.invoice_number
-      -#%dt= t('shoppe.orders.order_balance')
-      -#%dd= boolean_tag @order.paid_in_full?, nil, :true_text => number_to_currency(@order.balance), :false_text => number_to_currency(@order.balance)
-    - if @vendor.accepted?
-      = form_tag [:ship,:admin, @order] do
-        %dl.form
-          %dt.padding= label_tag 'consignment_number', t('shoppe.orders.consignment_number')
-          %dd= text_field_tag 'consignment_number', '', :class => 'text'
-        %dl.form
-          %dd= submit_tag t('shoppe.orders.mark_as_shipped') , :class => 'button green button-mini'
+  -#.right
+  %dl
+    %dt= t('shoppe.orders.name')
+    %dd= @vendor.name
+    %dt= '分类'
+    %dd= @vendor.product_category.name
+    %dt= '省市'
+    %dd= @vendor.province.name
+    %dt= '城市'
+    %dd= @vendor.city.name
+    %dt= '地址'
+    %dd= "#{@vendor.address}&nbsp".html_safe
+    %dt= '营业执照'
+    %dd=image_tag(@vendor.licence_image.file.url,height: "200px")
+    -#%dt= t('shoppe.orders.email_address')
+    -#%dd= mail_to @order.email_address
+    -#%dt= t('shoppe.orders.telephone')
+    -#%dd= @order.phone_number
+    -#%dt= t('shoppe.orders.weight')
+    -#%dd= number_to_weight @order.total_weight
+    -#- if @order.received?
+    -#  %dt= t('shoppe.orders.build_time')
+    -#  %dd= distance_of_time_in_words(@order.created_at, @order.received_at)
+    -#- if @order.invoiced?
+    -#  %dt= t('shoppe.orders.invoice_number')
+    -#  %dd= @order.invoice_number
+    -#%dt= t('shoppe.orders.order_balance')
+    -#%dd= boolean_tag @order.paid_in_full?, nil, :true_text => number_to_currency(@order.balance), :false_text => number_to_currency(@order.balance)
+  -#- if @vendor.accepted?
+  -#  = form_tag [:ship,:admin, @order] do
+  -#    %dl.form
+  -#      %dt.padding= label_tag 'consignment_number', t('shoppe.orders.consignment_number')
+  -#      %dd= text_field_tag 'consignment_number', '', :class => 'text'
+  -#    %dl.form
+  -#      %dd= submit_tag t('shoppe.orders.mark_as_shipped') , :class => 'button green button-mini'
 
-    - unless @vendor.accepted? || @vendor.rejected?
-      %dl.form
-        %dd
-          = link_to t('shoppe.orders.accept'), [:accept,:admin, @vendor], :method => :post, :class => 'button green'
-          = link_to t('shoppe.orders.reject'), [:reject,:admin, @vendor], :method => :post, :class => 'button purple'
+  -#- unless @vendor.accepted? || @vendor.rejected?
+  %dl.form
+    %dd
+      = link_to t('shoppe.orders.accept'), [:accept,:admin, @vendor], :method => :post, :class => 'button green'
+      = link_to t('shoppe.orders.reject'), [:reject,:admin, @vendor], :method => :post, :class => 'button purple'
