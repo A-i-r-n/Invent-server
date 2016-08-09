@@ -9,4 +9,4 @@ json.set! :order_items_attributes do
     end
   end
 end
-json.extract! order,:carriage_price,:total
+json.extract! order,:id,:carriage_price,:total

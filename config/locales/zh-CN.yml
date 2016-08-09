@@ -1,4 +1,9 @@
 zh-CN:
+  support:
+    array:
+      words_connector: " o "
+      two_words_connector: " y "
+      last_word_connector: " o al menos "
   activerecord:
     models:
       address:

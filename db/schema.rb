@@ -215,6 +215,7 @@ ActiveRecord::Schema.define(version: 20160704054721) do
   create_table "payments", force: :cascade do |t|
     t.integer  "order_id",          limit: 4
     t.decimal  "amount",                        precision: 8, scale: 2, default: 0.0
+    t.string   "no",               limit: 255
     t.string   "reference",         limit: 255
     t.string   "method",            limit: 255
     t.boolean  "confirmed",                                             default: true

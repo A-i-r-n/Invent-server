@@ -15,8 +15,8 @@
 
     # Validations
     validates :amount, numericality: true
-    validates :reference, presence: true
-    validates :method, presence: true
+    validates :reference, presence: true,allow_blank: true
+    validates :method, presence: true,allow_blank: true
 
     # Payments can have associated properties
     key_value_store :properties
@@ -24,6 +24,7 @@
     # Callbacks
     after_create :cache_amount_paid
     after_destroy :cache_amount_paid
+    after_update  :cache_amount_paid
     before_destroy { parent.update_attribute(:amount_refunded, parent.amount_refunded + amount) if parent }
 
     # Is this payment a refund?
@@ -74,9 +75,15 @@
       nil
     end
 
+    def amount_paid
+      update_attribute(:amount,amount.abs)
+    end
+
     private
 
     def cache_amount_paid
-      order.update_attribute(:amount_paid, order.payments.sum(:amount))
+      if amount > 0
+        order.update_attribute(:amount_paid, order.payments.sum(:amount))
+      end
     end
   end

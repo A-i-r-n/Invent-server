@@ -60,7 +60,7 @@ vendor.save
 User.create(login: 'vendor', password: '123456',verify_password:'123456',profile: vendor_profile,vendor: vendor)
 
 customer = Customer.create(first_name:"customer",last_name:"customer",company:"company",email:"948993066@qq.com",phone:"18868945291",mobile:"18868945291")
-User.create(login: 'customer', password: '123456',verify_password:'123456',profile: customer_profile,customer: customer)
+User.create(login: 'customer', password: '123456',verify_password:'123456',phone:'18868945291',real_name:"陈中杭",idcard:"330124199111141812",profile: customer_profile,customer: customer)
 
 address = Address.create(customer:customer,name: "陈中杭",phone: "18868945291",address_type:'billing',default: 1,address1:"no need",address2:"no need",
                       address3:"no need",address4:"no need",postcode:"311311",country_id:15,pid:1,cid:2)

@@ -44,7 +44,12 @@ Rails.application.routes.draw do
       end
     end
 
-    resources :orders
+    resources :orders ,only:[:index,:create]
+
+    resources :payments,only:[:create]
+
+    match "payment/secure_pay/:method", to: "payments#secure_pay", via: [:get, :post]
+
   end
 
   namespace :seller do
