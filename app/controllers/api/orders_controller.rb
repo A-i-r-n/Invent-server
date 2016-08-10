@@ -46,15 +46,12 @@ module Api
               @order.delivery_country_id = delivery.country_id
             end
           end
-
-          case params[:method]
-            when 'edit'
-            when 'submit'
-              if @order.save
-                @order.confirm!
-              else
-                @order_messages << @order.errors.full_messages.to_sentence
-              end
+          if params[:method] == 'submit'
+            if @order.save
+              @order.confirm!
+            else
+              @order_messages << @order.errors.full_messages.to_sentence
+            end
           end
 
           @orders << @order

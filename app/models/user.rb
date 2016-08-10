@@ -24,6 +24,8 @@ class User < ActiveRecord::Base
 
   has_one :customer
 
+  has_many :attachments, as: :parent, dependent: :destroy, autosave: true, class_name: 'Attachment'
+
   serialize :settings, Hash
 
   STATUS = %w(active inactive)
@@ -152,6 +154,14 @@ class User < ActiveRecord::Base
   #     profile.label.to_s.downcase == role.to_s.downcase
   #   end
   # end
+
+  def attachments=(attrs)
+    attachments.build(attrs['image']) if attrs['image']['file'].present?
+  end
+
+  def avatar
+    attachments.order(created_at: :desc).for('avatar_image')
+  end
 
   def self.to_prefix
     'author'

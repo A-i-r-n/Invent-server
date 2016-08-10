@@ -105,9 +105,9 @@ class OrderItem < ActiveRecord::Base
     quantity * weight
   end
 
-  def carriage_template
-    ordered_item.try(:carriage_template) || (ordered_item && ordered_item.parent && ordered_item.parent.try(:carriage_template))
-  end
+  # def carriage_template
+  #   ordered_item.try(:carriage_template) || (ordered_item && ordered_item.parent && ordered_item.parent.try(:carriage_template))
+  # end
 
   def carriage_required?
     order.address_id.present?
@@ -118,14 +118,22 @@ class OrderItem < ActiveRecord::Base
   end
 
   def carriage_price
-    price_total = 0
-    if carriage_template && carriage_required?
-      template_prices = carriage_template.carriage_template_prices
-      template_price = template_prices.find_all{ |p| p.express_areas_ids.split(',').include?("#{city_id}") }.first
-      price_total += (template_price.postage + (total_weight - template_price.start) * (template_price.postageplus/template_price.plus))
+    price = 0
+    if carriage_required?
+      price = ordered_item.carriage_price(city_id,quantity)
     end
-    price_total
+    price
   end
+
+  # def carriage_price
+  #   price_total = 0
+  #   if carriage_template && carriage_required?
+  #     template_prices = carriage_template.carriage_template_prices
+  #     template_price = template_prices.find_all{ |p| p.express_areas_ids.split(',').include?("#{city_id}") }.first
+  #     price_total += (template_price.postage + (total_weight - template_price.start) * (template_price.postageplus/template_price.plus))
+  #   end
+  #   price_total
+  # end
 
   # The unit price for the item
   #

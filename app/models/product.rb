@@ -221,6 +221,21 @@ class Product < ActiveRecord::Base
     end
   end
 
+  def carriage_templation
+    carriage_template || (parent && parent.carriage_templation)
+  end
+
+  def carriage_price(city_id,quantity = 1)
+    price_total = 0
+    if carriage_templation
+      template_prices = carriage_templation.carriage_template_prices
+      template_price = template_prices.find_all{ |p| p.express_areas_ids.split(',').include?("#{city_id}") }.first
+      price_total += (template_price.postage + (weight * quantity - template_price.start) * (template_price.postageplus/template_price.plus)) if template_price
+    end
+    price_total
+  end
+
+
   private
 
   # Validates

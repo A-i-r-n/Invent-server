@@ -369,10 +369,10 @@ ActiveRecord::Schema.define(version: 20160704054721) do
   end
 
   create_table "grade",force: :cascade do |t|
-    t.decimal "score",          precision:8,scale:2,default:0.0
-    t.text     "content",       limit: 65535
-    t.integer  "product_id",    limit:4
-    t.integer  "user_id",       limit:4
+    t.decimal   "score",          precision:8,scale:2,default:0.0
+    t.text      "content",       limit: 65535
+    t.integer   "product_id",    limit:4
+    t.integer   "user_id",       limit:4
   end
 
   create_table "settings", force: :cascade do |t|
@@ -461,11 +461,18 @@ ActiveRecord::Schema.define(version: 20160704054721) do
     t.datetime "updated_at"
   end
 
-  create_table "bank_cards", force: :cascade do |t|
-    t.string  "no",         limit:255,  default:""
-    t.string  "id_card",    limit:255,  default:""
-    t.string  "user_name",  limit:255,  default:""
-    t.string  "phone",      limit:255,  default:""
+  # create_table "bank_cards", force: :cascade do |t|
+  #   t.string  "no",         limit:255,  default:""
+  #   t.string  "id_card",    limit:255,  default:""
+  #   t.string  "user_name",  limit:255,  default:""
+  #   t.string  "phone",      limit:255,  default:""
+  # end
+
+  create_table "account", force: :cascade do |t|
+    t.decimal  "money",                       precision: 8, scale: 2, default: 0.0
+    t.decimal  "remain_money",                precision: 8, scale: 2, default: 0.0
+    t.decimal  "credit",                      precision: 8, scale: 2, default: 0.0
+    t.integer  "user_id",                     limit: 4
   end
 
 end

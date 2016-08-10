@@ -24,7 +24,7 @@ module Api
     end
 
     def e_msg(obj)
-      obj.errors.full_messages[0]
+      obj.errors.full_messages.to_sentence
     end
 
 

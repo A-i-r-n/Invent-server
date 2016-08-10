@@ -4,19 +4,19 @@ module Api
     before_filter { params[:id] && @payment = Payment.find(params[:id]) }
 
     def create
-      @orders = []
-      @order_messages = []
+      @payments = []
+      @payment_messages = []
       Payment.transaction do
         safe_params[:items].map{ |key,payment_safe_params|
           payment_params = payment_safe_params[:payment]
           payment = Payment.new(payment_params)
           if ! payment.save
-            @order_messages << payment.errors.full_messages.to_sentence
+            @payment_messages << payment.errors.full_messages.to_sentence
           end
-          @orders << payment
+          @payments << payment
         }
       end
-      if ! @order_messages.empty?
+      if ! @payment_messages.empty?
         render_json_error_message(@order_messages.to_sentence)
       else
         render 'payments'

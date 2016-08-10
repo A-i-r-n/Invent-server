@@ -13,6 +13,9 @@ Rails.application.routes.draw do
         get ':id/attributes',action: 'attributes'
         get ':id/detail',action: 'detail'
       end
+      member do
+        post 'carriage_price'
+      end
     end
 
     match 'vendor/settle_in', to: 'vendors#settle_in', via: [:get,:post]
@@ -24,7 +27,7 @@ Rails.application.routes.draw do
     resources :accounts,path: 'account' do
       collection do
         post 'login'
-        get 'info'
+        match 'info',via: [:get,:post]
       end
     end
     resources :product_categories do

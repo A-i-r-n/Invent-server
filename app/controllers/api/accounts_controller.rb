@@ -16,7 +16,7 @@ module Api
     def info
       @user = current_user
       if request.post?
-        @user.update_attributes(params.require(:user).permit!)
+        @user.update_attributes(safe_params)
         if @user.save
           render "user"
         else
@@ -79,7 +79,7 @@ module Api
       end
 
       if "#{params[:code]}" != "#{session[:code]}"
-        return(render json: { :code=>1,msg:{error:"无效验证吗"}})
+        return render_json_error_message("无效验证吗")
       end
 
       @user = User.new((params[:user].permit! if params[:user]))
@@ -110,9 +110,9 @@ module Api
       respond_to do |format|
         format.json {
           if result.success?
-            render json: { code: 0,data:{msg:result} }
+            render_json_success_message(result)
           else
-            render json: {code: 1,msg:{errors:"发送出错"}}
+            render_json_error_message("发送出错")
           end
         }
       end
@@ -121,34 +121,20 @@ module Api
     def recover_password
 
       if "#{params[:code]}" != "#{session[:code]}"
-        return(render json: { :code=>1,msg:{error:"无效验证吗"}})
+        return render_json_error_message("无效验证吗")
       end
 
       @user = User.default.find_by_phone(params[:phone])
 
-      return(render json: {code: 1,msg:{errors:"此用户不存在"}}) if @user.nil?
+      return render_json_error_message("此用户不存在") if @user.nil?
 
-      return(render json: {code: 1,msg:{errors:"两次输入密码不一致"}}) if params[:password] !=params[:confirm]
+      return render_json_error_message("两次输入密码不一致") if params[:password] !=params[:confirm]
 
       if @user.update_password(params[:password])
         render 'user'
       else
-        render json:{code: 1,msg:{errors:"#{@user.errors.full_messages[0]}"}}
+        render_json_error_message(e_msg(@user))
       end
-
-
-
-      # return unless request.post?
-      # @user = User.where('login = ? or email = ?', params[:user][:login], params[:user][:login]).first
-      #
-      # if @user
-      #   @user.generate_password!
-      #   @user.save
-      #   flash[:notice] = t('accounts.recover_password.notice')
-      #   redirect_to login_accounts_url
-      # else
-      #   flash[:error] = t('accounts.recover_password.error')
-      # end
     end
 
     def logout
@@ -200,6 +186,29 @@ module Api
     def redirect_back_or_default
       redirect_to(session[:return_to] || url_for({ controller: 'dashboard', action: 'index' }))
       session[:return_to] = nil
+    end
+
+
+    def safe_params
+      #
+      # t.string   "login",                     limit: 255
+      # t.string   "password",                  limit: 255
+      # t.string   "verify_password",           limit: 255
+      # t.string   "idcard",                    limit: 255,                  default: ""
+      # t.string   "email",                     limit: 255,                  default: ""
+      # t.string   "name",                      limit: 255,                  default: ""
+      # t.string   "real_name",                 limit: 255,                  default: ""
+      # t.integer  "sex",                       limit: 1,                    default: 0
+      # t.string   "channel",                   limit: 255
+      # t.string   "phone",                     limit: 255
+      # t.string   "birthday",                  limit: 255,                  default: ""
+      # t.string   "location",                  limit: 255,                  default: ""
+      # t.string   "slogan",                    limit: 255,                  default: ""
+      # t.string   "company",                   limit: 255,                  default: ""
+      # t.string   "job",
+                 file_params = [:file, :parent_id, :role, :parent_type, file: []]
+      params[:user].permit(:email,:name,:sex,:phone,:birthday,:location,:company,:slogan,:job,attachments: [ image: file_params ]
+      )
     end
 
     # def upload

@@ -1,7 +1,7 @@
 module Api
   class ProductsController < Api::BaseController
 
-    before_action :set_product, only: [:show, :edit, :update, :destroy ,:images,:variants,:attributes,:detail]
+    before_action :set_product, only: [:show, :edit, :update, :destroy ,:images,:variants,:attributes,:detail,:carriage_price]
 
     def index
 
@@ -31,6 +31,10 @@ module Api
 
     def attributes
       @product_attributes = @product.has_variants? ? @product.product_attributes.group_by(&:key) : []
+    end
+
+    def carriage_price
+      render_json_success_message(@product.carriage_price(params[:cid]))
     end
 
     def variants

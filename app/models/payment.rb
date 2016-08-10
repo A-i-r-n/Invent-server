@@ -15,8 +15,8 @@
 
     # Validations
     validates :amount, numericality: true
-    validates :reference, presence: true,allow_blank: true
-    validates :method, presence: true,allow_blank: true
+    validates :reference, presence: true, allow_blank: true
+    validates :method, presence: true,  allow_blank: true
 
     # Payments can have associated properties
     key_value_store :properties
