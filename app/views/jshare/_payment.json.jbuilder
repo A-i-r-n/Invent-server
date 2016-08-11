@@ -1,1 +1,1 @@
-json.extract! payment,:id,:order_id,:amount,:no,:reference,:method,:confirmed,:refundable,:amount_refunded,:parent_payment_id,:exported
+json.extract! payment,:id,:item_id,:item_type,:amount,:no,:reference,:method,:confirmed,:refundable,:amount_refunded,:parent_payment_id,:exported

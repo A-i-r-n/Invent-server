@@ -26,6 +26,9 @@ class User < ActiveRecord::Base
 
   has_many :attachments, as: :parent, dependent: :destroy, autosave: true, class_name: 'Attachment'
 
+  has_many :user_coupons, dependent: :restrict_with_exception, class_name: 'UserCoupon', inverse_of: :user
+  has_many :coupons, class_name: 'Coupon', through: :user_coupons
+
   serialize :settings, Hash
 
   STATUS = %w(active inactive)

@@ -29,16 +29,9 @@ module Api
     end
 
     def secure_pay
-      case params[:method]
-        when 'pay'
-          resp = JSON.parse(request.body.read)
-          result = resp['result_pay']
-          puts "#{resp.inspect}-------------"
-          if result.downcase == 'SUCCESS'.downcase
-            Payment.where(no: resp['no_order']).amount_paid
-          end
-        when 'recharge'
-      end
+      resp = JSON.parse(request.body.read)
+      result = resp['result_pay']
+      Payment.where(no: resp['no_order']).amount_paid if result.downcase == 'SUCCESS'.downcase
       render json:{ret_code: "0000",ret_msg:"交易成功"}
     end
 
@@ -53,11 +46,12 @@ module Api
       render_json_error_message(e.message)
     end
 
+    private
     def safe_params
       params[:payments].permit(
           items: [
               payment: [
-                  :amount, :method, :reference, :order_id, :no
+                  :amount, :method, :reference, :item_id,:item_type, :no
               ]
           ]
       )

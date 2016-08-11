@@ -5,7 +5,7 @@ class Order < ActiveRecord::Base
   belongs_to :billing_country, class_name: 'Country', foreign_key: 'billing_country_id'
 
   # Payments which have been stored for the order
-  has_many :payments, dependent: :destroy, class_name: 'Payment'
+  has_many :payments,as: :item, dependent: :destroy, class_name: 'Payment'
 
   # Validations
   with_options if: proc { |o| !o.building? } do |order|

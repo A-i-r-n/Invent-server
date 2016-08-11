@@ -13,7 +13,10 @@ module Api
 
       conditions.merge!(status:'accepted')
 
-      @vendors_paged = Vendor.with_distance(location).where(conditions).order_by(location,params[:order_by_distance] == '1')
+      @vendors_paged = Vendor.keywords_ransack(params[:keywords])
+                           .with_distance(location)
+                           .where(conditions)
+                           .order_by(location,params[:order_by_distance] == '1')
 
       @vendors = @vendors_paged.page(params[:page] ||= 1)
 
@@ -45,9 +48,7 @@ module Api
     end
 
     def current_vendor
-      vendor = current_user.vendor || Vendor.new
-      vendor.user = current_user
-      vendor
+      Vendor.find_or_create_by(user: current_user)
     end
   end
 end

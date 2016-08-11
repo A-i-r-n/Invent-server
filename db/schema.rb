@@ -123,16 +123,16 @@ ActiveRecord::Schema.define(version: 20160704054721) do
   end
 
   create_table "carriage_template_prices", force: :cascade do |t|
-    t.string   "key",                         limit:255
-    t.decimal  "start",                       precision: 8, scale: 2
-    t.decimal  "plus",                        precision: 8, scale: 2
-    t.decimal "postage",                      precision: 8, scale: 2
-    t.decimal "postageplus",                  precision: 8, scale: 2
-    t.text    "express_areas_ids",                     limit: 65535
-    t.text    "express_areas_names",                     limit: 65535
-    t.integer "carriage_template_id",limit:4
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string    "key",                          limit:  255
+    t.decimal   "start",                        precision: 8, scale: 2
+    t.decimal   "plus",                         precision: 8, scale: 2
+    t.decimal   "postage",                      precision: 8, scale: 2
+    t.decimal   "postageplus",                  precision: 8, scale: 2
+    t.text      "express_areas_ids",                        limit: 65535
+    t.text      "express_areas_names",                      limit: 65535
+    t.integer   "carriage_template_id",                     limit:4
+    t.datetime  "created_at"
+    t.datetime  "updated_at"
   end
 
   create_table "nifty_key_value_store", force: :cascade do |t|
@@ -213,12 +213,14 @@ ActiveRecord::Schema.define(version: 20160704054721) do
   add_index "orders", ["token"], name: "index_orders_on_token", using: :btree
 
   create_table "payments", force: :cascade do |t|
-    t.integer  "order_id",          limit: 4
+    # t.integer  "order_id",          limit: 4
+    t.integer  "item_id",          limit: 4
+    t.string   "item_type",        limit: 255
     t.decimal  "amount",                        precision: 8, scale: 2, default: 0.0
     t.string   "no",               limit: 255
     t.string   "reference",         limit: 255
     t.string   "method",            limit: 255
-    t.boolean  "confirmed",                                             default: true
+    t.boolean  "confirmed",                                             default: false
     t.boolean  "refundable",                                            default: false
     t.decimal  "amount_refunded",               precision: 8, scale: 2, default: 0.0
     t.integer  "parent_payment_id", limit: 4
@@ -227,7 +229,7 @@ ActiveRecord::Schema.define(version: 20160704054721) do
     t.datetime "updated_at"
   end
 
-  add_index "payments", ["order_id"], name: "index_payments_on_order_id", using: :btree
+  # add_index "payments", ["order_id"], name: "index_payments_on_order_id", using: :btree
   add_index "payments", ["parent_payment_id"], name: "index_payments_on_parent_payment_id", using: :btree
 
   create_table "product_attributes", force: :cascade do |t|
@@ -339,11 +341,11 @@ ActiveRecord::Schema.define(version: 20160704054721) do
   end
 
   create_table "collections", force: :cascade do |t|
-    t.integer "parent_id",limit: 4
-    t.string "parent_type",limit: 255
-    t.integer "user_id",limit: 4
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer   "parent_id",    limit: 4
+    t.string    "parent_type",  limit: 255
+    t.integer   "user_id",      limit: 4
+    t.datetime  "created_at"
+    t.datetime  "updated_at"
   end
 
   add_index "products", ["parent_id"], name: "index_products_on_parent_id", using: :btree
@@ -364,6 +366,7 @@ ActiveRecord::Schema.define(version: 20160704054721) do
     t.integer  "sid",                    limit:4
     t.string   "address",                limit:255,    default: ""
     t.string   "status",                 limit:255, default: 'confirming'
+    t.text     "keywords",               limit: 65535
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
@@ -468,11 +471,25 @@ ActiveRecord::Schema.define(version: 20160704054721) do
   #   t.string  "phone",      limit:255,  default:""
   # end
 
-  create_table "account", force: :cascade do |t|
-    t.decimal  "money",                       precision: 8, scale: 2, default: 0.0
-    t.decimal  "remain_money",                precision: 8, scale: 2, default: 0.0
-    t.decimal  "credit",                      precision: 8, scale: 2, default: 0.0
-    t.integer  "user_id",                     limit: 4
+  create_table "funds", force: :cascade do |t|
+    t.decimal  "avail",                 precision: 8, scale: 2, default: 0.0
+    t.decimal  "congeal",                precision: 8, scale: 2, default: 0.0
+    t.decimal  "credit",                precision: 8, scale: 2, default: 0.0
+    t.integer  "user_id",               limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "coupons", force: :cascade do |t|
+    t.integer   "vendor_id",            limit: 4
+    t.integer   "product_category_id",  limit: 4
+    t.integer   "num",                  limit: 4
+    t.decimal   "value",                precision:8, scale:2, default:0.0
+  end
+
+  create_table "user_coupons", force: :cascade do |t|
+    t.integer   "user_id",          limit: 4, null: false
+    t.integer   "coupon_id",        limit: 4, null: false
   end
 
 end

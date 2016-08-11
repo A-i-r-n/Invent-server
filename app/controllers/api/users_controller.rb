@@ -15,5 +15,21 @@ module Api
 
     end
 
+    def fund
+      @fund = current_fund
+      if request.post?
+        @fund.recharge(params[:money].to_f)
+      end
+    end
+
+    private
+    def current_fund
+      fund = Fund.find_or_create_by(user: current_user)
+      fund
+    end
+    def fund_params
+      params[:fund]
+    end
+
   end
 end

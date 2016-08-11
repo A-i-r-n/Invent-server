@@ -41,6 +41,15 @@ class Vendor < ActiveRecord::Base
     (location.empty? && ! order_by_distance) ? order(:created_at) : order(" distance asc ")
   end
 
+  def self.keywords_ransack(keywords)
+    if keywords.blank?
+      self
+    else
+      ransack(keywords_cont_all: keywords.split)
+          .result
+    end
+  end
+
   def attachments=(attrs)
     attachments.build(attrs['image']) if attrs['image']['file'].present?
   end

@@ -1,0 +1,5 @@
+- @page_title = "优惠卷"
+= content_for :header do
+  %p.buttons= link_to t('shoppe.customers.back_to_customers_list'), [:seller,:coupons], class: 'button'
+  %h2.users= "优惠卷"
+= render 'form'

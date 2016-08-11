@@ -44,6 +44,7 @@ Rails.application.routes.draw do
       collection do
         get 'addresses'
         get 'address'
+        match 'fund',via: [:get,:post]
       end
     end
 
@@ -51,7 +52,7 @@ Rails.application.routes.draw do
 
     resources :payments,only:[:create]
 
-    match "payment/secure_pay/:method", to: "payments#secure_pay", via: [:get, :post]
+    match "payment/secure_pay", to: "payments#secure_pay", via: [:get, :post]
 
   end
 
@@ -101,6 +102,7 @@ Rails.application.routes.draw do
     resources :tax_rates
     resources :users
     resources :countries
+    resources :coupons
     resources :attachments, only: :destroy
 
     get 'settings' => 'settings#edit'

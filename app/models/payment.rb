@@ -3,10 +3,12 @@
     extend ActiveModel::Callbacks
     define_model_callbacks :refund
 
+    belongs_to :item, polymorphic: true
+
     # The associated order
     #
     # @return [Shoppe::Order]
-    belongs_to :order, class_name: 'Order'
+    # belongs_to :order, class_name: 'Order'
 
     # An associated payment (only applies to refunds)
     #
@@ -76,14 +78,19 @@
     end
 
     def amount_paid
-      update_attribute(:amount,amount.abs)
+      update_attributes(amount: amount.abs,confirmed: true)
     end
 
     private
 
     def cache_amount_paid
-      if amount > 0
-        order.update_attribute(:amount_paid, order.payments.sum(:amount))
+      if amount > 0 && ! confirmed
+        case item
+          when Order
+            item.update_attribute(:amount_paid, item.payments.sum(:amount))
+          when Fund
+            item.recharge(amount)
+        end
       end
     end
   end
