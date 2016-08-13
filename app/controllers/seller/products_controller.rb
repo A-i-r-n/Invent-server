@@ -1,7 +1,7 @@
 module Seller
   class ProductsController < Seller::BaseController
     before_filter { @active_nav = :products }
-    before_filter { params[:id] && @product = Product.root(current_user.vendor).find(params[:id]) }
+    before_filter { params[:id] && @product = Product.find(params[:id]) }
 
     def index
       @products_paged = Product.root(current_user.vendor)

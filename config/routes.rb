@@ -190,6 +190,7 @@ Rails.application.routes.draw do
     get 'login/reset' => 'password_resets#new'
     post 'login/reset' => 'password_resets#create'
 
+    resources :vendors
     root 'dashboard#index'
   end
 end

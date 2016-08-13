@@ -308,6 +308,13 @@ ActiveRecord::Schema.define(version: 20160704054721) do
 
   create_table "products", force: :cascade do |t|
     t.string   "name",              limit: 255
+    t.string   "product_type",              limit: 255
+    # ...
+    t.integer  "periods",           limit: 4, default: 0
+    t.integer  "max_periods",       limit: 4, default: 0
+    t.integer  "participants",      limit: 4, default: 0
+    t.integer  "max_participants",  limit: 4, default: 0
+    
     t.string   "sku",               limit: 255
     t.string   "permalink",         limit: 255
     t.text     "description",       limit: 65535
@@ -333,11 +340,11 @@ ActiveRecord::Schema.define(version: 20160704054721) do
   end
 
   create_table "carts", force: :cascade do |t|
-    t.integer "num",           limit: 4, default: 0
-    t.integer "product_id",    limit: 4
-    t.integer "user_id",       limit: 4
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer   "num",           limit: 4, default: 0
+    t.integer   "product_id",    limit: 4
+    t.integer   "user_id",       limit: 4
+    t.datetime  "created_at"
+    t.datetime  "updated_at"
   end
 
   create_table "collections", force: :cascade do |t|
@@ -436,7 +443,6 @@ ActiveRecord::Schema.define(version: 20160704054721) do
     t.float    "longitude",                 limit: 24, default: 0
     t.integer  "grade_num",                 limit:4, default:0
     t.decimal  "grade_score",               precision:8, scale:2, default:0.0
-    t.integer  "profile_id",                limit:4
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -445,6 +451,11 @@ ActiveRecord::Schema.define(version: 20160704054721) do
     t.string  "label",      limit: 255
     t.string  "nicename",   limit:255
     t.text    "modules",    limit: 65535
+  end
+
+  create_table "user_profiles", force: :cascade do |t|
+    t.integer "user_id",    limit: 4
+    t.integer "profile_id", limit: 4
   end
 
   add_index "users", ["login"], name: "index_users_on_login", using: :btree

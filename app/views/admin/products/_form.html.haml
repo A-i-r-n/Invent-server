@@ -131,6 +131,27 @@
           = f.check_box :featured
           = f.label :featured, t('shoppe.products.featured_info')
 
+  = field_set_tag  "类型" do
+    .splitContainer
+      %dl.third
+        %dt= f.label :product_type, "类型"
+        %dd= f.select :product_type,Product::PRODUCT_TYPE,{:include_blank => true},{:class => 'chosen-with-deselect', :data => {:placeholder => "默认"}} #options_for_select(Product::PRODUCT_TYPE)
+      %dl.third
+        %dt= f.label :max_periods, "期数"
+        %dd
+          .moneyInput
+            .currency= "期"
+            = f.text_field :max_periods, :class => 'text'
+      %dl.third
+        %dt= f.label :max_participants, "参与人数"
+        %dd
+          .moneyInput
+            .currency= "人"
+            = f.text_field :max_participants, :class => 'text'
+
+            -#participants
+
+
   %p.submit
     - unless @product.new_record?
       %span.right= link_to t('shoppe.delete') , [:admin,@product], :class => 'button purple', :method => :delete, :data => {:confirm => "Are you sure you wish to remove this product?"}

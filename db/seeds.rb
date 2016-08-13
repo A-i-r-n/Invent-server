@@ -16,15 +16,6 @@ CountryImporter.import
 
 AreaImporter.import
 
-admin_profile = Profile.create(label: 'admin', nicename: 'admin',
-                       modules: [:dashboard, :articles, :notes, :pages, :feedback, :media, :themes, :sidebar, :profile, :users, :settings, :seo])
-vendor_profile = Profile.create(label: 'vendor', nicename: 'vendor',
-                           modules: [:dashboard, :articles, :notes, :pages, :feedback, :media, :profile])
-customer_profile = Profile.create(label: 'customer', nicename: 'customer',
-                             modules: [:dashboard, :profile ])
-
-User.create(login: 'admin', password: '123456',verify_password:'123456')
-
 admin_cat1 = ProductCategory.where(name: '美食').first_or_create
 admin_cat1.attachments.build(file: get_file('index_food.png'), role: 'default_image').save
 
@@ -49,18 +40,29 @@ admin_cat7.attachments.build(file: get_file('index_clothes.png'), role: 'default
 admin_cat8 = ProductCategory.where(name: '其他').first_or_create
 admin_cat8.attachments.build(file: get_file('index_service.png'), role: 'default_image').save
 
+
+admin_profile = Profile.create(label: 'admin', nicename: 'admin',
+                               modules: [:dashboard, :articles, :notes, :pages, :feedback, :media, :themes, :sidebar, :profile, :users, :settings, :seo])
+vendor_profile = Profile.create(label: 'vendor', nicename: 'vendor',
+                                modules: [:dashboard, :articles, :notes, :pages, :feedback, :media, :profile])
+customer_profile = Profile.create(label: 'customer', nicename: 'customer',
+                                  modules: [:dashboard, :profile ])
+
+admin_user = User.create(login: 'admin', password: '123456',verify_password:'123456')
+admin_user.profile_ids = admin_profile.id
+
 vendor = Vendor.create(name:"vendor",grade_num:0,grade_score:0.0,pid:1,cid:2,status:'accepted')
-
 vendor.attachments.build(file: get_file('t22p.jpg'), role: 'default_image')
-
 vendor.product_category_id = admin_cat1.id
-
 vendor.save
-
-User.create(login: 'vendor', password: '123456',verify_password:'123456',profile: vendor_profile,vendor: vendor)
+vendor_user = User.create(login: 'vendor', password: '123456',verify_password:'123456',vendor: vendor)
+vendor_user.profile_ids = vendor_profile.id
+vendor_user.save
 
 customer = Customer.create(first_name:"customer",last_name:"customer",company:"company",email:"948993066@qq.com",phone:"18868945291",mobile:"18868945291")
-User.create(login: 'customer', password: '123456',verify_password:'123456',phone:'18868945291',real_name:"陈中杭",idcard:"330124199111141812",profile: customer_profile,customer: customer)
+customer_user = User.create(login: 'customer', password: '123456',verify_password:'123456',phone:'18868945291',real_name:"陈中杭",idcard:"330124199111141812",customer: customer)
+customer_user.profile_ids = customer_profile.id
+customer_user.save
 
 address = Address.create(customer:customer,name: "陈中杭",phone: "18868945291",address_type:'billing',default: 1,address1:"no need",address2:"no need",
                       address3:"no need",address4:"no need",postcode:"311311",country_id:15,pid:1,cid:2)

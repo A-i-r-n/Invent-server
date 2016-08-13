@@ -1,10 +1,16 @@
 class Profile < ActiveRecord::Base
+
+
   serialize :modules
+
   validates :label, uniqueness: true
 
   ADMIN = 'admin'
   PUBLISHER = 'publisher'
   CONTRIBUTOR = 'contributor'
+
+  has_many :user_profiles, dependent: :restrict_with_exception, class_name: 'UserProfile', inverse_of: :profile
+  has_many :users, class_name: 'User', through: :user_profiles
 
   # def modules
   #   self[:modules] || []

@@ -1,10 +1,10 @@
 module Admin
   class ProductsController < Admin::BaseController
     before_filter { @active_nav = :products }
-    before_filter { params[:id] && @product = Product.root.find(params[:id]) }
+    before_filter { params[:id] && @product = Product.find(params[:id]) }
 
     def index
-      @products_paged = Product.root
+      @products_paged = Product.admin
                             .includes(:translations, :stock_level_adjustments, :product_categories, :variants)
                             .order(:name)
       if params[:category_id].present?
@@ -31,6 +31,7 @@ module Admin
       @products = @products_paged
                       .group_by(&:product_category)
                       .sort_by { |cat, _pro| cat.name }
+
     end
 
     def new
@@ -77,7 +78,7 @@ module Admin
 
     def safe_params
       file_params = [:file, :parent_id, :role, :parent_type, file: []]
-      params[:product].permit(:name, :sku, :permalink, :description, :short_description, :weight, :price, :cost_price, :tax_rate_id, :stock_control, :active, :featured, :in_the_box, attachments: [default_image: file_params, data_sheet: file_params, extra: file_params], product_attributes_array: [:key, :value, :searchable, :public], product_category_ids: [])
+      params[:product].permit(:name,:product_type,:max_periods,:max_participants, :sku, :permalink, :description, :short_description, :weight, :price, :cost_price, :tax_rate_id, :stock_control, :active, :featured, :in_the_box, attachments: [default_image: file_params, data_sheet: file_params, extra: file_params], product_attributes_array: [:key, :value, :searchable, :public], product_category_ids: [])
     end
   end
 end

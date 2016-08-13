@@ -190,7 +190,7 @@ zh-CN:
       kg: "kg"
     page_entries_info:
       one_page:
-        display_entries: "显示入口"
+        display_entries: "显示入口 %{entry_name}"
     attachment_preview:
       delete: "删除"
       delete_confirm: "你确定删除这个附件吗?"
@@ -750,14 +750,15 @@ zh-CN:
 
     navigation:
       admin_primary:
-        customers: "客户"
-        orders: "订单"
+#        customers: "客户"
+#        orders: "订单"
         products: "商品"
         product_categories: "商品分类"
-        delivery_services: "快递"
-        tax_rates: "税额"
-        users: "用户"
-        countries: "国籍"
+        vendors: "商户"
+#        delivery_services: "快递"
+#        tax_rates: "税额"
+#        users: "用户"
+#        countries: "国籍"
         settings: "设置"
       seller_primary:
         customers: "客户"

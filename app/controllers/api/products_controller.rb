@@ -5,13 +5,11 @@ module Api
 
     def index
 
-      conditions =
-          case
-            when params[:product_category_id]
-              ['product_categorizations.product_category_id = ?', params[:product_category_id]]
-            else
-              []
-          end
+      conditions = {}
+
+      params[:product_category_id] && conditions.merge!({product_categorizations:{product_category_id: params[:product_category_id]}})
+
+      params[:product_type] ? conditions.merge!({product_type: params[:product_type] } ) : conditions.merge!({product_type: nil})
 
       @products_paged = Product.includes(:translations, :stock_level_adjustments, :product_categories, :variants)
                             .order(:name)
@@ -19,6 +17,7 @@ module Api
       @products = @products_paged.page(params[:page]||=1)
       # .group_by(&:product_category)
       # .sort_by { |cat, _pro| cat.name }
+
     end
 
     def show

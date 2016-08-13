@@ -18,7 +18,9 @@ class User < ActiveRecord::Base
   #
   # has_many :articles
 
-  belongs_to :profile
+  has_many :user_profiles, dependent: :restrict_with_exception, class_name: 'UserProfile', inverse_of: :user
+  has_many :profiles, class_name: 'Profile', through: :user_profiles
+
 
   has_one :vendor
 
@@ -54,15 +56,19 @@ class User < ActiveRecord::Base
   setting :twitter_profile_image, :string, ''
 
   scope :admin , -> {
-    joins(:profile).where(profiles:{label: :admin})
+    role(:admin)
   }
 
   scope :vendor,->{
-    joins(:profile).where(profiles:{label: :vendor})
+    role(:vendor)
   }
 
   scope :customer,->{
-    joins(:profile).where(profiles:{label: :customer})
+    role(:customer)
+  }
+
+  scope :role,->(role){
+    joins(:profiles).where(" profiles.label = ? ",role)
   }
 
 
@@ -74,6 +80,11 @@ class User < ActiveRecord::Base
   end
 
   attr_accessor :last_venue
+
+  def accept_vendor
+    self.profiles << Profile.find_by_label(:vendor)
+    save
+  end
 
   def first_and_last_name
     return '' unless firstname.present? && lastname.present?

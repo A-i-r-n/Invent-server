@@ -9,15 +9,18 @@ require 'shoppe/navigation_manager'
 # This is the default navigation manager for the admin interface.
 #
 Shoppe::NavigationManager.build(:admin_primary) do
-  add_item :customers,{namespace: :admin}
-  add_item :orders,{namespace: :admin}
+  add_item :vendors,{namespace: :admin}
   add_item :products,{namespace: :admin}
   add_item :product_categories,{namespace: :admin}
-  add_item :delivery_services,{namespace: :admin}
-  add_item :tax_rates,{namespace: :admin}
-  add_item :users,{namespace: :admin}
-  add_item :countries,{namespace: :admin}
-  add_item :settings,{namespace: :admin}
+  # add_item :customers,{namespace: :admin}
+  # add_item :orders,{namespace: :admin}
+  # add_item :products,{namespace: :admin}
+  # add_item :product_categories,{namespace: :admin}
+  # add_item :delivery_services,{namespace: :admin}
+  # add_item :tax_rates,{namespace: :admin}
+  # add_item :users,{namespace: :admin}
+  # add_item :countries,{namespace: :admin}
+  # add_item :settings,{namespace: :admin}
 end
 
 Shoppe::NavigationManager.build(:seller_primary) do

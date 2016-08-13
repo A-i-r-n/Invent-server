@@ -2,6 +2,10 @@ require 'roo'
 require 'globalize'
 
 class Product < ActiveRecord::Base
+
+  YYG_VAL = 'yyg'
+  YYG_TEXT = '一元购'
+  PRODUCT_TYPE = [[YYG_TEXT , YYG_VAL]].freeze
   # self.table_name = 'shoppe_products'
 
   # Add dependencies for products
@@ -76,6 +80,10 @@ class Product < ActiveRecord::Base
     where(vendor: vendor)
   }
 
+  scope :admin ,->{
+    where(vendor: nil,parent: nil)
+  }
+
   def attachments=(attrs)
     if attrs['default_image']['file'].present? then attachments.build(attrs['default_image']) end
     if attrs['data_sheet']['file'].present? then attachments.build(attrs['data_sheet']) end
@@ -91,7 +99,7 @@ class Product < ActiveRecord::Base
   end
 
   def vendor_id
-    read_attribute(:vendor_id) || parent.vendor_id
+    read_attribute(:vendor_id) || parent && parent.vendor_id || Integer(0)
   end
 
   # Is this product orderable?
@@ -133,6 +141,7 @@ class Product < ActiveRecord::Base
   #
   # @return [Shoppe::ProductCategory]
   def product_category
+    puts "#{product_categories.first.inspect}----------ssfsfs----------------"
     product_categories.first
   rescue
     nil

@@ -81,7 +81,7 @@ class Vendor < ActiveRecord::Base
       # self.accepted_at = Time.now
       # self.accepter = user if user
       self.status = 'accepted'
-      save!
+      self.user.accept_vendor
       # order_items.each(&:accept!)
       # deliver_accepted_order_email
     end
