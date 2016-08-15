@@ -328,7 +328,7 @@ class User < ActiveRecord::Base
   before_validation :set_default_profile
 
   def set_default_profile
-    self.profile ||= Profile.find_by_label(User.count.zero? ? 'admin' : 'contributor')
+    self.profiles <<  Profile.find_by_label(User.count.zero? ? 'admin' : 'customer')
   end
 
   # validates :login,presence: {  message: 'is forgotten.' }, uniqueness: true, on: :create #if: :login_required?,

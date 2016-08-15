@@ -308,13 +308,7 @@ ActiveRecord::Schema.define(version: 20160704054721) do
 
   create_table "products", force: :cascade do |t|
     t.string   "name",              limit: 255
-    t.string   "product_type",              limit: 255
-    # ...
-    t.integer  "periods",           limit: 4, default: 0
-    t.integer  "max_periods",       limit: 4, default: 0
-    t.integer  "participants",      limit: 4, default: 0
-    t.integer  "max_participants",  limit: 4, default: 0
-    
+    # t.string   "product_type",              limit: 255
     t.string   "sku",               limit: 255
     t.string   "permalink",         limit: 255
     t.text     "description",       limit: 65535
@@ -498,9 +492,43 @@ ActiveRecord::Schema.define(version: 20160704054721) do
     t.decimal   "value",                precision:8, scale:2, default:0.0
   end
 
+
   create_table "user_coupons", force: :cascade do |t|
     t.integer   "user_id",          limit: 4, null: false
     t.integer   "coupon_id",        limit: 4, null: false
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.string   "phone",           limit: 255
+    t.string   "content",         limit: 255
+    t.string   "message_type",    limit: 255
+    t.integer  "user_id",         limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+
+  create_table "lotteries", force: :cascade do |t|
+    t.string   "name",              limit: 255
+    t.integer  "periods",           limit: 4, default: 0
+    t.integer  "max_periods",       limit: 4, default: 0
+    t.integer  "participants",      limit: 4, default: 0
+    t.integer  "max_participants",  limit: 4, default: 0
+    t.text     "description", limit: 65535
+  end
+
+  create_table "lottery_codes", force: :cascade do |t|
+    t.string    "code",         limit: 255
+    t.integer   "periods",      limit: 4
+    t.integer   "user_id",      limit: 4
+    t.integer   "lottery_id",   limit: 4
+  end
+
+  create_table "lottery_records", force: :cascade do |t|
+    t.string    "code",         limit: 255
+    t.integer   "periods",      limit: 4
+    t.integer   "user_id",      limit: 4
+    t.integer   "lottery_id",   limit: 4
   end
 
 end

@@ -1,7 +1,7 @@
 module Api
   class AccountsController < Api::BaseController
 
-    before_filter :login_required,except: [:login, :signup]
+    before_filter :login_required,except: [:login, :signup,:generate_phone_code,:need_captcha]
 
 
     def avatar
@@ -47,15 +47,15 @@ module Api
       end
     end
 
-    def captcha
-      render json:{code: 0,data: 3 > session[:times]||0 ? 0 : 1}
+    def need_captcha
+      times = session[:times]||0
+      render_json_success_message(3 > times ? 0 : 1)
     end
 
     def login
-      if params[:j_captcha]
-        if !captcha_valid? params[:j_captcha]
-          return render_json_error_message("无效验证吗")
-        end
+
+      if params[:j_captcha] && !captcha_valid?(params[:j_captcha])
+        return render_json_error_message("无效验证吗")
       end
 
       self.current_user = User.customer.authenticate(params[:login], params[:password])
@@ -72,20 +72,17 @@ module Api
 
     def signup
 
-      if params[:j_captcha]
-        if !captcha_valid? params[:j_captcha]
-          return render_json_error_message("无效验证吗")
-        end
+      if params[:j_captcha] && !captcha_valid?(params[:j_captcha])
+        return render_json_error_message("无效图形验证吗")
       end
 
-      if "#{params[:code]}" != "#{session[:code]}"
-        return render_json_error_message("无效验证吗")
+      if ! params[:code].eql?(session[:code])
+        return render_json_error_message("无效短信验证吗")
       end
 
-      @user = User.new((params[:user].permit! if params[:user]))
+      @user = User.new(safe_params)
+      @user.profiles << Profile.customer
 
-      # @user.generate_password!
-      # session[:tmppass] = @user.password
       @user.name = @user.login
       if @user.save
         self.current_user = @user
@@ -98,24 +95,26 @@ module Api
 
     def generate_phone_code
 
-      return if params[:phone].nil? && !login_required
-
-      session[:code] = code = rand(9999)
-
-      user = current_user||
-          User.new(id:1,phone:params[:phone])
-
-      result = Sm.new({content:"验证码: #{code}",user:user}).send_sms
-
-      respond_to do |format|
-        format.json {
-          if result.success?
-            render_json_success_message(result)
-          else
-            render_json_error_message("发送出错")
-          end
-        }
+      session[:code] = code = "#{rand(9999)}".rjust(4,'0')
+      phone = ''
+      if request.post?
+        if params[:phone] && params[:phone] =~  /^0{0,1}(13[0-9]|15[7-9]|153|156|18[7-9])[0-9]{8}$/
+          phone = params[:phone]
+        else
+          render_json_error_message("请输入正确的手机号码")
+        end
+      else
+        return if ! login_required
+        phone = current_user.phone
       end
+      result = Message.new({content:"验证码: #{code}",phone:phone}).send_sms_code("#{code}")
+
+      if result.success?
+        render_json_success_message("发送成功")
+      else
+        render_json_error_message("发送出错")
+      end
+
     end
 
     def recover_password
@@ -190,25 +189,11 @@ module Api
 
 
     def safe_params
-      #
-      # t.string   "login",                     limit: 255
-      # t.string   "password",                  limit: 255
-      # t.string   "verify_password",           limit: 255
-      # t.string   "idcard",                    limit: 255,                  default: ""
-      # t.string   "email",                     limit: 255,                  default: ""
-      # t.string   "name",                      limit: 255,                  default: ""
-      # t.string   "real_name",                 limit: 255,                  default: ""
-      # t.integer  "sex",                       limit: 1,                    default: 0
-      # t.string   "channel",                   limit: 255
-      # t.string   "phone",                     limit: 255
-      # t.string   "birthday",                  limit: 255,                  default: ""
-      # t.string   "location",                  limit: 255,                  default: ""
-      # t.string   "slogan",                    limit: 255,                  default: ""
-      # t.string   "company",                   limit: 255,                  default: ""
-      # t.string   "job",
-                 file_params = [:file, :parent_id, :role, :parent_type, file: []]
-      params[:user].permit(:email,:name,:sex,:phone,:birthday,:location,:company,:slogan,:job,attachments: [ image: file_params ]
+
+      file_params = [:file, :parent_id, :role, :parent_type, file: []]
+      params[:user].permit(:login,:password,:email,:name,:sex,:phone,:birthday,:location,:company,:slogan,:job,attachments: [ image: file_params ]
       )
+
     end
 
     # def upload

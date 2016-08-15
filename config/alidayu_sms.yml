@@ -1,0 +1,19 @@
+defaults: &defaults
+  alidayu:
+    app_key: '23392602'
+    app_secret: '1bfe411e62fb137b77b8e566b189594d'
+    post_url: 'http://gw.api.taobao.com/router/rest'
+    product: "验证码"
+    sms_templates:
+      - name: "code"
+        sms_free_sign_name: "身份验证" # 短信签名
+        sms_template_code: "SMS_12972847" # 短信模板
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults

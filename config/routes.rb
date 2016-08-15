@@ -28,6 +28,9 @@ Rails.application.routes.draw do
       collection do
         post 'login'
         match 'info',via: [:get,:post]
+        match 'generate_phone_code',via:[:get,:post]
+        get 'need_captcha'
+        post 'signup'
       end
     end
     resources :product_categories do
@@ -45,6 +48,7 @@ Rails.application.routes.draw do
         get 'addresses'
         get 'address'
         match 'fund',via: [:get,:post]
+        get 'messages'
       end
     end
 

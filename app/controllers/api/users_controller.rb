@@ -22,11 +22,15 @@ module Api
       end
     end
 
+    def messages
+      @messages = Message.push_order(current_user).page(params[:page])
+    end
+
     private
     def current_fund
-      fund = Fund.find_or_create_by(user: current_user)
-      fund
+      Fund.find_or_create_by(user: current_user)
     end
+
     def fund_params
       params[:fund]
     end

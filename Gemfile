@@ -39,6 +39,8 @@ gem 'rmagick'
 
 gem 'ruby-pinyin'
 
+gem 'alidayu_sms'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

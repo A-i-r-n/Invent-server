@@ -135,6 +135,8 @@ if pro.save
   end
 end
 
+Message.create(phone: '18868945291',content:'jpush test',message_type: Message::JPUSH,user: customer_user)
+
 # pro = Product.new(carriage_template: carriage_template,vendor: vendor,name: 'Yealink T22P', sku: 'YL-SIP-T22P', description: lorem, short_description: lorem, weight: 1.419, price: 64.99, cost_price: 56.99, tax_rate: tax_rate)
 # pro.product_category_ids = cat1.id
 # pro.default_image_file = get_file('t22p.jpg')
