@@ -1,33 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1f505d3b-65fd-4f09-98ff-e9d388ba38d8" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/models/user_profile.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/attachment/1/thumb_test_index_banner.png" afterPath="$PROJECT_DIR$/public/attachment/1/thumb_test_index_banner.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/attachment/2/thumb_index_food.png" afterPath="$PROJECT_DIR$/public/attachment/2/thumb_index_food.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/attachment/3/thumb_index_hotel.png" afterPath="$PROJECT_DIR$/public/attachment/3/thumb_index_hotel.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/attachment/4/thumb_index_amuse.png" afterPath="$PROJECT_DIR$/public/attachment/4/thumb_index_amuse.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/attachment/5/thumb_index_bauty.png" afterPath="$PROJECT_DIR$/public/attachment/5/thumb_index_bauty.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/attachment/6/thumb_index_mother.png" afterPath="$PROJECT_DIR$/public/attachment/6/thumb_index_mother.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/attachment/7/thumb_index_market.png" afterPath="$PROJECT_DIR$/public/attachment/7/thumb_index_market.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/attachment/8/thumb_index_clothes.png" afterPath="$PROJECT_DIR$/public/attachment/8/thumb_index_clothes.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/attachment/9/thumb_index_service.png" afterPath="$PROJECT_DIR$/public/attachment/9/thumb_index_service.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/admin/products_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/admin/products_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/api/products_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/api/products_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/seller/products_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/seller/products_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/product.rb" afterPath="$PROJECT_DIR$/app/models/product.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/profile.rb" afterPath="$PROJECT_DIR$/app/models/profile.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/user.rb" afterPath="$PROJECT_DIR$/app/models/user.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/vendor.rb" afterPath="$PROJECT_DIR$/app/models/vendor.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/products/_form.html.haml" afterPath="$PROJECT_DIR$/app/views/admin/products/_form.html.haml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/vendors/index.html.haml" afterPath="$PROJECT_DIR$/app/views/admin/vendors/index.html.haml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/locales/zh-CN.yml" afterPath="$PROJECT_DIR$/config/locales/zh-CN.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/seeds.rb" afterPath="$PROJECT_DIR$/db/seeds.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/shoppe/default_navigation.rb" afterPath="$PROJECT_DIR$/lib/shoppe/default_navigation.rb" />
-    </list>
+    <list default="true" id="1f505d3b-65fd-4f09-98ff-e9d388ba38d8" name="Default" comment="" />
     <ignored path="shoppe.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/.bundle/" />
@@ -56,8 +30,8 @@
       <file leaf-file-name="products_controller.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/api/products_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.26666668">
-              <caret line="16" column="57" selection-start-line="16" selection-start-column="57" selection-end-line="16" selection-end-column="57" />
+            <state vertical-scroll-proportion="0.25">
+              <caret line="15" column="29" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -139,8 +113,8 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="230" />
-    <option name="y" value="276" />
+    <option name="x" value="152" />
+    <option name="y" value="210" />
     <option name="width" value="2337" />
     <option name="height" value="994" />
   </component>
@@ -469,7 +443,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="230" y="276" width="2337" height="994" extended-state="0" />
+    <frame x="152" y="210" width="2337" height="994" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16732027" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
@@ -912,8 +886,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/api/products_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.26666668">
-          <caret line="16" column="57" selection-start-line="16" selection-start-column="57" selection-end-line="16" selection-end-column="57" />
+        <state vertical-scroll-proportion="0.25">
+          <caret line="15" column="29" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
           <folding />
         </state>
       </provider>
