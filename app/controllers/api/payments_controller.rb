@@ -16,8 +16,9 @@ module Api
           @payments << payment
         }
       end
+
       if ! @payment_messages.empty?
-        render_json_error_message(@order_messages.to_sentence)
+        render_json_error_message(@payment_messages.to_sentence)
       else
         render 'payments'
       end

@@ -135,7 +135,12 @@ if pro.save
   end
 end
 
-Message.create(phone: '18868945291',content:'jpush test',message_type: Message::JPUSH,user: customer_user)
+Message.create(phone: '18868945291',content:'jpush test',message_type: Message::PUSH_ORDER,user: customer_user)
+
+lottery = Lottery.create(name: "test001",price: 1,periods: 0,max_periods: 10,participants: 0,max_participants:10,description: "this is test001")
+lottery.default_image_file = get_file('snom-870-grey.jpg')
+lottery.save
+
 
 # pro = Product.new(carriage_template: carriage_template,vendor: vendor,name: 'Yealink T22P', sku: 'YL-SIP-T22P', description: lorem, short_description: lorem, weight: 1.419, price: 64.99, cost_price: 56.99, tax_rate: tax_rate)
 # pro.product_category_ids = cat1.id

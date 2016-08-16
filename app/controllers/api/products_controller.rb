@@ -9,7 +9,7 @@ module Api
 
       params[:product_category_id] && conditions.merge!({product_categorizations:{product_category_id: params[:product_category_id]}})
 
-      params[:product_type] ? conditions.merge!({product_type: params[:product_type] } ) : conditions.merge!({product_type: nil})
+      # params[:product_type] ? conditions.merge!({product_type: params[:product_type] } ) : conditions.merge!({product_type: nil})
 
       @products_paged = Product.includes(:translations, :stock_level_adjustments, :product_categories, :variants)
                             .order(:name)

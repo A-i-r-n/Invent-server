@@ -510,18 +510,21 @@ ActiveRecord::Schema.define(version: 20160704054721) do
 
   create_table "lotteries", force: :cascade do |t|
     t.string   "name",              limit: 255
+    t.decimal  "price",             precision: 8, scale: 2, default: 0.0
     t.integer  "periods",           limit: 4, default: 0
     t.integer  "max_periods",       limit: 4, default: 0
     t.integer  "participants",      limit: 4, default: 0
     t.integer  "max_participants",  limit: 4, default: 0
-    t.text     "description", limit: 65535
+    t.text     "description",       limit: 65535
+    t.string   "status",           limit: 255
   end
 
-  create_table "lottery_codes", force: :cascade do |t|
+  create_table "lottery_orders", force: :cascade do |t|
     t.string    "code",         limit: 255
     t.integer   "periods",      limit: 4
     t.integer   "user_id",      limit: 4
     t.integer   "lottery_id",   limit: 4
+    t.decimal   "amount_paid",                             precision: 8, scale: 2, default: 0.0
   end
 
   create_table "lottery_records", force: :cascade do |t|

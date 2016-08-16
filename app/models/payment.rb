@@ -78,7 +78,7 @@
     end
 
     def amount_paid
-      update_attributes(amount: amount.abs,confirmed: true)
+      update_attributes(amount: amount.abs)
     end
 
     private
@@ -86,11 +86,12 @@
     def cache_amount_paid
       if amount > 0 && ! confirmed
         case item
-          when Order
-            item.update_attribute(:amount_paid, item.payments.sum(:amount))
           when Fund
             item.recharge(amount)
+          else # Order || LotteryOrder
+            item.update_attribute(:amount_paid, item.payments.sum(:amount))
         end
+        update_attribute(:confirmed, true)
       end
     end
   end

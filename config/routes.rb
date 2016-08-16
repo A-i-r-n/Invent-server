@@ -38,8 +38,16 @@ Rails.application.routes.draw do
     end
     resources :carts
     resources :collections
-    resources :banners,only:[:index]
-    resources :visitor_logs,only:[:index]
+    resources :banners, only: [:index]
+    resources :visitor_logs, only: [:index]
+
+    resources :lotteries, only: [:index] do
+      member do
+        get 'images'
+      end
+    end
+    
+    resources :lottery_orders,only: [:create]
 
     get "areas/:name/streets",to: "areas#streets"
     resources :areas,only: [:index]
