@@ -7,6 +7,13 @@ json.set! :order_items_attributes do
     json.set! 'product' do
       json.partial! 'jshare/product', product: item.ordered_item
     end
+
   end
 end
-json.extract! order,:id,:carriage_price,:total
+json.extract! order,:id,:carriage_price,:total,:vendor_id
+
+if order.coupon
+  json.set! 'coupon' do
+    json.partial! 'jshare/coupon',coupon: order.coupon
+  end
+end

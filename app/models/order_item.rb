@@ -181,7 +181,8 @@ class OrderItem < ActiveRecord::Base
   #
   # @return [BigDecimal]
   def total
-    tax_amount + sub_total
+    # tax_amount +
+        sub_total
   end
 
   # Cache the pricing for this order item

@@ -62,14 +62,18 @@ class Order < ActiveRecord::Base
         order_items.inject(BigDecimal(0)) { |t, i| t + i.tax_amount }
   end
 
+  def total_fee
+    carriage_price +
+        # delivery_price +
+        # delivery_tax_amount +
+        order_items.inject(BigDecimal(0)) { |t, i| t + i.total }
+  end
+
   # The total of the order including tax
   #
   # @return [BigDecimal]
   def total
-    carriage_price +
-      delivery_price +
-          delivery_tax_amount +
-          order_items.inject(BigDecimal(0)) { |t, i| t + i.total }
+    total_fee - preferential_fee
   end
 
   # The total amount due on the order

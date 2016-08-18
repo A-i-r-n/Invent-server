@@ -1,15 +1,9 @@
 module Api
   class ProductCategoriesController < Api::BaseController
 
-    before_filter :init,only: [:index,:categories]
-
     def index
-      @product_categories = ProductCategory.root(@vendor).without_parent.ordered.page(params[:page]||=1)
-    end
-
-    private
-    def init
-      params[:vendor_id] && @vendor = Vendor.find(params[:vendor_id])
+      conditions = {vendor_id: params[:vendor_id]}
+      @product_categories = ProductCategory.without_parent.where(conditions).ordered.page(params[:page])
     end
 
   end

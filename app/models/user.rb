@@ -86,6 +86,14 @@ class User < ActiveRecord::Base
     save
   end
 
+  def take_coupon(coupon)
+    if ! coupons.include?(@coupon)
+      coupons << coupon
+      save
+    end
+  end
+
+
   def first_and_last_name
     return '' unless firstname.present? && lastname.present?
     "#{firstname} #{lastname}"

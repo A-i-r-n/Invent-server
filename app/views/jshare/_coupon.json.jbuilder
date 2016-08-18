@@ -1,0 +1,1 @@
+json.extract! coupon,:id,:amount,:exceed_val,:val

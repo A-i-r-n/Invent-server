@@ -29,7 +29,7 @@ module Api
       render_json_success_message(t('shoppe.payments.destroy_notice'))
     end
 
-    def secure_pay
+    def pay
       resp = JSON.parse(request.body.read)
       result = resp['result_pay']
       Payment.where(no: resp['no_order']).amount_paid if result.downcase == 'SUCCESS'.downcase

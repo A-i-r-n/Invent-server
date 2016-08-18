@@ -26,6 +26,12 @@ module Api
       @messages = Message.push_order(current_user).page(params[:page])
     end
 
+    def coupons
+      @coupons = Coupon.joins(:users)
+                    .where( user_coupons: { user_id: current_user.id },vendor_id: params[:vendor_id])
+                    .page(params[:page])
+    end
+
     private
     def current_fund
       Fund.find_or_create_by(user: current_user)

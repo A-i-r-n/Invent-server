@@ -40,13 +40,20 @@ Rails.application.routes.draw do
     resources :collections
     resources :banners, only: [:index]
     resources :visitor_logs, only: [:index]
+    resources :lottery_records, only: [:index]
+    resources :coupons, only:[:index] do
+      member do
+        get 'take'
+      end
+    end
 
     resources :lotteries, only: [:index] do
       member do
         get 'images'
+        get 'detail'
       end
     end
-    
+
     resources :lottery_orders,only: [:create]
 
     get "areas/:name/streets",to: "areas#streets"
@@ -57,6 +64,7 @@ Rails.application.routes.draw do
         get 'address'
         match 'fund',via: [:get,:post]
         get 'messages'
+        get 'coupons'
       end
     end
 
@@ -64,7 +72,7 @@ Rails.application.routes.draw do
 
     resources :payments,only:[:create]
 
-    match "payment/secure_pay", to: "payments#secure_pay", via: [:get, :post]
+    match "payment/pay", to: "payments#pay", via: [:get, :post]
 
   end
 

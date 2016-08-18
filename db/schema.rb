@@ -202,6 +202,7 @@ ActiveRecord::Schema.define(version: 20160704054721) do
     t.integer  "customer_id",               limit: 4
     t.integer  "address_id",                limit: 4
     t.integer  "vendor_id",                 limit: 4
+    t.integer  "coupon_id",                 limit: 4
     t.integer  "delivery_service_id",       limit: 4
     t.integer  "delivery_country_id",       limit: 4
     t.datetime "created_at"
@@ -488,8 +489,9 @@ ActiveRecord::Schema.define(version: 20160704054721) do
   create_table "coupons", force: :cascade do |t|
     t.integer   "vendor_id",            limit: 4
     t.integer   "product_category_id",  limit: 4
-    t.integer   "num",                  limit: 4
-    t.decimal   "value",                precision:8, scale:2, default:0.0
+    t.integer   "amount",               limit: 4
+    t.decimal   "exceed_val",           precision:8, scale:2, default:0.0
+    t.decimal   "val",                  precision:8, scale:2, default:0.0
   end
 
 
@@ -517,6 +519,8 @@ ActiveRecord::Schema.define(version: 20160704054721) do
     t.integer  "max_participants",  limit: 4, default: 0
     t.text     "description",       limit: 65535
     t.string   "status",           limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "lottery_orders", force: :cascade do |t|
@@ -525,6 +529,8 @@ ActiveRecord::Schema.define(version: 20160704054721) do
     t.integer   "user_id",      limit: 4
     t.integer   "lottery_id",   limit: 4
     t.decimal   "amount_paid",                             precision: 8, scale: 2, default: 0.0
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "lottery_records", force: :cascade do |t|
@@ -532,6 +538,8 @@ ActiveRecord::Schema.define(version: 20160704054721) do
     t.integer   "periods",      limit: 4
     t.integer   "user_id",      limit: 4
     t.integer   "lottery_id",   limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
 end

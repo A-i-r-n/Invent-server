@@ -80,6 +80,8 @@ module Api
               :email_address, :phone_number,
               :notes,
               :address_id,
+              :coupon_id,
+              :vendor_id,
               order_items_attributes: [:ordered_item_id, :ordered_item_type, :quantity, :unit_price, :tax_amount, :id, :weight]
           ]
       ]

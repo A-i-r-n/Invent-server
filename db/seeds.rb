@@ -141,6 +141,8 @@ lottery = Lottery.create(name: "test001",price: 1,periods: 0,max_periods: 10,par
 lottery.default_image_file = get_file('snom-870-grey.jpg')
 lottery.save
 
+coupon = Coupon.create(vendor: vendor,product_category: admin_cat1,amount:100,exceed_val:1,val: 100)
+
 
 # pro = Product.new(carriage_template: carriage_template,vendor: vendor,name: 'Yealink T22P', sku: 'YL-SIP-T22P', description: lorem, short_description: lorem, weight: 1.419, price: 64.99, cost_price: 56.99, tax_rate: tax_rate)
 # pro.product_category_ids = cat1.id
