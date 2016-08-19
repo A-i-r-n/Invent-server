@@ -101,4 +101,8 @@ class Vendor < ActiveRecord::Base
     end
   end
 
+  def judge_for(grade)
+    update_attributes(grade_num: grade_num + 1,grade_score: grade_score + grade.score)
+  end
+
 end

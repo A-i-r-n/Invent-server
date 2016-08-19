@@ -1,15 +1,13 @@
 json.extract! lottery_record, :id,:code,:periods,:created_at, :updated_at
 
-user = lottery_record.user
-if user
+if lottery_record.user
   json.set! 'user' do
-    json.partial! 'jshare/user',user: user
+    json.partial! 'jshare/user',user: lottery_record.user
   end
 end
 
-lottery = lottery_record.lottery
-if lottery
+if lottery_record.lottery
   json.set! 'lottery' do
-    json.partial! 'jshare/lottery',lottery: lottery
+    json.partial! 'jshare/lottery',lottery: lottery_record.lottery
   end
 end

@@ -10,10 +10,16 @@ json.set! :order_items_attributes do
 
   end
 end
-json.extract! order,:id,:carriage_price,:total,:vendor_id
+json.extract! order,:id,:carriage_price,:total,:status
 
 if order.coupon
   json.set! 'coupon' do
     json.partial! 'jshare/coupon',coupon: order.coupon
+  end
+end
+
+if  order.vendor
+  json.set! 'vendor' do
+    json.partial! 'jshare/vendor',vendor: order.vendor
   end
 end

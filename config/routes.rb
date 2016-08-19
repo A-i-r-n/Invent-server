@@ -20,7 +20,7 @@ Rails.application.routes.draw do
 
     match 'vendor/settle_in', to: 'vendors#settle_in', via: [:get,:post]
 
-    resources :vendors,only:[:index] do
+    resources :vendors,only:[:index,:show] do
       resources :product_categories
     end
 
@@ -47,6 +47,8 @@ Rails.application.routes.draw do
       end
     end
 
+    resources :grades,only: [:index,:create]
+
     resources :lotteries, only: [:index] do
       member do
         get 'images'
@@ -65,10 +67,11 @@ Rails.application.routes.draw do
         match 'fund',via: [:get,:post]
         get 'messages'
         get 'coupons'
+        get 'coupon_count'
       end
     end
 
-    resources :orders ,only:[:index,:create]
+    resources :orders ,only:[:index,:create,:destroy]
 
     resources :payments,only:[:create]
 

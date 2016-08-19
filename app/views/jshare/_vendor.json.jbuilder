@@ -8,6 +8,6 @@ if default_attachment then json.image_url image_url(default_attachment.file.url)
 
 if vendor.product_category.present? then
   json.set! 'category' do
-    json.partial! 'jshare/category' ,category:vendor.product_category
+    json.partial! 'jshare/category' ,category: vendor.product_category
   end
 end

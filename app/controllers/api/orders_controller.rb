@@ -1,7 +1,9 @@
 module Api
   class OrdersController < Api::BaseController
 
-    before_action :set_product, only: [:show, :edit, :update, :destroy]
+    # before_action :set_product, only: [:show, :edit, :update, :destroy]
+
+    before_filter {params[:id] && @order = Order.find(params[:id])}
 
     def index
       conditions = params[:status] != 'all' ? {status: params[:status]} : {}
@@ -65,6 +67,11 @@ module Api
       end
     rescue Shoppe::Errors::InsufficientStockToFulfil => e
       render_json_error_message(t('shoppe.orders.insufficient_stock_order', out_of_stock_items: e.out_of_stock_items.map { |t| t.ordered_item.full_name }.to_sentence))
+    end
+
+    def destroy
+      @order.destroy
+      render_json_success_message("删除成功")
     end
 
     private

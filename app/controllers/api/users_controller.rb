@@ -27,9 +27,14 @@ module Api
     end
 
     def coupons
-      @coupons = Coupon.joins(:users)
-                    .where( user_coupons: { user_id: current_user.id },vendor_id: params[:vendor_id])
-                    .page(params[:page])
+      @coupons =  @coupons = Coupon.joins(:users)
+                                 .where( user_coupons: { user_id: current_user.id },vendor_id: params[:vendor_id])
+                                 .page(params[:page])
+    end
+
+    def coupon_count
+      @count = UserCoupon.where( user: current_user).count
+      render_json_success_message(@count)
     end
 
     private
@@ -39,6 +44,10 @@ module Api
 
     def fund_params
       params[:fund]
+    end
+
+    def all_coupons
+
     end
 
   end

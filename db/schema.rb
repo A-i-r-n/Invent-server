@@ -373,10 +373,10 @@ ActiveRecord::Schema.define(version: 20160704054721) do
     t.datetime "updated_at",             null: false
   end
 
-  create_table "grade",force: :cascade do |t|
+  create_table "grades",force: :cascade do |t|
     t.decimal   "score",          precision:8,scale:2,default:0.0
     t.text      "content",       limit: 65535
-    t.integer   "product_id",    limit:4
+    t.integer   "order_id",    limit:4
     t.integer   "user_id",       limit:4
   end
 

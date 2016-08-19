@@ -1,0 +1,1 @@
+json.extract! grade,:id,:score,:content,:order_id

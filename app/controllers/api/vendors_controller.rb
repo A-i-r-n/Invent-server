@@ -3,6 +3,8 @@ module Api
 
     before_action :login_required ,only:[:settle_in,:accept]
 
+    before_filter {params[:id] && @vendor = Vendor.find(params[:id])}
+
     def index
       conditions = {}
       location = {}
@@ -21,6 +23,11 @@ module Api
       @vendors = @vendors_paged.page(params[:page] ||= 1)
 
     end
+
+    def show
+      render 'vendor'
+    end
+
 
     def settle_in
       @vendor = current_vendor

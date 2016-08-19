@@ -87,7 +87,7 @@ class User < ActiveRecord::Base
   end
 
   def take_coupon(coupon)
-    if ! coupons.include?(@coupon)
+    if ! coupons.include?(coupon)
       coupons << coupon
       save
     end
