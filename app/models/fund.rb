@@ -5,4 +5,9 @@ class Fund < ActiveRecord::Base
     update_attribute(:avail,avail+money)
   end
 
+  def crement(credit)
+    self.credit+= credit
+    save
+  end
+
 end

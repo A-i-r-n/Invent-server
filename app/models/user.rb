@@ -26,6 +26,8 @@ class User < ActiveRecord::Base
 
   has_one :customer
 
+  has_one :fund
+
   has_many :attachments, as: :parent, dependent: :destroy, autosave: true, class_name: 'Attachment'
 
   has_many :user_coupons, dependent: :restrict_with_exception, class_name: 'UserCoupon', inverse_of: :user

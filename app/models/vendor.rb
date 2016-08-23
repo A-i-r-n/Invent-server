@@ -19,7 +19,7 @@ class Vendor < ActiveRecord::Base
   }
 
   def self.with_distance(location)
-    columns = [:id,:name,:grade_num,:grade_score,:latitude,:longitude,:user_id,:product_category_id,:pid,:cid,:sid,:sold_num,:address,:created_at,:updated_at]
+    columns = [:id,:name,:grade_num,:grade_score,:latitude,:longitude,:user_id,:product_category_id,:pid,:cid,:sid,:sold_num,:keywords,:address,:created_at,:updated_at]
     location.empty? ? self : select(columns ," #{mysql_distance(location[:lat],location[:lng])} as distance ")
   end
 

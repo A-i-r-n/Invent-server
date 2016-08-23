@@ -50,7 +50,7 @@ module Api
     def safe_params
       params[:vendor][:sid] ||= nil
       file_params = [:file, :parent_id, :role, :parent_type, file: []]
-      params[:vendor].permit(:name,:pid,:cid,:sid,:address,:latitude,:longitude,:product_category_id,attachments: [ image: file_params ]
+      params[:vendor].permit(:name,:pid,:cid,:sid,:address,:latitude,:longitude,:product_category_id,:keywords,attachments: [ image: file_params ]
       )
     end
 
