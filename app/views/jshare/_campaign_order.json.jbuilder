@@ -1,0 +1,1 @@
+json.extract! campaign_order,:id,:code,:periods

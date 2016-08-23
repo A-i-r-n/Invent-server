@@ -40,7 +40,7 @@ Rails.application.routes.draw do
     resources :collections
     resources :banners, only: [:index]
     resources :visitor_logs, only: [:index]
-    resources :lottery_records, only: [:index]
+    # resources :lottery_records, only: [:index]
     resources :coupons, only:[:index] do
       member do
         get 'take'
@@ -49,14 +49,16 @@ Rails.application.routes.draw do
 
     resources :grades,only: [:index,:create]
 
-    resources :lotteries, only: [:index] do
+    resources :lotteries,:mall_items, only: [:index] do
       member do
         get 'images'
         get 'detail'
+        post 'order'
+        get  'records'
       end
     end
 
-    resources :lottery_orders,only: [:create]
+    # resources :lottery_orders,only: [:create]
 
     get "areas/:name/streets",to: "areas#streets"
     resources :areas,only: [:index]

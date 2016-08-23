@@ -89,7 +89,8 @@
           when Fund
             item.recharge(amount)
           else # Order || LotteryOrder
-            item.update_attribute(:amount_paid, item.payments.sum(:amount))
+            # item.update_attribute(:amount_paid, item.becomes(LotteryOrder).payments.sum(:amount))
+          item.update_attribute(:amount_paid, Payment.where(item_type: item.class,item_id: item.id).sum(:amount)) #item.payments.sum(:amount)
         end
         update_attribute(:confirmed, true)
       end

@@ -70,6 +70,8 @@ module ConfigManager
         end
       when :integer
         value.to_i
+      when :float
+        value.to_f
       when :string
         value.to_s
       when :yaml

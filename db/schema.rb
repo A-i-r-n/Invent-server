@@ -479,7 +479,7 @@ ActiveRecord::Schema.define(version: 20160704054721) do
 
   create_table "funds", force: :cascade do |t|
     t.decimal  "avail",                 precision: 8, scale: 2, default: 0.0
-    t.decimal  "congeal",                precision: 8, scale: 2, default: 0.0
+    t.decimal  "congeal",               precision: 8, scale: 2, default: 0.0
     t.decimal  "credit",                precision: 8, scale: 2, default: 0.0
     t.integer  "user_id",               limit: 4
     t.datetime "created_at"
@@ -509,37 +509,41 @@ ActiveRecord::Schema.define(version: 20160704054721) do
     t.datetime "updated_at",             null: false
   end
 
-
-  create_table "lotteries", force: :cascade do |t|
+  create_table "campaigns", force: :cascade do |t|
     t.string   "name",              limit: 255
+    t.string   "type",              limit: 255
     t.decimal  "price",             precision: 8, scale: 2, default: 0.0
     t.integer  "periods",           limit: 4, default: 0
     t.integer  "max_periods",       limit: 4, default: 0
     t.integer  "participants",      limit: 4, default: 0
     t.integer  "max_participants",  limit: 4, default: 0
     t.text     "description",       limit: 65535
-    t.string   "status",           limit: 255
+    t.string   "status",            limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
 
-  create_table "lottery_orders", force: :cascade do |t|
-    t.string    "code",         limit: 255
-    t.integer   "periods",      limit: 4
-    t.integer   "user_id",      limit: 4
-    t.integer   "lottery_id",   limit: 4
-    t.decimal   "amount_paid",                             precision: 8, scale: 2, default: 0.0
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+  create_table "campaign_orders", force: :cascade do |t|
+    t.string    "type",           limit: 255
+    t.string    "code",           limit: 255
+    t.integer   "periods",        limit: 4
+    t.integer   "user_id",        limit: 4
+    t.integer   "campaign_id",    limit: 4
+    t.decimal   "amount_paid",        precision: 8, scale: 2, default: 0.0
+    t.text      "settings",           limit: 65535
+    t.datetime  "created_at",             null: false
+    t.datetime  "updated_at",             null: false
   end
 
-  create_table "lottery_records", force: :cascade do |t|
+  create_table "campaign_records", force: :cascade do |t|
+    t.string    "type",         limit: 255
     t.string    "code",         limit: 255
     t.integer   "periods",      limit: 4
     t.integer   "user_id",      limit: 4
-    t.integer   "lottery_id",   limit: 4
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.integer   "campaign_id",   limit: 4
+    t.datetime  "created_at",             null: false
+    t.datetime  "updated_at",             null: false
   end
+
 
 end

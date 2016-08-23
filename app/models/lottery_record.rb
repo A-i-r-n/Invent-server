@@ -1,6 +1,6 @@
-class LotteryRecord < ActiveRecord::Base
-  belongs_to :user
-  belongs_to :lottery
+class LotteryRecord < CampaignRecord
+  # belongs_to :user
+  # belongs_to :lottery
 
   def self.generate_hit(periods,max_participants,lottery)
     now = Time.now
@@ -8,7 +8,7 @@ class LotteryRecord < ActiveRecord::Base
     hit = "#{10000001 + which.to_i}"
     order = LotteryOrder.find_by(code:hit,periods: periods)
     if order
-      create(code: hit,periods: periods,user:  order.user,lottery: lottery)
+      create(code: hit,periods: periods,user:  order.user,campaign: lottery)
     end
   end
 end

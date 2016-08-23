@@ -21,5 +21,27 @@ module Api
       render layout: 'api'
     end
 
+    def order
+      @lottery_order = LotteryOrder.new
+      @lottery_order.user = current_user
+      @lottery_order.campaign = @lottery
+      if ! @lottery_order.save
+        render_json_error_message(e_msg(@lottery_order))
+      end
+    end
+
+    def records
+      @lottery && (conditions ||= {}) && conditions.merge!({campaign: @lottery})
+      @lottery_records = LotteryRecord.where(conditions).order(created_at: :desc).page(params[:page])
+      if ! params[:limit].blank?
+        @lottery_records = @lottery_records.limit(params[:limit])
+      end
+    end
+
+    # private
+    # def safe_params
+    #   params[:lotter_order].permit(:lottery_id)
+    # end
+
   end
 end
