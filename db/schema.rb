@@ -366,18 +366,19 @@ ActiveRecord::Schema.define(version: 20160704054721) do
     t.integer  "pid",                    limit:4
     t.integer  "cid",                    limit:4
     t.integer  "sid",                    limit:4
-    t.string   "address",                limit:255,    default: ""
-    t.string   "status",                 limit:255, default: 'confirming'
+    t.string   "address",                limit:255,     default: ""
+    t.string   "status",                 limit:255,     default: 'confirming'
     t.text     "keywords",               limit: 65535
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
 
   create_table "grades",force: :cascade do |t|
+    t.integer   "item_id",        limit: 4
+    t.string    "item_type",      limit: 255
     t.decimal   "score",          precision:8,scale:2,default:0.0
-    t.text      "content",       limit: 65535
-    t.integer   "order_id",    limit:4
-    t.integer   "user_id",       limit:4
+    t.text      "content",        limit: 65535
+    t.integer   "user_id",        limit:4
   end
 
   create_table "settings", force: :cascade do |t|
@@ -481,6 +482,7 @@ ActiveRecord::Schema.define(version: 20160704054721) do
     t.decimal  "avail",                 precision: 8, scale: 2, default: 0.0
     t.decimal  "congeal",               precision: 8, scale: 2, default: 0.0
     t.decimal  "credit",                precision: 8, scale: 2, default: 0.0
+    t.decimal  "growth",                precision: 8, scale: 2, default: 0.0
     t.integer  "user_id",               limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"

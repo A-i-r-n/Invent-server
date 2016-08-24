@@ -27,6 +27,10 @@ module Api
       obj.errors.full_messages.to_sentence
     end
 
+    alias :render_error :render_json_error_message
+
+    alias :render_success :render_json_success_message
+
 
     helper_method :current_user, :logged_in?
   end

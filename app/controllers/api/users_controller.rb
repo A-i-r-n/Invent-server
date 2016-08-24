@@ -8,7 +8,14 @@ module Api
     end
 
     def address
-      @address = Address.where(customer: current_user.customer).default.first
+      if request.post?
+        @address = Address.new(address_params)
+        if ! @address.save
+          render_error(e_msg(@address))
+        end
+      else
+        @address = Address.where(customer: current_user.customer).default.first
+      end
     end
 
     def unread_count
@@ -44,6 +51,10 @@ module Api
 
     def fund_params
       params[:fund]
+    end
+
+    def address_params
+      params[:address].permit(:name,:phone,:pid,:cid,:sid)
     end
 
     def all_coupons

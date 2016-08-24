@@ -19,7 +19,7 @@ module Api
 
     private
     def safe_params
-      params[:grade].permit(:score,:content,:order_id)
+      params[:grade].permit(:score,:content,:item_id,:item_type)
     end
 
   end
