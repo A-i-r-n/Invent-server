@@ -73,6 +73,10 @@ class User < ActiveRecord::Base
     joins(:profiles).where(" profiles.label = ? ",role)
   }
 
+  def role(name)
+    profiles.where(" profiles.label = ? ",name)
+  end
+
 
   # echo "publify" | sha1sum -
   class_attribute :salt

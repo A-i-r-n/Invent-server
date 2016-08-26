@@ -17,6 +17,8 @@ class Product < ActiveRecord::Base
   # Attachments for this product
   has_many :attachments, as: :parent, dependent: :destroy, autosave: true, class_name: 'Attachment'
 
+  has_many :grades, as: :item, dependent: :destroy, autosave: true, class_name: 'Grade'
+
   belongs_to :carriage_template
 
   # The product's categorizations
@@ -141,7 +143,6 @@ class Product < ActiveRecord::Base
   #
   # @return [Shoppe::ProductCategory]
   def product_category
-    puts "#{product_categories.first.inspect}----------ssfsfs----------------"
     product_categories.first
   rescue
     nil
@@ -244,6 +245,16 @@ class Product < ActiveRecord::Base
     price_total
   end
 
+  def judge_for(grade)
+    self.grade_num += 1
+    self.grade_score += grade.score
+    atts = grade.attributes
+    atts[:id] = nil
+    atts[:parent_id] = grade.id
+    grades.create(atts)
+    save
+    parent.try(:judge_for,grade) if parent
+  end
 
   private
 

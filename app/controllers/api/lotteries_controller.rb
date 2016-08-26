@@ -6,7 +6,7 @@ module Api
     before_filter {params[:id] && @lottery = Lottery.find(params[:id])}
 
     def index
-      @lotteries = Lottery.page(params[:page])
+      @lotteries = Lottery.active.page(params[:page])
     end
 
     def show

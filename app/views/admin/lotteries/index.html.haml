@@ -1,0 +1,11 @@
+- @page_title = t('shoppe.products.products')
+
+= content_for :header do
+  %p.buttons
+    = link_to t('shoppe.products.new_product'), :new_admin_lottery, :class => 'button green'
+    -#= link_to t('shoppe.products.import_products'), :import_admin_products, :class => 'button gray'
+  %h2.products= t('shoppe.products.products')
+
+= render 'table', :lotteries => @lotteries
+
+= paginate @lotteries

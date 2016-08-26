@@ -3,16 +3,18 @@ class Grade < ActiveRecord::Base
 
   belongs_to :item, polymorphic: true
 
-  before_create :change_status
-
-  before_create :grade_for_vendor
-
-  def change_status
-    order.update_attribute(:status, 'judged')
+  with_options if: proc{|o| o.parent_id.blank? } do |g|
+    g.after_save :change_status
+    g.after_save :grade_for
   end
 
-  def grade_for_vendor
-    order.vendor.try(:judge_for,self)
+  def change_status
+    item.update_attribute(:status, 'judged')
+  end
+
+  def grade_for
+    item.vendor.try(:judge_for,self)
+    item.products.map{|p| p.try(:judge_for,self) }
   end
 
 end

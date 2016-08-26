@@ -10,7 +10,7 @@
     # the contents of the product_attributes_array array.
     after_save do
       if carriage_template_prices_array.is_a?(Array)
-        carriage_template_prices.update_from_array(carriage_template_prices_array)
+        carriage_template_prices.update_from_array(carriage_template_prices_array,self)
       end
     end
 

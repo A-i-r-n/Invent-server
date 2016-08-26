@@ -199,6 +199,10 @@ Rails.application.routes.draw do
     resources :countries
     resources :attachments, only: :destroy
 
+    resources :lotteries
+    resources :mall_items
+    resources :banners
+
     get 'settings' => 'settings#edit'
     post 'settings' => 'settings#update'
 

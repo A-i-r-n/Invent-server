@@ -1,10 +1,10 @@
-module Seller
-  class AccountsController < Seller::BaseController
+module Admin
+  class AccountsController < Admin::BaseController
     # before_action :verify_config
     # before_action :verify_users, only: [:login, :recover_password]
     # before_action :redirect_if_already_logged_in, only: :login
 
-    layout 'seller'
+    layout 'sub'
     # skip_before_filter :login_required,except: [:login, :signup]
 
     def login
@@ -50,17 +50,17 @@ module Seller
     #     flash[:error] = t('accounts.recover_password.error')
     #   end
     # end
-    #
-    def logout
-      flash[:notice] = t('shoppe.sessions.back_to_login')
-      current_user.forget_me
-      self.current_user = nil
-      session[:user_id] = nil
-      cookies.delete :auth_token
-      cookies.delete :publify_user_profile
-      redirect_to login_admin_accounts_path
-    end
-    #
+
+    # def logout
+    #   flash[:notice] = t('shoppe.sessions.back_to_login')
+    #   current_user.forget_me
+    #   self.current_user = nil
+    #   session[:user_id] = nil
+    #   cookies.delete :auth_token
+    #   cookies.delete :publify_user_profile
+    #   redirect_to login_admin_accounts_path
+    # end
+
     # private
     #
     # def verify_users

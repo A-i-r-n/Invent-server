@@ -8,11 +8,8 @@
   %table.data
     %thead
       %tr
-        %th= t('shoppe.delivery_services.name')
-        %th= t('shoppe.delivery_services.prices')
-        %th= t('shoppe.delivery_services.courier')
-        %th= t('shoppe.delivery_services.active?')
-        %th= t('shoppe.delivery_services.default?')
+        %th= 'ID'
+        %th= '名字'
     %tbody
       - if @carriage_templates.empty?
         %tr.empty
@@ -20,6 +17,7 @@
       - else
         - for carriage_template in @carriage_templates
           %tr
+            %td= carriage_template.id
             %td= link_to carriage_template.name, [:edit,:seller, carriage_template]
             -#%td= link_to t('shoppe.delivery_services.set_prices'), [:seller,delivery_service ,:delivery_service_prices]
             -#%td= delivery_service.courier

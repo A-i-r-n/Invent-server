@@ -20,6 +20,7 @@
         %thead
           %tr
             %td  城市
+            %td  标示号(kg)
             %td  首重(kg)
             %td  首费(元)
             %td  续重(kg)
@@ -47,11 +48,20 @@
             %td.handle
           - for price in @carriage_template.carriage_template_prices
             %tr
-              %td= text_field_tag 'carriage_template[carriage_template_prices_array][][key]', price.express_areas_names, :placeholder => t('shoppe.products.value')
-              %td= text_field_tag 'carriage_template[carriage_template_prices_array][][start]', '', :placeholder => t('shoppe.products.value')
-              %td= text_field_tag 'carriage_template[carriage_template_prices_array][][plus]', '', :placeholder => t('shoppe.products.value')
-              %td= text_field_tag 'carriage_template[carriage_template_prices_array][][postage]', '', :placeholder => t('shoppe.products.value')
-              %td= text_field_tag 'carriage_template[carriage_template_prices_array][][postageplus]', '', :placeholder => t('shoppe.products.value')
+              %td
+                %p{style: 'float:left',class:"selected-text"}
+                  = price.express_areas_names || '未选择城市'
+                %span.float-right{:class =>'areas-dialog'}
+                  = link_to t('shoppe.products.edit') , "javascript:void(0)", :class => 'edit', :rel => 'dialog', :data => { :dialog_behavior => 'areasSelect'}
+                  = hidden_field_tag "carriage_template[carriage_template_prices_array][][express_areas_ids]",price.express_areas_ids
+                  = hidden_field_tag "carriage_template[carriage_template_prices_array][][express_areas_names]",price.express_areas_names
+                -#%input{type:"hidden",name:"carriage_template[carriage_template_prices_array][][express_areas_ids]",value:""}
+
+              %td= text_field_tag 'carriage_template[carriage_template_prices_array][][key]', price.key, :placeholder => t('shoppe.products.value')
+              %td= text_field_tag 'carriage_template[carriage_template_prices_array][][start]', price.start, :placeholder => t('shoppe.products.value')
+              %td= text_field_tag 'carriage_template[carriage_template_prices_array][][plus]', price.plus, :placeholder => t('shoppe.products.value')
+              %td= text_field_tag 'carriage_template[carriage_template_prices_array][][postage]', price.postage, :placeholder => t('shoppe.products.value')
+              %td= text_field_tag 'carriage_template[carriage_template_prices_array][][postageplus]', price.postageplus, :placeholder => t('shoppe.products.value')
               %td.remove= link_to t('shoppe.remove') , '#', :class => 'button button-mini purple'
               %td.handle
               -#%td= text_field_tag 'product[product_attributes_array][][value]', attribute.value, :placeholder => t('shoppe.products.value')
@@ -99,7 +109,7 @@
             %span.check_num
             =image_tag('drop_arrow.gif')
           %div.citys
-            - for city in Area.children(ecity.id)
+            - for city in ecity.children
               %span.areas
                 %input{type:"checkbox",value: city.id}
                 %label=city.name

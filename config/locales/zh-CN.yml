@@ -494,7 +494,7 @@ zh-CN:
         category_nesting: "嵌套"
         category_parent: "父母"
         current_category: "当前"
-        no_children: "儿童不宜"
+        no_children: "没有子类"
         hierarchy: "层级"
 
     products:
@@ -695,21 +695,21 @@ zh-CN:
       refund_notice: "退款处理成功."
 
     localisations:
-      localisations: "定位"
+      localisations: "本地化"
       back: "返回"
       back_to_localisations: "返回"
-      localisations_of: "定位名称 %{name}"
+      localisations_of: "本地化名称 %{name}"
       product_information: "产品信息"
       locales: "位置"
-      choose_locale: "请选择定位"
-      save_localisation: "保存定位信息"
-      new_localisation: "新定位信息"
-      edit_localisation: "更改定位信息"
-      localisation_created: "定位信息创建成功"
-      localisation_updated: "定位信息更新成功"
-      localisation_destroyed: "定位信息删除成功"
+      choose_locale: "请选择本地化"
+      save_localisation: "保存本地化信息"
+      new_localisation: "新本地化信息"
+      edit_localisation: "更改本地化信息"
+      localisation_created: "本地化信息创建成功"
+      localisation_updated: "本地化信息更新成功"
+      localisation_destroyed: "本地化信息删除成功"
       language: "语言"
-      no_localisations: "无定位信息."
+      no_localisations: "无本地化信息."
       delete_confirmation: '你确定吗'
 
     customers:
@@ -761,6 +761,9 @@ zh-CN:
         products: "商品"
         product_categories: "商品分类"
         vendors: "商户"
+        lotteries: "一元购"
+        mall_items: "积分商城"
+        banners: "轮播图"
 #        delivery_services: "快递"
 #        tax_rates: "税额"
 #        users: "用户"

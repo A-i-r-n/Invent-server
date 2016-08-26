@@ -4,7 +4,7 @@ module Api
     before_filter :login_required,except: [:login, :signup]
 
     def index
-      @grades = Grade.where(user:current_user).page(params[:page])
+      @grades = Grade.where(user:current_user,item_type: params[:item_type],item_id: params[:item_id]).page(params[:page])
     end
 
     def create

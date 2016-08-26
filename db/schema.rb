@@ -376,9 +376,12 @@ ActiveRecord::Schema.define(version: 20160704054721) do
   create_table "grades",force: :cascade do |t|
     t.integer   "item_id",        limit: 4
     t.string    "item_type",      limit: 255
+    t.integer   "parent_id",        limit: 4
     t.decimal   "score",          precision:8,scale:2,default:0.0
     t.text      "content",        limit: 65535
     t.integer   "user_id",        limit:4
+    t.datetime  "created_at"
+    t.datetime  "updated_at"
   end
 
   create_table "settings", force: :cascade do |t|
@@ -520,7 +523,7 @@ ActiveRecord::Schema.define(version: 20160704054721) do
     t.integer  "participants",      limit: 4, default: 0
     t.integer  "max_participants",  limit: 4, default: 0
     t.text     "description",       limit: 65535
-    t.string   "status",            limit: 255
+    t.string   "status",            limit: 255, default: 'active'
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end

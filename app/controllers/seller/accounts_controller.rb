@@ -50,17 +50,17 @@ module Seller
     #     flash[:error] = t('accounts.recover_password.error')
     #   end
     # end
-    #
-    def logout
-      flash[:notice] = t('shoppe.sessions.back_to_login')
-      current_user.forget_me
-      self.current_user = nil
-      session[:user_id] = nil
-      cookies.delete :auth_token
-      cookies.delete :publify_user_profile
-      redirect_to login_admin_accounts_path
-    end
-    #
+
+    # def logout
+    #   flash[:notice] = t('shoppe.sessions.back_to_login')
+    #   current_user.forget_me
+    #   self.current_user = nil
+    #   session[:user_id] = nil
+    #   cookies.delete :auth_token
+    #   cookies.delete :publify_user_profile
+    #   redirect_to login_admin_accounts_path
+    # end
+
     # private
     #
     # def verify_users

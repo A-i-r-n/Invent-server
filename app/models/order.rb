@@ -86,6 +86,10 @@
       total_items > 0
     end
 
+    def judge(grade)
+
+    end
+
     # Return the number of items in the order?
     #
     # @return [Integer]

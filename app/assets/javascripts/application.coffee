@@ -119,6 +119,7 @@ $ ->
     ).get().join(",")
 
     $(".areas-dialog a[rel=dialog][class*=dialog-popup]").parent().siblings('p:first').text(names)
+    $(".areas-dialog a[rel=dialog][class*=dialog-popup]").siblings('input:last').val(names)
     $(".areas-dialog a[rel=dialog][class*=dialog-popup]").siblings("input:first").val(ids)
     $('.niftyDialog ').data('closeAction').call()
 

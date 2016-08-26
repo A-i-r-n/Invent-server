@@ -33,8 +33,9 @@
     # keys & values.
     #
     # @param array [Array]
-    def self.update_from_array(array)
-      existing_keys = pluck(:key)
+    def self.update_from_array(array,carriage_template)
+      prices = carriage_template.carriage_template_prices
+      existing_keys = prices.pluck(:key)
       index = 0
       array.each do |hash|
         next if hash['key'].blank?
@@ -43,8 +44,8 @@
                      # .merge(searchable: hash['searchable'].to_s == '1',
                      #        public: hash['public'].to_s == '1',
                      #        position: index)
-        if existing_attr = where(key: hash['key']).first
-          if hash['express_area'].blank?
+        if existing_attr = prices.where(key: hash['key']).first
+          if hash['key'].blank?
             existing_attr.destroy
             index -= 1
           else
@@ -54,7 +55,7 @@
           attribute = create(params)
         end
       end
-      where(key: existing_keys - array.map { |h| h['key'] }).delete_all
+      # where(key: existing_keys - array.map { |h| h['key'] }).delete_all
       true
     end
 

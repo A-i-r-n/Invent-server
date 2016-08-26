@@ -10,8 +10,11 @@ require 'shoppe/navigation_manager'
 #
 Shoppe::NavigationManager.build(:admin_primary) do
   add_item :vendors,{namespace: :admin}
-  add_item :products,{namespace: :admin}
+  # add_item :products,{namespace: :admin}
   add_item :product_categories,{namespace: :admin}
+  add_item :lotteries,{namespace: :admin}
+  add_item :mall_items,{namespace: :admin}
+  add_item :banners,{namespace: :admin}
   # add_item :customers,{namespace: :admin}
   # add_item :orders,{namespace: :admin}
   # add_item :products,{namespace: :admin}
@@ -24,7 +27,7 @@ Shoppe::NavigationManager.build(:admin_primary) do
 end
 
 Shoppe::NavigationManager.build(:seller_primary) do
-  add_item :customers,{namespace: :seller}
+  # add_item :customers,{namespace: :seller}
   add_item :orders,{namespace: :seller}
   add_item :products,{namespace: :seller}
   add_item :product_categories,{namespace: :seller}

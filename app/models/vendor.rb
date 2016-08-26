@@ -8,6 +8,9 @@ class Vendor < ActiveRecord::Base
   # Attachments for this product
   has_many :attachments, as: :parent, dependent: :destroy, autosave: true, class_name: 'Attachment'
 
+  # Attachments for this product
+  has_many :grades, as: :item, dependent: :destroy, autosave: true, class_name: 'Grade'
+
   belongs_to :product_category
 
   belongs_to :province ,class_name: "Area",foreign_key: :pid
@@ -102,7 +105,13 @@ class Vendor < ActiveRecord::Base
   end
 
   def judge_for(grade)
-    update_attributes(grade_num: grade_num + 1,grade_score: grade_score + grade.score)
+    self.grade_num += 1
+    self.grade_score += grade.score
+    atts = grade.attributes
+    atts[:id] = nil
+    atts[:parent_id] = grade.id
+    grades.create(atts)
+    save
   end
 
 end
