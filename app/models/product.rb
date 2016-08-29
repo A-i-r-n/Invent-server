@@ -3,14 +3,16 @@ require 'globalize'
 
 class Product < ActiveRecord::Base
 
-  YYG_VAL = 'yyg'
-  YYG_TEXT = '一元购'
-  PRODUCT_TYPE = [[YYG_TEXT , YYG_VAL]].freeze
+  # YYG_VAL = 'yyg'
+  # YYG_TEXT = '一元购'
+  # PRODUCT_TYPE = [[YYG_TEXT , YYG_VAL]].freeze
   # self.table_name = 'shoppe_products'
 
   # Add dependencies for products
   require_dependency 'product/product_attributes'
   require_dependency 'product/variants'
+
+  belongs_to :user
 
   belongs_to :vendor
 
@@ -82,9 +84,9 @@ class Product < ActiveRecord::Base
     where(vendor: vendor)
   }
 
-  scope :admin ,->{
-    where(vendor: nil,parent: nil)
-  }
+  # scope :admin ,->{
+  #   where(vendor: nil,parent: nil)
+  # }
 
   def attachments=(attrs)
     if attrs['default_image']['file'].present? then attachments.build(attrs['default_image']) end
@@ -100,9 +102,9 @@ class Product < ActiveRecord::Base
     parent ? "#{parent.name} (#{name})" : name
   end
 
-  def vendor_id
-    read_attribute(:vendor_id) || parent && parent.vendor_id || Integer(0)
-  end
+  # def vendor_id
+  #   read_attribute(:vendor_id) || parent && parent.vendor_id || Integer(0)
+  # end
 
   # Is this product orderable?
   #

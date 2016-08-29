@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20160704054721) do
     t.integer  "customer_id",  limit: 4
     t.string   "address_type", limit: 255
     t.boolean  "default"
+    t.string   "address",     limit: 255
     t.string   "address1",     limit: 255
     t.string   "address2",     limit: 255
     t.string   "address3",     limit: 255
@@ -541,11 +542,11 @@ ActiveRecord::Schema.define(version: 20160704054721) do
   end
 
   create_table "campaign_records", force: :cascade do |t|
-    t.string    "type",         limit: 255
-    t.string    "code",         limit: 255
-    t.integer   "periods",      limit: 4
-    t.integer   "user_id",      limit: 4
-    t.integer   "campaign_id",   limit: 4
+    t.string    "type",           limit: 255
+    t.string    "code",           limit: 255
+    t.integer   "periods",        limit: 4
+    t.integer   "user_id",        limit: 4
+    t.integer   "campaign_id",    limit: 4
     t.datetime  "created_at",             null: false
     t.datetime  "updated_at",             null: false
   end

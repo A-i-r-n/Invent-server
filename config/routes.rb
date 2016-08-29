@@ -7,14 +7,13 @@ Rails.application.routes.draw do
 
   namespace :api do
     resources :products,only:[:index,:show] do
-      collection do
-        get ':id/images',action: 'images'
-        get ':id/variants',action: 'variants'
-        get ':id/attributes',action: 'attributes'
-        get ':id/detail',action: 'detail'
-      end
       member do
         post 'carriage_price'
+        get 'images'
+        get 'variants'
+        get 'attributes'
+        get 'detail'
+        get 'user'
       end
     end
 
@@ -64,14 +63,19 @@ Rails.application.routes.draw do
     resources :areas,only: [:index]
     resources :users,path:'user' do
       collection do
-        get 'addresses'
-        get 'address'
+        # get 'addresses'
+        # get 'address'
+        # post 'address'
         match 'fund',via: [:get,:post]
         get 'messages'
         get 'coupons'
         get 'coupon_count'
       end
     end
+
+    resources :addresses,only: [:index,:create,:destroy]
+
+    get "address/default" => "addresses#default"
 
     resources :orders ,only:[:index,:create,:destroy]
 

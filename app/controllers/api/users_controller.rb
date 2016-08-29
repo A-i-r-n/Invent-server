@@ -3,20 +3,20 @@ module Api
 
     before_action :login_required
 
-    def addresses
-      @addresses = Address.where(customer: current_user.customer).page(params[:page]||=1)
-    end
-
-    def address
-      if request.post?
-        @address = Address.new(address_params)
-        if ! @address.save
-          render_error(e_msg(@address))
-        end
-      else
-        @address = Address.where(customer: current_user.customer).default.first
-      end
-    end
+    # def addresses
+    #   @addresses = Address.where(customer: current_user.customer).page(params[:page]||=1)
+    # end
+    #
+    # def address
+    #   case
+    #     when request.post?
+    #
+    #     when request.delete?
+    #
+    #     when request.get?
+    #
+    #   end
+    # end
 
     def unread_count
 
@@ -51,10 +51,6 @@ module Api
 
     def fund_params
       params[:fund]
-    end
-
-    def address_params
-      params[:address].permit(:name,:phone,:pid,:cid,:sid)
     end
 
     def all_coupons

@@ -1,1 +1,1 @@
-json.extract! address , :id,:name,:phone,:full_name,:created_at, :updated_at
+json.extract! address , :id,:name,:phone,:full_name,:address,:pid,:cid,:sid,:created_at, :updated_at
