@@ -105,9 +105,6 @@
         %dl.third
           %dt= f.label :tax_rate_id, t('shoppe.products.tax_rate')
           %dd= f.collection_select :tax_rate_id, TaxRate.ordered, :id, :description, {:include_blank => true}, {:class => 'chosen-with-deselect', :data => {:placeholder => t('shoppe.products.no_tax')}}
-        %dl.third
-          %dt= f.label :tax_rate_id, t('shoppe.products.tax_rate')
-          %dd= f.collection_select :carriage_template_id, CarriageTemplate.all, :id, :name, {:include_blank => true}, {:class => 'chosen-with-deselect', :data => {:placeholder => t('shoppe.products.no_tax')}}
 
     = field_set_tag  t('shoppe.products.stock_control') do
       .splitContainer

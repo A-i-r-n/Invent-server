@@ -95,6 +95,15 @@ class Product < ActiveRecord::Base
     if attrs['extra']['file'].present? then attrs['extra']['file'].each { |attr| attachments.build(file: attr, parent_id: attrs['extra']['parent_id'], parent_type: attrs['extra']['parent_type']) } end
   end
 
+  def stock_level_adjustments=(attrs)
+    if attrs.present? then stock_level_adjustments.build(attrs) end
+  end
+
+  def carriage_price=(attr)
+    self.carriage_template = CarriageTemplate.create(name: "系统生成")
+    carriage_template.carriage_template_prices.build(key: "000",start: 0 ,plus: 0,postage: attr[:postage],postageplus: 0)
+  end
+
   # Return the name of the product
   #
   # @return [String]
@@ -241,7 +250,7 @@ class Product < ActiveRecord::Base
     price_total = 0
     if carriage_templation
       template_prices = carriage_templation.carriage_template_prices
-      template_price = template_prices.find_all{ |p| p.express_areas_ids.split(',').include?("#{city_id}") }.first
+      template_price = template_prices.find_all{ |p| p.express_areas_ids.split(',').include?("#{city_id}") || p.role == 'default' }.first
       price_total += (template_price.postage + (weight * quantity - template_price.start) * (template_price.postageplus/template_price.plus)) if template_price
     end
     price_total

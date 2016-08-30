@@ -132,6 +132,7 @@ ActiveRecord::Schema.define(version: 20160704054721) do
     t.text      "express_areas_ids",                        limit: 65535
     t.text      "express_areas_names",                      limit: 65535
     t.integer   "carriage_template_id",                     limit:4
+    t.string    "role",        limit: 255
     t.datetime  "created_at"
     t.datetime  "updated_at"
   end

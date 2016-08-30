@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get 'api/captcha',to: 'easy_captcha/captcha#captcha'
 
   namespace :api do
-    resources :products,only:[:index,:show] do
+    resources :products,only:[:index,:show,:create] do
       member do
         post 'carriage_price'
         get 'images'
@@ -47,6 +47,8 @@ Rails.application.routes.draw do
     end
 
     resources :grades,only: [:index,:create]
+
+    get 'lottery/records',to: "lotteries#records"
 
     resources :lotteries,:mall_items, only: [:index] do
       member do

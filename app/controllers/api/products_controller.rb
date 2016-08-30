@@ -23,6 +23,15 @@ module Api
     def show
     end
 
+    def create
+      @product = Product.new(safe_params)
+      if @product.save
+        render 'product'
+      else
+        render_json_error_message(e_msg(@product))
+      end
+    end
+
     def images
       @attachments = @product.attachments
     end
@@ -49,9 +58,24 @@ module Api
     end
 
     private
+
     def set_product
       @product = Product.find(params[:id])
       current_user && @product && VisitorLog.find_or_create_by(user:current_user,parent_type:"Product",parent_id:@product.id)
+    end
+
+    def safe_params
+      file_params = [:file, :parent_id, :role, :parent_type, file: []]
+      params[:product].permit(:name,:product_type,:max_periods,:max_participants, :sku,
+                              :permalink, :description, :short_description, :weight,
+                              :price, :cost_price, :tax_rate_id, :stock_control, :active,
+                              :featured, :in_the_box,
+                              attachments: [default_image: file_params, data_sheet: file_params,
+                                            extra: file_params],
+                              product_attributes_array: [:key, :value, :searchable, :public],
+                              product_category_ids: [],
+                              stock_level_adjustments: [:description,:adjustment]
+      )
     end
   end
 end
