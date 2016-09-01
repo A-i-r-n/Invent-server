@@ -146,6 +146,24 @@ coupon = Coupon.create(vendor: vendor,product_category: admin_cat1,amount:100,ex
 mall_item = MallItem.create(name: "test001",price: 1,periods: 0,max_periods: 10,participants: 0,max_participants:10,description: "this is test001")
 mall_item.default_image_file = get_file('snom-870-grey.jpg')
 mall_item.save
+
+seller_cat_group = ProductCategory.where(name: '电话group',vendor: vendor).first_or_create
+
+agglomeration = Agglomeration.create(name: "agg_001",price: 1,periods: 0,max_periods: 10,participants: 0,max_participants:10,description: "this is test001",end_time: Time.now + 5.days)
+agglomeration.default_image_file = get_file('snom-870-grey.jpg')
+agglomeration.vendor = vendor
+agglomeration.product_category = seller_cat_group
+agglomeration.save
+
+vendor.role << 'agglomeration'
+vendor.save
+
+
+job = Job.create(name: "agg_001",price: 1,periods: 0,max_periods: 10,participants: 0,max_participants:10,description: "this is test001",end_time: Time.now + 5.days)
+job.default_image_file = get_file('snom-870-grey.jpg')
+# job.product_category = seller_cat_group
+job.save
+
 # pro = Product.new(carriage_template: carriage_template,vendor: vendor,name: 'Yealink T22P', sku: 'YL-SIP-T22P', description: lorem, short_description: lorem, weight: 1.419, price: 64.99, cost_price: 56.99, tax_rate: tax_rate)
 # pro.product_category_ids = cat1.id
 # pro.default_image_file = get_file('t22p.jpg')

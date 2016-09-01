@@ -3,21 +3,6 @@ module Api
 
     before_action :login_required
 
-    # def addresses
-    #   @addresses = Address.where(customer: current_user.customer).page(params[:page]||=1)
-    # end
-    #
-    # def address
-    #   case
-    #     when request.post?
-    #
-    #     when request.delete?
-    #
-    #     when request.get?
-    #
-    #   end
-    # end
-
     def unread_count
 
     end

@@ -50,12 +50,19 @@ Rails.application.routes.draw do
 
     get 'lottery/records',to: "lotteries#records"
 
-    resources :lotteries,:mall_items, only: [:index] do
+    resources :lotteries,:mall_items,:agglomerations,only: [:index] do
       member do
         get 'images'
         get 'detail'
         post 'order'
         get  'records'
+      end
+    end
+
+    resources :jobs,only: [:index,:show] do
+      member do
+        get 'images'
+        get 'detail'
       end
     end
 
@@ -65,9 +72,6 @@ Rails.application.routes.draw do
     resources :areas,only: [:index]
     resources :users,path:'user' do
       collection do
-        # get 'addresses'
-        # get 'address'
-        # post 'address'
         match 'fund',via: [:get,:post]
         get 'messages'
         get 'coupons'

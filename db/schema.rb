@@ -370,6 +370,7 @@ ActiveRecord::Schema.define(version: 20160704054721) do
     t.integer  "sid",                    limit:4
     t.string   "address",                limit:255,     default: ""
     t.string   "status",                 limit:255,     default: 'confirming'
+    t.string   "role",                   limit:255
     t.text     "keywords",               limit: 65535
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
@@ -526,6 +527,9 @@ ActiveRecord::Schema.define(version: 20160704054721) do
     t.integer  "max_participants",  limit: 4, default: 0
     t.text     "description",       limit: 65535
     t.string   "status",            limit: 255, default: 'active'
+    t.integer  "product_category_id",           limit: 4
+    t.integer  "vendor_id",         limit: 4
+    t.datetime "end_time"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
@@ -538,6 +542,7 @@ ActiveRecord::Schema.define(version: 20160704054721) do
     t.integer   "campaign_id",    limit: 4
     t.decimal   "amount_paid",        precision: 8, scale: 2, default: 0.0
     t.text      "settings",           limit: 65535
+    t.integer   "address_id",                limit: 4
     t.datetime  "created_at",             null: false
     t.datetime  "updated_at",             null: false
   end

@@ -3,7 +3,11 @@ class Vendor < ActiveRecord::Base
   define_model_callbacks :acceptance
   STATUSES = %w(confirming received accepted rejected).freeze
 
+  ROLES = %w(product agglomeration).freeze
+
   belongs_to :user
+
+  serialize :role , Array
 
   # Attachments for this product
   has_many :attachments, as: :parent, dependent: :destroy, autosave: true, class_name: 'Attachment'
@@ -16,6 +20,12 @@ class Vendor < ActiveRecord::Base
   belongs_to :province ,class_name: "Area",foreign_key: :pid
   belongs_to :city ,class_name: "Area",foreign_key: :cid
   belongs_to :street ,class_name: "Area",foreign_key: :sid
+
+  before_create :default
+
+  def default
+    role << 'product'
+  end
 
   scope :received,->{
     where(status: 'received')
@@ -42,6 +52,14 @@ class Vendor < ActiveRecord::Base
 
   def self.order_by(location,order_by_distance)
     (location.empty? && ! order_by_distance) ? order(:created_at) : order(" distance asc ")
+  end
+
+  def self.role_for_agglomeration(agglomeration)
+    if agglomeration
+      self
+    else
+      ransack(role_cont_all: 'agglomeration' ).result
+    end
   end
 
   def self.keywords_ransack(keywords)

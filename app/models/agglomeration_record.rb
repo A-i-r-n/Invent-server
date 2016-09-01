@@ -1,0 +1,3 @@
+class AgglomerationRecord < CampaignRecord
+
+end

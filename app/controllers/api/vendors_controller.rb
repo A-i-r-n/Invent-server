@@ -12,10 +12,10 @@ module Api
       ! params[:sid].blank? && conditions.merge!({sid: params[:sid]})
       ! params[:siftings].blank? && conditions.merge!({})
       ! params[:lat].blank? && ! params[:lng].blank? && location.merge!({lat: params[:lat],lng: params[:lng]})
-
       conditions.merge!(status:'accepted')
 
-      @vendors_paged = Vendor.keywords_ransack(params[:keywords])
+      @vendors_paged = Vendor.role_for_agglomeration(params[:agglomeration] == '1')
+                           .keywords_ransack(params[:keywords])
                            .with_distance(location)
                            .where(conditions)
                            .order_by(location,params[:order_by_distance] == '1')

@@ -20,7 +20,7 @@ class Lottery < Campaign
   end
 
   def generate_hit
-    LotteryRecord.generate_hit(periods,max_participants,self)
+    LotteryRecord.hit?(periods,max_participants,self)
   end
 
 end

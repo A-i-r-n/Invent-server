@@ -2,7 +2,7 @@ class LotteryRecord < CampaignRecord
   # belongs_to :user
   # belongs_to :lottery
 
-  def self.generate_hit(periods,max_participants,lottery)
+  def self.hit?(periods,max_participants,lottery)
     now = Time.now
     which = "#{now.hour}#{now.min}#{now.sec}#{now.usec}".to_f % max_participants
     hit = "#{10000001 + which.to_i}"
