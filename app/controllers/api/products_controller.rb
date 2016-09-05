@@ -21,10 +21,13 @@ module Api
     end
 
     def show
+      render 'product'
     end
 
     def create
+      return render_error("你不是商户") if current_user.vendor.blank?
       @product = Product.new(safe_params)
+      @product.vendor = current_user.vendor
       if @product.save
         render 'product'
       else

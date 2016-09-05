@@ -1,7 +1,7 @@
 class Agglomeration < Campaign
 
   belongs_to :vendor
-  belongs_to :product_category
+  belongs_to :product_category,foreign_key: 'category_id'
 
   scope :active,->{
     where(status: 'active')

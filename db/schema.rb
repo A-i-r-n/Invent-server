@@ -256,6 +256,7 @@ ActiveRecord::Schema.define(version: 20160704054721) do
 
   create_table "product_categories", force: :cascade do |t|
     t.string   "name",                         limit: 255
+    t.string   "type",                         limit: 255
     t.string   "permalink",                    limit: 255
     t.text     "description",                  limit: 65535
     t.integer  "parent_id",                    limit: 4
@@ -379,7 +380,7 @@ ActiveRecord::Schema.define(version: 20160704054721) do
   create_table "grades",force: :cascade do |t|
     t.integer   "item_id",        limit: 4
     t.string    "item_type",      limit: 255
-    t.integer   "parent_id",        limit: 4
+    t.integer   "parent_id",      limit: 4
     t.decimal   "score",          precision:8,scale:2,default:0.0
     t.text      "content",        limit: 65535
     t.integer   "user_id",        limit:4
@@ -527,7 +528,7 @@ ActiveRecord::Schema.define(version: 20160704054721) do
     t.integer  "max_participants",  limit: 4, default: 0
     t.text     "description",       limit: 65535
     t.string   "status",            limit: 255, default: 'active'
-    t.integer  "product_category_id",           limit: 4
+    t.integer  "category_id",           limit: 4
     t.integer  "vendor_id",         limit: 4
     t.datetime "end_time"
     t.datetime "created_at",             null: false
@@ -555,6 +556,30 @@ ActiveRecord::Schema.define(version: 20160704054721) do
     t.integer   "campaign_id",    limit: 4
     t.datetime  "created_at",             null: false
     t.datetime  "updated_at",             null: false
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name",                         limit: 255
+    t.string   "type",                         limit: 255
+    t.string   "permalink",                    limit: 255
+    t.text     "description",                  limit: 65535
+    t.integer  "parent_id",                    limit: 4
+    t.integer  "lft",                          limit: 4
+    t.integer  "rgt",                          limit: 4
+    t.integer  "depth",                        limit: 4
+    t.string   "ancestral_permalink",          limit: 255
+    t.boolean  "permalink_includes_ancestors",               default: false
+    t.integer  "vendor_id",                    limit:4
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "unboxings", force: :cascade do |t|
+    t.text      "description",                  limit: 65535
+    t.integer   "campaign_record_id",           limit: 65535
+    t.integer   'user_id',                      limit: 4
+    t.datetime  "created_at"
+    t.datetime  "updated_at"
   end
 
 

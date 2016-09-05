@@ -1,6 +1,10 @@
 class Job < Campaign
 
   belongs_to :vendor
-  belongs_to :product_category
+  belongs_to :category
+
+  scope :active,->{
+    where(status: 'active')
+  }
 
 end

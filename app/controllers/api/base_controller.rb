@@ -12,12 +12,18 @@ module Api
     end
 
     def render_json_error_message(msg)
+      if ! msg.is_a?(String)
+        msg = e_msg(msg)
+      end
       {code: 1 ,msg: msg}.tap do |msg|
         render 'shared/error',@msg = msg
       end
     end
 
     def render_json_success_message(msg)
+      if ! msg.is_a?(String)
+        msg = e_msg(msg)
+      end
       {code: 0 ,msg: msg}.tap do |msg|
         render 'shared/success',@msg = msg
       end

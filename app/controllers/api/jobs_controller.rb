@@ -6,7 +6,9 @@ module Api
     before_filter {params[:id] && @job = Job.find(params[:id])}
 
     def index
-      @jobs = Job.active.where(conditions).page(params[:page])
+      conditions = {}
+      params[:category_id] && conditions.merge!({category_id: params[:category_id]})
+      @jobs = Job.where(conditions).active.page(params[:page])
     end
 
     def show
@@ -19,6 +21,10 @@ module Api
 
     def detail
       render layout: 'api'
+    end
+
+    def categories
+      @job_categories = JobCategory.all
     end
 
   end

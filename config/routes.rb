@@ -66,6 +66,8 @@ Rails.application.routes.draw do
       end
     end
 
+    get 'job/categories',to: 'jobs#categories'
+
     # resources :lottery_orders,only: [:create]
 
     get "areas/:name/streets",to: "areas#streets"

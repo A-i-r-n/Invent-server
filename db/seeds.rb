@@ -159,10 +159,17 @@ vendor.role << 'agglomeration'
 vendor.save
 
 
-job = Job.create(name: "agg_001",price: 1,periods: 0,max_periods: 10,participants: 0,max_participants:10,description: "this is test001",end_time: Time.now + 5.days)
+job_category1 = JobCategory.where(name: '出租').first_or_create
+job_category2 = JobCategory.where(name: '求租').first_or_create
+job_category3 = JobCategory.where(name: '招聘').first_or_create
+job_category4 = JobCategory.where(name: '求职').first_or_create
+
+job = Job.create(name: "job_001",price: 1,periods: 0,max_periods: 10,participants: 0,max_participants:10,description: "this is test001",end_time: Time.now + 5.days)
 job.default_image_file = get_file('snom-870-grey.jpg')
-# job.product_category = seller_cat_group
+job.category = job_category1
 job.save
+
+
 
 # pro = Product.new(carriage_template: carriage_template,vendor: vendor,name: 'Yealink T22P', sku: 'YL-SIP-T22P', description: lorem, short_description: lorem, weight: 1.419, price: 64.99, cost_price: 56.99, tax_rate: tax_rate)
 # pro.product_category_ids = cat1.id
