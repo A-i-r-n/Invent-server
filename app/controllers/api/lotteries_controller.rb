@@ -38,6 +38,11 @@ module Api
       end
     end
 
+    def record_count
+      @count = LotteryRecord.count
+      render_success(@count)
+    end
+
     # private
     # def safe_params
     #   params[:lotter_order].permit(:lottery_id)

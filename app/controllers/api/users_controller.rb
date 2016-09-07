@@ -29,6 +29,11 @@ module Api
       render_json_success_message(@count)
     end
 
+
+    def lottery_records
+      @lottery_records = LotteryRecord.where(user: current_user).page(params[:page])
+    end
+
     private
     def current_fund
       Fund.find_or_create_by(user: current_user)

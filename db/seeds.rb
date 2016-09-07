@@ -8,7 +8,7 @@ def get_file(name, content_type = 'image/jpeg')
 end
 
 banner = Banner.create(name:"banner",link:"link")
-banner_attachment = Attachment.new(file: get_file('test_index_banner.png'), role: 'default_image')
+banner_attachment = Attachment.new(file: get_file('banner01.jpg'), role: 'default_image')
 banner.attachment = banner_attachment
 banner_attachment.save
 
@@ -168,6 +168,8 @@ job = Job.create(name: "job_001",price: 1,periods: 0,max_periods: 10,participant
 job.default_image_file = get_file('snom-870-grey.jpg')
 job.category = job_category1
 job.save
+
+LotteryRecord.create(code: '0000',periods: 1,user_id: 3,campaign_id: 1)
 
 
 

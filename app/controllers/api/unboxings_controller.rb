@@ -6,7 +6,7 @@ module Api
     before_filter {params[:id] && @unboxing = Unboxing.find(params[:id])}
 
     def index
-      @unboxing = Inboxing.active.page(params[:page])
+      @unboxings = Unboxing.page(params[:page])
     end
 
     def show
@@ -19,8 +19,13 @@ module Api
       if @unboxing.save
         render 'unboxing'
       else
-        render_error(@unboxing)
+        render_error(e(@unboxing))
       end
+    end
+
+    private
+    def safe_params
+      params[:unboxing].permit(:description,:campaign_record_id)
     end
 
   end

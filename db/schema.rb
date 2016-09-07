@@ -576,7 +576,7 @@ ActiveRecord::Schema.define(version: 20160704054721) do
 
   create_table "unboxings", force: :cascade do |t|
     t.text      "description",                  limit: 65535
-    t.integer   "campaign_record_id",           limit: 65535
+    t.integer   "campaign_record_id",           limit: 4
     t.integer   'user_id',                      limit: 4
     t.datetime  "created_at"
     t.datetime  "updated_at"

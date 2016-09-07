@@ -59,6 +59,8 @@ Rails.application.routes.draw do
       end
     end
 
+    get 'lottery/record_count',to: "lotteries#record_count"
+
     resources :jobs,only: [:index,:show] do
       member do
         get 'images'
@@ -72,14 +74,17 @@ Rails.application.routes.draw do
 
     get "areas/:name/streets",to: "areas#streets"
     resources :areas,only: [:index]
-    resources :users,path:'user' do
+    resources :users,path:'user',only:[] do
       collection do
         match 'fund',via: [:get,:post]
         get 'messages'
         get 'coupons'
         get 'coupon_count'
+        get 'lottery_records'
       end
     end
+
+    resources :unboxings,only: [:index,:create]
 
     resources :addresses,only: [:index,:create,:destroy]
 

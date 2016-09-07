@@ -7,7 +7,7 @@ if campaign_record.user
 end
 
 if campaign_record.campaign
-  json.set! 'lottery' do
+  json.set! 'campaign' do
     json.partial! 'jshare/campaign',campaign: campaign_record.campaign
   end
 end

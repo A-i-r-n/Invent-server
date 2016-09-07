@@ -49,7 +49,7 @@ module Api
 
     def need_captcha
       times = session[:times]||0
-      render_json_success_message(3 > times ? 0 : 1)
+      render_json_success_message("#{3 > times ? 0 : 1}")
     end
 
     def login
