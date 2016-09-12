@@ -2,3 +2,5 @@ json.extract! campaign, :id,:name,:periods,:max_periods,:price,:participants,:ma
 
 image = campaign.default_image
 if image then json.image_url image_url(image.file.url) end
+
+json.end_time campaign.end_time.to_datetime.strftime('%Q')

@@ -8,7 +8,7 @@ class Message < ActiveRecord::Base
   PRODUCT = (Rails.env == "production")
 
   scope :push_order,->(user){
-    where(message_type: PUSH_ORDER,user: user)
+    where(message_type: PUSH_ORDER,user: user).order(created_at: :desc)
   }
 
   def initialize(attributes = nil, options = {})

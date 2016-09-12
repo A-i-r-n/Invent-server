@@ -14,12 +14,16 @@ Rails.application.routes.draw do
         get 'attributes'
         get 'detail'
         get 'user'
+        get 'share'
       end
     end
 
     match 'vendor/settle_in', to: 'vendors#settle_in', via: [:get,:post]
 
     resources :vendors,only:[:index,:show] do
+      member do
+        get 'share'
+      end
       resources :product_categories
     end
 
@@ -39,7 +43,6 @@ Rails.application.routes.draw do
     resources :collections
     resources :banners, only: [:index]
     resources :visitor_logs, only: [:index]
-    # resources :lottery_records, only: [:index]
     resources :coupons, only:[:index] do
       member do
         get 'take'
@@ -87,6 +90,8 @@ Rails.application.routes.draw do
     resources :unboxings,only: [:index,:create]
 
     resources :addresses,only: [:index,:create,:destroy]
+
+    resources :shares,only: [:index,:create]
 
     get "address/default" => "addresses#default"
 

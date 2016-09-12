@@ -46,6 +46,10 @@ module Api
       render 'vendor'
     end
 
+    def share
+      render layout: false
+    end
+
     private
     def safe_params
       params[:vendor][:sid] ||= nil

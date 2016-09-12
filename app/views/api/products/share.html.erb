@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="description" content="" />
+  <meta name="keywords" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <style type="text/css">
+    html {
+      -ms-text-size-adjust: 100%;
+      -webkit-text-size-adjust: 100%;
+      font-size: 10px;
+    }
+    body {
+      margin: 0;
+      background: #fff;
+      font-family: "Segoe UI","Lucida Grande",Helvetica,Arial,"Microsoft YaHei",FreeSans,Arimo,"Droid Sans","wenquanyi micro hei","Hiragino Sans GB","Hiragino Sans GB W3",FontAwesome,sans-serif;
+      font-weight: 400;
+      color: #333;
+      font-size: 1.6rem;
+    }
+    .detail {
+      padding: 15px;
+      position: relative;
+    }
+    .detail p {
+      color: red;
+    }
+
+    .banner img {
+      width: 100%;
+    }
+
+    .shopcart {
+      border-radius: 5px;
+      margin: 0px auto;
+      text-align: center;
+      display: block;
+      width: 90%;
+      padding: 5px 8px;
+      color: #fff;
+      background: #39b867;
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="banner"><%=image_tag(@product.default_image.file.url)%></div> <!--<img src="images/1.png">-->
+<div class="detail">
+  <span><%=@product.name%></span>
+  <p>￥<%=@product.price%></p>
+</div>
+<a href="" class="shopcart">去下载</a>
+
+</body>
+</html>

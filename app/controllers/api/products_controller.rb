@@ -1,7 +1,7 @@
 module Api
   class ProductsController < Api::BaseController
 
-    before_action :set_product, only: [:show, :edit, :update, :destroy ,:images,:variants,:attributes,:detail,:carriage_price,:user]
+    before_action :set_product, only: [:show, :edit, :update, :destroy ,:images,:variants,:attributes,:detail,:carriage_price,:user,:share]
 
     def index
 
@@ -58,6 +58,10 @@ module Api
 
     def user
       @user = User.joins(:vendor).where(" vendors.id ",@product.product_vendor.id).first
+    end
+
+    def share
+      render layout: false
     end
 
     private

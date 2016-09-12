@@ -137,9 +137,11 @@ end
 
 Message.create(phone: '18868945291',content:'jpush test',message_type: Message::PUSH_ORDER,user: customer_user)
 
-lottery = Lottery.create(name: "test001",price: 1,periods: 0,max_periods: 10,participants: 0,max_participants:10,description: "this is test001")
+lottery = Lottery.create(name: "test001",price: 1,periods: 0,max_periods: 10,participants: 0,max_participants:10,description: "this is test001",end_time: Time.now + 5.days)
 lottery.default_image_file = get_file('snom-870-grey.jpg')
 lottery.save
+
+LotteryRecord.create(code: '0000',periods: 1,user: customer_user,campaign: lottery)
 
 coupon = Coupon.create(vendor: vendor,product_category: admin_cat1,amount:100,exceed_val:1,val: 100)
 
@@ -169,107 +171,5 @@ job.default_image_file = get_file('snom-870-grey.jpg')
 job.category = job_category1
 job.save
 
-LotteryRecord.create(code: '0000',periods: 1,user_id: 3,campaign_id: 1)
 
-
-
-# pro = Product.new(carriage_template: carriage_template,vendor: vendor,name: 'Yealink T22P', sku: 'YL-SIP-T22P', description: lorem, short_description: lorem, weight: 1.419, price: 64.99, cost_price: 56.99, tax_rate: tax_rate)
-# pro.product_category_ids = cat1.id
-# pro.default_image_file = get_file('t22p.jpg')
-# if pro.save
-#   pro.stock_level_adjustments.create(description: 'Initial Stock', adjustment: 200)
-#   pro.product_attributes.create(key: 'Manufacturer', value: 'Yealink', position: 1)
-#   pro.product_attributes.create(key: 'Model', value: 'T22P', position: 1)
-#   pro.product_attributes.create(key: 'Colour', value: 'Black', position: 1)
-#   pro.product_attributes.create(key: 'Lines', value: '4', position: 1)
-#   pro.product_attributes.create(key: 'Colour Screen?', value: 'No', position: 1)
-#   pro.product_attributes.create(key: 'Power over ethernet?', value: 'Yes', position: 1)
-# end
-#
-# pro = Product.new(carriage_template: carriage_template,vendor: vendor,name: 'Yealink T26P', sku: 'YL-SIP-T26P', description: lorem, short_description: lorem, weight: 2.23, price: 88.99, cost_price: 78.99, tax_rate: tax_rate)
-# pro.product_category_ids = cat1.id
-# pro.default_image_file = get_file('t26p.jpg')
-# if pro.save
-#   pro.stock_level_adjustments.create(description: 'Initial Stock', adjustment: 100)
-#   pro.product_attributes.create(key: 'Manufacturer', value: 'Yealink', position: 1)
-#   pro.product_attributes.create(key: 'Model', value: 'T26P', position: 1)
-#   pro.product_attributes.create(key: 'Colour', value: 'Black', position: 1)
-#   pro.product_attributes.create(key: 'Lines', value: '6', position: 1)
-#   pro.product_attributes.create(key: 'Colour Screen?', value: 'No', position: 1)
-#   pro.product_attributes.create(key: 'Power over ethernet?', value: 'Yes', position: 1)
-# end
-#
-# pro = Product.new(carriage_template: carriage_template,vendor: vendor,name: 'Yealink T46GN', sku: 'YL-SIP-T46GN', description: lorem, short_description: 'Colourful, sharp, fast & down right sexy. The Yealink T46P will make your scream', weight: 2.23, price: 149.99, cost_price: 139.99, tax_rate: tax_rate, featured: true)
-# pro.product_category_ids = cat1.id
-# pro.default_image_file = get_file('t46gn.jpg')
-# if pro.save
-#   pro.stock_level_adjustments.create(description: 'Initial Stock', adjustment: 10)
-#   pro.product_attributes.create(key: 'Manufacturer', value: 'Yealink', position: 1)
-#   pro.product_attributes.create(key: 'Model', value: 'T46GN', position: 1)
-#   pro.product_attributes.create(key: 'Colour', value: 'Black', position: 1)
-#   pro.product_attributes.create(key: 'Lines', value: '4', position: 1)
-#   pro.product_attributes.create(key: 'Colour Screen?', value: 'Yes', position: 1)
-#   pro.product_attributes.create(key: 'Power over ethernet?', value: 'Yes', position: 1)
-# end
-#
-# pro = Product.new(carriage_template: carriage_template,vendor: vendor,name: 'Snom 870', sku: 'SM-870', description: lorem, short_description: 'The perfect & beautiful VoIP phone for the discerning professional desk.', featured: true)
-# pro.product_category_ids = cat1.id
-# pro.default_image_file = get_file('snom-870-grey.jpg')
-# if pro.save
-#   pro.product_attributes.create(key: 'Manufacturer', value: 'Snom', position: 1)
-#   pro.product_attributes.create(key: 'Model', value: '870', position: 1)
-#   pro.product_attributes.create(key: 'Colour', value: 'Grey', position: 1)
-#   pro.product_attributes.create(key: 'Lines', value: '10', position: 1)
-#   pro.product_attributes.create(key: 'Colour Screen?', value: 'Yes', position: 1)
-#   pro.product_attributes.create(key: 'Power over ethernet?', value: 'Yes', position: 1)
-#
-#   v1 = pro.variants.create(name: 'White/Grey', sku: 'SM-870-GREY', price: 230.00, cost_price: 220, tax_rate: tax_rate, weight: 1.35, default: true)
-#   v1.default_image_file = get_file('snom-870-grey.jpg')
-#   if v1.save
-#     v1.stock_level_adjustments.create(description: 'Initial Stock', adjustment: 4)
-#   end
-#
-#   v2 = pro.variants.create(name: 'Black', sku: 'SM-870-BLK', price: 230.00, cost_price: 220, tax_rate: tax_rate, weight: 1.35)
-#   v2.default_image_file = get_file('snom-870-blk.jpg')
-#   if v2.save
-#     v2.stock_level_adjustments.create(description: 'Initial Stock', adjustment: 2)
-#   end
-# end
-#
-# pro = Product.new(carriage_template: carriage_template,vendor: vendor,name: 'Yealink Mono Headset', sku: 'YL-YHS32', description: lorem, short_description: 'If you\'re often on the phone, this headset will make your life 100x easier. Guaranteed*.', weight: 0.890, price: 34.99, cost_price: 24.99, tax_rate: tax_rate, featured: true)
-# pro.product_category_ids = cat2.id
-# pro.default_image_file = get_file('yhs32.jpg')
-# if pro.save
-#   pro.product_attributes.create(key: 'Manufacturer', value: 'Yealink', position: 1)
-#   pro.product_attributes.create(key: 'Model', value: 'YHS32', position: 1)
-# end
-#
-# pro = Product.new(carriage_template: carriage_template,vendor: vendor,name: 'Snom Wired Headset (MM2)', sku: 'SM-MM2', description: lorem, short_description: lorem, weight: 0.780, price: 38.00, cost_price: 30, tax_rate: tax_rate)
-# pro.product_category_ids = cat2.id
-# pro.default_image_file = get_file('snom-mm2.jpg')
-# if pro.save
-#   pro.stock_level_adjustments.create(description: 'Initial Stock', adjustment: 7)
-#   pro.product_attributes.create(key: 'Manufacturer', value: 'Snom', position: 1)
-#   pro.product_attributes.create(key: 'Model', value: 'MM2', position: 1)
-# end
-#
-# pro = Product.new(carriage_template: carriage_template,vendor: vendor,name: 'Snom Wired Headset (MM3)', sku: 'SM-MM3', description: lorem, short_description: lorem, weight: 0.780, price: 38.00, cost_price: 30, tax_rate: tax_rate)
-# pro.product_category_ids = cat2.id
-# pro.default_image_file = get_file('snom-mm2.jpg')
-# if pro.save
-#   pro.stock_level_adjustments.create(description: 'Initial Stock', adjustment: 5)
-#   pro.product_attributes.create(key: 'Manufacturer', value: 'Snom', position: 1)
-#   pro.product_attributes.create(key: 'Model', value: 'MM3', position: 1)
-# end
-#
-# pro = Product.new(carriage_template: carriage_template,vendor: vendor,name: 'Yealink W52P', sku: 'TL-SIP-W52P', description: lorem, short_description: 'Wireless SIP phones are hard to come by but this beauty from Yealink is fab.', weight: 1.280, price: 99.99, cost_price: 89.99, tax_rate: tax_rate, featured: true)
-# pro.product_category_ids = cat1.id
-# pro.default_image_file = get_file('w52p.jpg')
-# if pro.save
-#   pro.stock_level_adjustments.create(description: 'Initial Stock', adjustment: 10)
-#   pro.product_attributes.create(key: 'Manufacturer', value: 'Snom', position: 1)
-#   pro.product_attributes.create(key: 'Model', value: 'W52P', position: 1)
-#   pro.product_attributes.create(key: 'Lines', value: '3', position: 1)
-#   pro.product_attributes.create(key: 'Colour Screen?', value: 'Yes', position: 1)
-#   pro.product_attributes.create(key: 'Power over ethernet?', value: 'No', position: 1)
-# end
+Message.create(phone: '18868945291',content:'恭喜你,你已注册成功',message_type: 'push',user: customer_user)
