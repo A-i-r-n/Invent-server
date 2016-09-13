@@ -5,7 +5,7 @@ class Campaign < ActiveRecord::Base
   has_many :campaign_orders
 
   def attachments=(attrs)
-    attachments.build(attrs['image']) if attrs['image']['file'].present?
+    attachments.build(attrs['image']) if attrs['image'] && attrs['image']['file'].present?
   end
 
   def default_image

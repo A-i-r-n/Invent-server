@@ -496,9 +496,10 @@ ActiveRecord::Schema.define(version: 20160704054721) do
   end
 
   create_table "coupons", force: :cascade do |t|
+    t.string    "coupon_type",          limit: 255
     t.integer   "vendor_id",            limit: 4
     t.integer   "product_category_id",  limit: 4
-    t.integer   "amount",               limit: 4
+    t.integer   "amount",               limit: 4,default: 0
     t.decimal   "exceed_val",           precision:8, scale:2, default:0.0
     t.decimal   "val",                  precision:8, scale:2, default:0.0
   end

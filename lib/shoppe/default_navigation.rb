@@ -29,6 +29,7 @@ end
 Shoppe::NavigationManager.build(:seller_primary) do
   # add_item :customers,{namespace: :seller}
   add_item :orders,{namespace: :seller}
+  add_item :coupons,{namespace: :seller}
   add_item :products,{namespace: :seller}
   add_item :product_categories,{namespace: :seller}
   add_item :delivery_services,{namespace: :seller}

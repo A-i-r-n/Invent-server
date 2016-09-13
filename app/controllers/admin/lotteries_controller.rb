@@ -40,7 +40,7 @@ module Admin
 
     def safe_params
       file_params = [:file, :parent_id, :role, :parent_type, file: []]
-      params[:product].permit(:name,:type,:price,:periods, :max_periods, :participants, :max_participants, :description, :status, attachments: [default_image: file_params, data_sheet: file_params, extra: file_params])
+      params[:lottery].permit(:name,:type,:price,:periods, :max_periods, :participants, :max_participants, :description, :status, :end_time,attachments: [default_image: file_params, data_sheet: file_params, extra: file_params])
     end
   end
 end

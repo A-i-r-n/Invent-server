@@ -143,7 +143,7 @@ lottery.save
 
 LotteryRecord.create(code: '0000',periods: 1,user: customer_user,campaign: lottery)
 
-coupon = Coupon.create(vendor: vendor,product_category: admin_cat1,amount:100,exceed_val:1,val: 100)
+coupon = Coupon.create(vendor: vendor,product_category: admin_cat1,amount:100,exceed_val:1,val: 100,coupon_type: 'full')
 
 mall_item = MallItem.create(name: "test001",price: 1,periods: 0,max_periods: 10,participants: 0,max_participants:10,description: "this is test001")
 mall_item.default_image_file = get_file('snom-870-grey.jpg')

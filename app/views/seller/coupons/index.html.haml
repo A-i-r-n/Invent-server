@@ -12,11 +12,8 @@
   %table.data
     %thead
       %tr
-        %th= t('shoppe.customers.name')
-        %th= t('shoppe.customers.company')
-        %th= t('shoppe.customers.email')
-        %th= t('shoppe.customers.phone')
-        %th= t('shoppe.customers.mobile_phone')
+        %th= 'ID'
+        %th= '类型'
     %tbody
       - if @coupons.empty?
         %tr.empty
@@ -25,6 +22,7 @@
         - for coupon in @coupons
           %tr
             %td= coupon.id
+            %td= case coupon.coupon_type when 'full' then '满减' when 'discount' then '打折' end
             -#%td= link_to customer.full_name, admin_customer_path(customer)
             -#%td= link_to customer.company, admin_customer_path(customer)
             -#%td= customer.email

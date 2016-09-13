@@ -2,6 +2,7 @@ zh-CN:
   date:
     formats:
       default: "%Y-%m-%d"
+#    order: [month, :day]
   time:
     formats:
       default: "%Y-%m-%d %H:%M"
@@ -773,6 +774,7 @@ zh-CN:
         customers: "客户"
         orders: "订单"
         products: "商品"
+        coupons: "优惠卷"
         product_categories: "商品分类"
         delivery_services: "快递"
         carriage_templates: "运费模板"
