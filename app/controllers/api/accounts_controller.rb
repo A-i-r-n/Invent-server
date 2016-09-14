@@ -123,7 +123,7 @@ module Api
         return render_json_error_message("无效验证吗")
       end
 
-      @user = User.default.find_by_phone(params[:phone])
+      @user = User.find_by_phone(params[:phone])
 
       return render_json_error_message("此用户不存在") if @user.nil?
 

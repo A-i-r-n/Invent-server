@@ -1,0 +1,11 @@
+- @page_title = t('shoppe.products.products')
+
+= content_for :header do
+  %p.buttons
+    = link_to '新(工作/租房)', :new_admin_job, :class => 'button green'
+    -#= link_to t('shoppe.products.import_products'), :import_admin_products, :class => 'button gray'
+  %h2.products= '工作/租房'
+
+= render 'table', :jobs => @jobs
+
+= paginate @jobs

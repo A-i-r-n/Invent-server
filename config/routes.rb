@@ -34,6 +34,7 @@ Rails.application.routes.draw do
         match 'generate_phone_code',via:[:get,:post]
         get 'need_captcha'
         post 'signup'
+        post 'recover_password'
       end
     end
     resources :product_categories do
@@ -150,6 +151,7 @@ Rails.application.routes.draw do
     resources :users
     resources :countries
     resources :coupons
+    resources :agglomerations
     resources :attachments, only: :destroy
 
     get 'settings' => 'settings#edit'
@@ -224,6 +226,7 @@ Rails.application.routes.draw do
     resources :lotteries
     resources :mall_items
     resources :banners
+    resources :jobs
 
     get 'settings' => 'settings#edit'
     post 'settings' => 'settings#update'

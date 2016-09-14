@@ -1,0 +1,5 @@
+- @page_title = "优惠卷"
+= content_for :header do
+  %p.buttons= link_to '返回拼货列表', [:seller,:agglomerations], class: 'button'
+  %h2.users= '拼货'
+= render 'form'

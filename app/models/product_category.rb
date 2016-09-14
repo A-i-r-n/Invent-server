@@ -36,6 +36,16 @@ class ProductCategory < ActiveRecord::Base
   translates :name, :permalink, :description
   scope :ordered, -> { includes(:translations).order(:name) }
 
+  scope :admin?, ->(vendor = nil){
+    conditions =
+        if vendor.blank?
+          " vendor_id is null "
+        else
+          ["vendor_id = ? ",vendor.id]
+        end
+    where(conditions)
+  }
+
   # Set the permalink on callback
   before_validation :set_permalink, :set_ancestral_permalink
   after_save :set_child_permalinks

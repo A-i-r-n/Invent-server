@@ -11,8 +11,9 @@
 #order
 
   -#- if @order.received?
-  = render 'vendor_details'
-  -#  = render 'status_bar'
+  = field_set_tag "商户", :class => 'padded' do
+    = render 'vendor_details'
+  -#= render 'status_bar'
   -#- else
   -#  %p.warning= t('shoppe.orders.in_progress_warning')
 

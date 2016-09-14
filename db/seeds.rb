@@ -166,7 +166,7 @@ job_category2 = JobCategory.where(name: '求租').first_or_create
 job_category3 = JobCategory.where(name: '招聘').first_or_create
 job_category4 = JobCategory.where(name: '求职').first_or_create
 
-job = Job.create(name: "job_001",price: 1,periods: 0,max_periods: 10,participants: 0,max_participants:10,description: "this is test001",end_time: Time.now + 5.days)
+job = Job.create(name: "job_001",price: 1,periods: 0,max_periods: 10,participants: 0,max_participants:10,description: "this is test001")
 job.default_image_file = get_file('snom-870-grey.jpg')
 job.category = job_category1
 job.save

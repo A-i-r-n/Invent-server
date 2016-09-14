@@ -1,0 +1,18 @@
+= form_for [:admin,@job], :html => {:multipart => true} do |f|
+  = f.error_messages
+  =field_set_tag '添加' do
+    %dl
+      %dt= f.label :name, '名字'
+      %dd= f.text_field :name, :class => 'text focus', :required => true
+      = f.hidden_field :type, value: "Job"
+    %dl
+      %dt= f.label :description, t('shoppe.products.description')
+      %dd= f.text_area :description, :class => 'text', :required => true
+    %dl
+      %dt= f.label :category_id, t('shoppe.product_category.product_categories')
+      %dd= f.collection_select :category_id, JobCategory.all, :id, :name, {:prompt => false}, {:class => 'chosen', :multiple => false, :data => {:placeholder => t('shoppe.product_category.choose_product_category') } }
+  %p.submit
+    - unless @job.new_record?
+      %span.right= link_to t('shoppe.delete') , [:admin,@job], :class => 'button purple', :method => :delete, :data => {:confirm => "Are you sure you wish to remove this product?"}
+    = f.submit t('shoppe.submit'),  :class => 'button green'
+    = link_to t('shoppe.cancel'), [:admin,:jobs], :class => 'button'

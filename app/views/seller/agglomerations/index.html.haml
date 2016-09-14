@@ -1,0 +1,31 @@
+- @page_title = t('shoppe.customers.customers')
+
+= content_for :header do
+  %p.buttons
+    = link_to '新商品', :new_seller_agglomeration, class: 'button green'
+    -#= link_to t('shoppe.customers.search_customer'), '#', class: 'button', rel: 'searchCustomers'
+  %h2.users= '拼货'
+
+-#= render 'search_form'
+
+.table
+  %table.data
+    %thead
+      %tr
+        %th= 'ID'
+        %th= '名称'
+    %tbody
+      - if @agglomerations.empty?
+        %tr.empty
+          %td{colspan: 5}= t('shoppe.customers.no_customers')
+      - else
+        - for agglomeration in @agglomerations
+          %tr
+            %td= agglomeration.id
+            %td= link_to agglomeration.name,seller_agglomeration_path(agglomeration)
+            -#%td= link_to customer.full_name, admin_customer_path(customer)
+            -#%td= link_to customer.company, admin_customer_path(customer)
+            -#%td= customer.email
+            -#%td= customer.phone
+            -#%td= customer.mobile
+= paginate @agglomerations

@@ -37,19 +37,18 @@ module Seller
       end
     end
 
-    # def recover_password
-    #   return unless request.post?
-    #   @user = User.where('login = ? or email = ?', params[:user][:login], params[:user][:login]).first
-    #
-    #   if @user
-    #     @user.generate_password!
-    #     @user.save
-    #     flash[:notice] = t('accounts.recover_password.notice')
-    #     redirect_to login_accounts_url
-    #   else
-    #     flash[:error] = t('accounts.recover_password.error')
-    #   end
-    # end
+    def recover_password
+      return unless request.post?
+      @user = User.where('login = ? or email = ?', params[:user][:login], params[:user][:login]).first
+      if @user
+        @user.generate_password!
+        @user.save
+        flash[:notice] = t('accounts.recover_password.notice')
+        redirect_to login_accounts_url
+      else
+        flash[:error] = t('accounts.recover_password.error')
+      end
+    end
 
     # def logout
     #   flash[:notice] = t('shoppe.sessions.back_to_login')

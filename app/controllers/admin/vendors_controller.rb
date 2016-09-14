@@ -2,11 +2,12 @@ module Admin
 class VendorsController < Admin::BaseController
     before_filter { @active_nav = :vendors }
     before_filter { params[:id] && @vendor = Vendor.find(params[:id]) }
-    before_filter(only: [:create, :update, :destroy]) do
-      if Shoppe.settings.demo_mode?
-        fail Shoppe::Error, t('shoppe.users.demo_mode_error')
-      end
-    end
+
+    # before_filter(only: [:create, :update, :destroy]) do
+    #   if Shoppe.settings.demo_mode?
+    #     fail Shoppe::Error, t('shoppe.users.demo_mode_error')
+    #   end
+    # end
 
     def index
       @vendors = Vendor.received.page(params[:page])
