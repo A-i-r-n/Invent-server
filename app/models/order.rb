@@ -41,6 +41,10 @@
     # Some methods for setting the billing & delivery addresses
     attr_accessor :save_addresses, :billing_address_id, :delivery_address_id
 
+    scope :current_vendor,->(vendor){
+      where(vendor: vendor)
+    }
+
     # The order number
     #
     # @return [String] - the order number padded with at least 5 zeros

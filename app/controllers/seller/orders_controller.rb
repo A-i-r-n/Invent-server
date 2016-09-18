@@ -4,7 +4,7 @@ module Seller
     before_filter { params[:id] && @order = Order.find(params[:id]) }
 
     def index
-      @query = Order.ordered.received.includes(order_items: :ordered_item).page(params[:page]).search(params[:q])
+      @query = Order.ordered.received.current_vendor(current_user.vendor).includes(order_items: :ordered_item).page(params[:page]).search(params[:q])
       @orders = @query.result
     end
 
