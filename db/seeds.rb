@@ -151,7 +151,7 @@ mall_item.save
 
 seller_cat_group = ProductCategory.where(name: '电话group',vendor: vendor).first_or_create
 
-agglomeration = Agglomeration.create(name: "agg_001",price: 1,periods: 0,max_periods: 10,participants: 0,max_participants:10,description: "this is test001",end_time: Time.now + 5.days)
+agglomeration = Agglomeration.new(name: "agg_001",price: 1,periods: 0,max_periods: 10,participants: 0,max_participants:10,description: "this is test001",end_time: Time.now + 5.days)
 agglomeration.default_image_file = get_file('snom-870-grey.jpg')
 agglomeration.vendor = vendor
 agglomeration.product_category = seller_cat_group
