@@ -15,6 +15,8 @@ class Vendor < ActiveRecord::Base
   # Attachments for this product
   has_many :grades, as: :item, dependent: :destroy, autosave: true, class_name: 'Grade'
 
+  has_many :bags
+
   belongs_to :product_category
 
   belongs_to :province ,class_name: "Area",foreign_key: :pid

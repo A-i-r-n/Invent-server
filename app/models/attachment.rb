@@ -7,7 +7,6 @@
 
     # Relationships
     belongs_to :parent, polymorphic: true
-
     # Validations
     validates :file_name, presence: true
     validates :file_type, presence: true

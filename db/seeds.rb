@@ -18,24 +18,163 @@ AreaImporter.import
 
 admin_cat1 = ProductCategory.where(name: '美食').first_or_create
 admin_cat1.attachments.build(file: get_file('index_food.png'), role: 'default_image').save
+#美食下分类
+admin_cat1_1 = ProductCategory.where(name: '自助餐').first_or_create
+admin_cat1_1.parent = admin_cat1
+admin_cat1_1.attachments.build(file: get_file('index_bauty.png'), role: 'default_image')
+admin_cat1_1.save
+
+admin_cat1_2 = ProductCategory.where(name: '小吃快餐').first_or_create
+admin_cat1_2.parent = admin_cat1
+admin_cat1_2.attachments.build(file: get_file('index_bauty.png'), role: 'default_image')
+admin_cat1_2.save
+
+admin_cat1_3 = ProductCategory.where(name: '甜点饮品').first_or_create
+admin_cat1_3.parent = admin_cat1
+admin_cat1_3.attachments.build(file: get_file('index_bauty.png'), role: 'default_image')
+admin_cat1_3.save
+
+admin_cat1_4 = ProductCategory.where(name: '江浙菜').first_or_create
+admin_cat1_4.parent = admin_cat1
+admin_cat1_4.attachments.build(file: get_file('index_bauty.png'), role: 'default_image')
+admin_cat1_4.save
+
+admin_cat1_5 = ProductCategory.where(name: '生日蛋糕').first_or_create
+admin_cat1_5.parent = admin_cat1
+admin_cat1_5.attachments.build(file: get_file('index_bauty.png'), role: 'default_image')
+admin_cat1_5.save
+
+admin_cat1_6 = ProductCategory.where(name: '火锅').first_or_create
+admin_cat1_6.parent = admin_cat1
+admin_cat1_6.attachments.build(file: get_file('index_bauty.png'), role: 'default_image')
+admin_cat1_6.save
+
 
 admin_cat2 = ProductCategory.where(name: '酒店').first_or_create
 admin_cat2.attachments.build(file: get_file('index_hotel.png'), role: 'default_image').save
 
+
 admin_cat3 = ProductCategory.where(name: '娱乐').first_or_create
 admin_cat3.attachments.build(file: get_file('index_amuse.png'), role: 'default_image').save
+
+#娱乐分类
+admin_cat3_1 = ProductCategory.where(name: '酒吧').first_or_create
+admin_cat3_1.parent = admin_cat3
+admin_cat3_1.attachments.build(file: get_file('index_bauty.png'), role: 'default_image')
+admin_cat3_1.save
+
+admin_cat3_2 = ProductCategory.where(name: 'KTV').first_or_create
+admin_cat3_2.parent = admin_cat3
+admin_cat3_2.attachments.build(file: get_file('index_bauty.png'), role: 'default_image')
+admin_cat3_2.save
+
+admin_cat3_3 = ProductCategory.where(name: '农家乐').first_or_create
+admin_cat3_3.parent = admin_cat3
+admin_cat3_3.attachments.build(file: get_file('index_bauty.png'), role: 'default_image')
+admin_cat3_3.save
+
+admin_cat3_4 = ProductCategory.where(name: 'DIY手工').first_or_create
+admin_cat3_4.parent = admin_cat3
+admin_cat3_4.attachments.build(file: get_file('index_bauty.png'), role: 'default_image')
+admin_cat3_4.save
+
 
 admin_cat4 = ProductCategory.where(name: '丽人').first_or_create
 admin_cat4.attachments.build(file: get_file('index_bauty.png'), role: 'default_image').save
 
+#丽人下分类
+admin_cat4_1 = ProductCategory.where(name: '美发').first_or_create
+admin_cat4_1.parent = admin_cat4
+admin_cat4_1.attachments.build(file: get_file('index_bauty.png'), role: 'default_image')
+admin_cat4_1.save
+
+admin_cat4_2 = ProductCategory.where(name: '美容美体').first_or_create
+admin_cat4_2.parent = admin_cat4
+admin_cat4_2.attachments.build(file: get_file('index_bauty.png'), role: 'default_image')
+admin_cat4_2.save
+
+admin_cat4_3 = ProductCategory.where(name: '美甲美睫').first_or_create
+admin_cat4_3.parent = admin_cat4
+admin_cat4_3.attachments.build(file: get_file('index_bauty.png'), role: 'default_image')
+admin_cat4_3.save
+
+admin_cat4_4 = ProductCategory.where(name: '瘦身纤体').first_or_create
+admin_cat4_4.parent = admin_cat4
+admin_cat4_4.attachments.build(file: get_file('index_bauty.png'), role: 'default_image')
+admin_cat4_4.save
+
+admin_cat4_5 = ProductCategory.where(name: '纹身').first_or_create
+admin_cat4_5.parent = admin_cat4
+admin_cat4_5.attachments.build(file: get_file('index_bauty.png'), role: 'default_image')
+admin_cat4_5.save
+
+admin_cat4_6 = ProductCategory.where(name: '祛痘').first_or_create
+admin_cat4_6.parent = admin_cat4
+admin_cat4_6.attachments.build(file: get_file('index_bauty.png'), role: 'default_image')
+admin_cat4_6.save
+
+
 admin_cat5 = ProductCategory.where(name: '母婴').first_or_create
 admin_cat5.attachments.build(file: get_file('index_mother.png'), role: 'default_image').save
+
+#母婴分类
+admin_cat5_1 = ProductCategory.where(name: '儿童乐园').first_or_create
+admin_cat5_1.parent = admin_cat5
+admin_cat5_1.attachments.build(file: get_file('index_bauty.png'), role: 'default_image')
+admin_cat5_1.save
+
+admin_cat5_2 = ProductCategory.where(name: '儿童摄影').first_or_create
+admin_cat5_2.parent = admin_cat5
+admin_cat5_2.attachments.build(file: get_file('index_bauty.png'), role: 'default_image')
+admin_cat5_2.save
+
+admin_cat5_3 = ProductCategory.where(name: '幼儿教育').first_or_create
+admin_cat5_3.parent = admin_cat5
+admin_cat5_3.attachments.build(file: get_file('index_bauty.png'), role: 'default_image')
+admin_cat5_3.save
+
+admin_cat5_4 = ProductCategory.where(name: '母婴护理').first_or_create
+admin_cat5_4.parent = admin_cat5
+admin_cat5_4.attachments.build(file: get_file('index_bauty.png'), role: 'default_image')
+admin_cat5_4.save
+
+admin_cat5_5 = ProductCategory.where(name: '孕妇写真').first_or_create
+admin_cat5_5.parent = admin_cat5
+admin_cat5_5.attachments.build(file: get_file('index_bauty.png'), role: 'default_image')
+admin_cat5_5.save
+
+admin_cat5_6 = ProductCategory.where(name: '婴儿游泳').first_or_create
+admin_cat5_6.parent = admin_cat5
+admin_cat5_6.attachments.build(file: get_file('index_bauty.png'), role: 'default_image')
+admin_cat5_6.save
 
 admin_cat6 = ProductCategory.where(name: '超市').first_or_create
 admin_cat6.attachments.build(file: get_file('index_market.png'), role: 'default_image').save
 
 admin_cat7 = ProductCategory.where(name: '服饰').first_or_create
 admin_cat7.attachments.build(file: get_file('index_clothes.png'), role: 'default_image').save
+
+#服饰
+admin_cat7_1 = ProductCategory.where(name: '儿童').first_or_create
+admin_cat7_1.parent = admin_cat7
+admin_cat7_1.attachments.build(file: get_file('index_bauty.png'), role: 'default_image')
+admin_cat7_1.save
+
+admin_cat7_2 = ProductCategory.where(name: '青年').first_or_create
+admin_cat7_2.parent = admin_cat7
+admin_cat7_2.attachments.build(file: get_file('index_bauty.png'), role: 'default_image')
+admin_cat7_2.save
+
+admin_cat7_3 = ProductCategory.where(name: '中年').first_or_create
+admin_cat7_3.parent = admin_cat7
+admin_cat7_3.attachments.build(file: get_file('index_bauty.png'), role: 'default_image')
+admin_cat7_3.save
+
+admin_cat7_4 = ProductCategory.where(name: '老年').first_or_create
+admin_cat7_4.parent = admin_cat7
+admin_cat7_4.attachments.build(file: get_file('index_bauty.png'), role: 'default_image')
+admin_cat7_4.save
+
 
 admin_cat8 = ProductCategory.where(name: '其他').first_or_create
 admin_cat8.attachments.build(file: get_file('index_service.png'), role: 'default_image').save
@@ -48,7 +187,7 @@ vendor_profile = Profile.create(label: 'vendor', nicename: 'vendor',
 customer_profile = Profile.create(label: 'customer', nicename: 'customer',
                                   modules: [:dashboard, :profile ])
 
-admin_user = User.create(login: 'admin', password: '123456',verify_password:'123456')
+admin_user = User.create(login: 'customer', password: '123456',verify_password:'123456')
 admin_user.profile_ids = admin_profile.id
 
 vendor = Vendor.create(name:"vendor",grade_num:0,grade_score:0.0,pid:1,cid:2,status:'accepted')
@@ -173,3 +312,30 @@ job.save
 
 
 Message.create(phone: '18868945291',content:'恭喜你,你已注册成功',message_type: 'push',user: customer_user)
+
+bag1 = Bag.create(name:"单肩包",price:"123",explain:"这是款很好看的包",color:"白色")
+bag1_attachment = Attachment.new(file: get_file('banner01.jpg'), role: 'default_image')
+bag1.attachment = bag1_attachment
+bag1_attachment.save
+
+
+bag2 = Bag.create(name:"双肩包",price:"345",explain:"这款包很大气",color:"红色")
+bag2_attachment = Attachment.new(file: get_file('banner01.jpg'), role: 'default_image')
+bag2.attachment = bag2_attachment
+bag2_attachment.save
+
+shoe1 = Shoe.create(name:"鞋子1",price:"123",height:"12",color:"白色")
+shoe1.attachment = Attachment.new(file: get_file('banner01.jpg'), role: 'default_image')
+
+
+shoe2 = Shoe.create(name:"鞋子2",price:"443",height:"10",color:"蓝色")
+shoe2.attachment = Attachment.new(file: get_file('snom-870-grey.jpg'), role: 'default_image')
+
+cosmetic1 = Cosmetic.create(name:"拉美拉折叠修眉刀",price:"9.9",explain:"锋利,安全,画眉专业,刮眉刀片.女用美妆工具")
+cosmetic1.attachment = Attachment.new(file:get_file("banner01.jpg"),role:"default_image")
+
+cosmetic1 = Cosmetic.create(name:"萌黛儿化妆棉",price:"19.9",explain:"卸妆美容补水工具,纯棉双面双效200片")
+cosmetic1.attachment = Attachment.new(file:get_file("banner01.jpg"),role:"default_image")
+
+music1 = Music.create(name:"同桌的你",price:"19.9",explain:"梦回校园")
+music1.attachment = Attachment.new(file:get_file("banner01.jpg"),role:"default_image")

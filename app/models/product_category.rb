@@ -50,6 +50,11 @@ class ProductCategory < ActiveRecord::Base
   before_validation :set_permalink, :set_ancestral_permalink
   after_save :set_child_permalinks
 
+
+  def self.parent_id(parent_id)
+    where(parent_id: parent_id.blank? ? nil : parent_id)
+  end
+
   def attachments=(attrs)
     attachments.build(attrs['image']) if attrs['image']['file'].present?
   end

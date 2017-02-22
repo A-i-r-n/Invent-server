@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+
+
+  namespace :api do
+  get 'cosmetic/index'
+  end
+
   root "products#index"
 
   # match 'api/captcha' => 'easy_captcha/captcha#captcha', :via => :get
@@ -43,6 +49,10 @@ Rails.application.routes.draw do
     resources :carts
     resources :collections
     resources :banners, only: [:index]
+    resources :musics, only: [:index]
+    resources :bags, only: [:index]
+    resources :shoes, only: [:index]
+    resources :cosmetics, only: [:index]
     resources :visitor_logs, only: [:index]
     resources :coupons, only:[:index] do
       member do
